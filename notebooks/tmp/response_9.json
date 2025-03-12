@@ -1,0 +1,574 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n# Impact Statement\n\nOur study does not involve human subjects, data collection\nfrom individuals, or experiments on protected groups. The\nmodels and datasets used in this work are publicly avail-\nable and widely used in the research community. We have\nmade efforts to ensure our experimental design and report-\ning of results are fair, unbiased, and do not misrepresent the\ncapabilities or limitations of the methods presented.\n\nIn our work on KV cache compression for large language\nmodels, we acknowledge the potential broader impacts of\nimproving efficiency in AI systems. While our method aims\nto reduce computational resources and potentially increase\naccessibility of these models, we recognize that more effi-\ncient language models could also lead to increased deploy-\nment and usage, which may have both positive and negative\nsocietal implications. We encourage further research and\ndiscussion on the responsible development and application\nof such technologies.\n\nWe declare no conflicts of interest that could inappropriately\ninfluence our work. All experiments were conducted using\npublicly available resources, and our code will be made\navailable to ensure reproducibility. We have made every\neffort to cite relevant prior work appropriately and to accu-\nrately represent our contributions in the context of existing\nresearch.\n\n# References\n\nAgarwal, R., Singh, A., Zhang, L. M., Bohnet, B., Rosias,\nL., Chan, S., Zhang, B., Anand, A., Abbas, Z., Nova,\nA., et al. Many-shot in-context learning. arXiv preprint\narXiv:2404.11018, 2024.\n\nAn, C., Gong, S., Zhong, M., Li, M., Zhang, J., Kong,\nL., and Qiu, X. L-eval: Instituting standardized evalua-\ntion for long context language models. ArXiv preprint,\nabs/2307.11088, 2023. URL https://arxiv.org/\nabs/2307.11088.\n\nAnthropic. Introducing contextual retrieval, 2024.\nURL https://www.anthropic.com/news/\ncontextual-retrieval.\n\nBai, Y., Lv, X., Zhang, J., Lyu, H., Tang, J., Huang, Z., Du,\nZ., Liu, X., Zeng, A., Hou, L., Dong, Y., Tang, J., and Li,\nJ. LongBench: A bilingual, multitask benchmark for long\ncontext understanding. In Ku, L.-W., Martins, A., and\nSrikumar, V. (eds.), Proceedings of the 62nd Annual Meet-\ning of the Association for Computational Linguistics (Vol-\nume 1: Long Papers), pp. 3119\u20133137, Bangkok, Thailand,\nAugust 2024. Association for Computational Linguis-\ntics. doi: 10.18653/v1/2024.acl-long.172. URL https:\n//aclanthology.org/2024.acl-long.172.\n\nBrandon, W., Mishra, M., Nrusimha, A., Panda, R.,\nand Kelly, J. R. Reducing transformer key-value\ncache size with cross-layer attention. arXiv preprint\narXiv:2405.12981, 2024.\n\nBrown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D.,\nDhariwal, P., Neelakantan, A., Shyam, P., Sastry, G.,\nAskell, A., et al. Language models are few-shot learners.\nAdvances in neural information processing systems, 33:\n1877\u20131901, 2020.\n\nCai, Z., Zhang, Y., Gao, B., Liu, Y., Liu, T., Lu, K., Xiong,\nW., Dong, Y., Chang, B., Hu, J., et al. Pyramidkv: Dy-\nnamic kv cache compression based on pyramidal informa-\ntion funneling. arXiv preprint arXiv:2406.02069, 2024.\n\nChevalier, A., Wettig, A., Ajith, A., and Chen, D. Adapting\nlanguage models to compress contexts. In Bouamor,\nH., Pino, J., and Bali, K. (eds.), Proceedings of the\n2023 Conference on Empirical Methods in Natural Lan-\nguage Processing, pp. 3829\u20133846, Singapore, December\n2023. Association for Computational Linguistics. doi:\n10.18653/v1/2023.emnlp-main.232. URL https://\naclanthology.org/2023.emnlp-main.232.\n\nChowdhery, A., Narang, S., Devlin, J., Bosma, M., Mishra,\nG., Roberts, A., Barham, P., Chung, H. W., Sutton, C.,\nGehrmann, S., et al. Palm: Scaling language modeling\nwith pathways. ArXiv preprint, abs/2204.02311, 2022.\nURL https://arxiv.org/abs/2204.02311.\n\nChuang, Y.-S., Xie, Y., Luo, H., Kim, Y., Glass, J., and\nHe, P. Dola: Decoding by contrasting layers improves\nfactuality in large language models. ArXiv preprint,\nabs/2309.03883, 2023. URL https://arxiv.org/\nabs/2309.03883.\n\nCobbe, K., Kosaraju, V., Bavarian, M., Chen, M., Jun, H.,\nKaiser, L., Plappert, M., Tworek, J., Hilton, J., Nakano,\nR., et al. Training verifiers to solve math word problems.\nArXiv preprint, abs/2110.14168, 2021. URL https:\n//arxiv.org/abs/2110.14168.\n\nDao, T. FlashAttention-2: Faster attention with better paral-\nlelism and work partitioning. In International Conference\non Learning Representations (ICLR), 2024.\n\nDasigi, P., Lo, K., Beltagy, I., Cohan, A., Smith, N. A., and\nGardner, M. A dataset of information-seeking questions\nand answers anchored in research papers. In Toutanova,\nK., Rumshisky, A., Zettlemoyer, L., Hakkani-Tur, D.,\nBeltagy, I., Bethard, S., Cotterell, R., Chakraborty, T., and\nZhou, Y. (eds.), Proceedings of the 2021 Conference of\nthe North American Chapter of the Association for Com-\nputational Linguistics: Human Language Technologies,\npp. 4599\u20134610, Online, 2021. Association for Compu-\ntational Linguistics. doi: 10.18653/v1/2021.naacl-main.\n\n9",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1733,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8022,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8022,
+          "y": 0.0719
+        },
+        {
+          "x": 0.1733,
+          "y": 0.0719
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# Impact Statement",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0872,
+          "y": 0.0839
+        },
+        {
+          "x": 0.2435,
+          "y": 0.0839
+        },
+        {
+          "x": 0.2435,
+          "y": 0.101
+        },
+        {
+          "x": 0.0872,
+          "y": 0.101
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Our study does not involve human subjects, data collection\nfrom individuals, or experiments on protected groups. The\nmodels and datasets used in this work are publicly avail-\nable and widely used in the research community. We have\nmade efforts to ensure our experimental design and report-\ning of results are fair, unbiased, and do not misrepresent the\ncapabilities or limitations of the methods presented.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0881,
+          "y": 0.1109
+        },
+        {
+          "x": 0.4784,
+          "y": 0.1109
+        },
+        {
+          "x": 0.4784,
+          "y": 0.2156
+        },
+        {
+          "x": 0.0881,
+          "y": 0.2156
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "In our work on KV cache compression for large language\nmodels, we acknowledge the potential broader impacts of\nimproving efficiency in AI systems. While our method aims\nto reduce computational resources and potentially increase\naccessibility of these models, we recognize that more effi-\ncient language models could also lead to increased deploy-\nment and usage, which may have both positive and negative\nsocietal implications. We encourage further research and\ndiscussion on the responsible development and application\nof such technologies.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0881,
+          "y": 0.2242
+        },
+        {
+          "x": 0.4771,
+          "y": 0.2242
+        },
+        {
+          "x": 0.4771,
+          "y": 0.3736
+        },
+        {
+          "x": 0.0881,
+          "y": 0.3736
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "We declare no conflicts of interest that could inappropriately\ninfluence our work. All experiments were conducted using\npublicly available resources, and our code will be made\navailable to ensure reproducibility. We have made every\neffort to cite relevant prior work appropriately and to accu-\nrately represent our contributions in the context of existing\nresearch.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0874,
+          "y": 0.3825
+        },
+        {
+          "x": 0.4772,
+          "y": 0.3825
+        },
+        {
+          "x": 0.4772,
+          "y": 0.4876
+        },
+        {
+          "x": 0.0874,
+          "y": 0.4876
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# References",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0886,
+          "y": 0.5073
+        },
+        {
+          "x": 0.1836,
+          "y": 0.5073
+        },
+        {
+          "x": 0.1836,
+          "y": 0.5226
+        },
+        {
+          "x": 0.0886,
+          "y": 0.5226
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Agarwal, R., Singh, A., Zhang, L. M., Bohnet, B., Rosias,\nL., Chan, S., Zhang, B., Anand, A., Abbas, Z., Nova,\nA., et al. Many-shot in-context learning. arXiv preprint\narXiv:2404.11018, 2024.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0887,
+          "y": 0.5311
+        },
+        {
+          "x": 0.4782,
+          "y": 0.5311
+        },
+        {
+          "x": 0.4782,
+          "y": 0.5913
+        },
+        {
+          "x": 0.0887,
+          "y": 0.5913
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "An, C., Gong, S., Zhong, M., Li, M., Zhang, J., Kong,\nL., and Qiu, X. L-eval: Instituting standardized evalua-\ntion for long context language models. ArXiv preprint,\nabs/2307.11088, 2023. URL https://arxiv.org/\nabs/2307.11088.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0875,
+          "y": 0.6059
+        },
+        {
+          "x": 0.4779,
+          "y": 0.6059
+        },
+        {
+          "x": 0.4779,
+          "y": 0.6808
+        },
+        {
+          "x": 0.0875,
+          "y": 0.6808
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Anthropic. Introducing contextual retrieval, 2024.\nURL https://www.anthropic.com/news/\ncontextual-retrieval.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0887,
+          "y": 0.6956
+        },
+        {
+          "x": 0.4771,
+          "y": 0.6956
+        },
+        {
+          "x": 0.4771,
+          "y": 0.7409
+        },
+        {
+          "x": 0.0887,
+          "y": 0.7409
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Bai, Y., Lv, X., Zhang, J., Lyu, H., Tang, J., Huang, Z., Du,\nZ., Liu, X., Zeng, A., Hou, L., Dong, Y., Tang, J., and Li,\nJ. LongBench: A bilingual, multitask benchmark for long\ncontext understanding. In Ku, L.-W., Martins, A., and\nSrikumar, V. (eds.), Proceedings of the 62nd Annual Meet-\ning of the Association for Computational Linguistics (Vol-\nume 1: Long Papers), pp. 3119\u20133137, Bangkok, Thailand,\nAugust 2024. Association for Computational Linguis-\ntics. doi: 10.18653/v1/2024.acl-long.172. URL https:\n//aclanthology.org/2024.acl-long.172.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0888,
+          "y": 0.7558
+        },
+        {
+          "x": 0.4777,
+          "y": 0.7558
+        },
+        {
+          "x": 0.4777,
+          "y": 0.9081
+        },
+        {
+          "x": 0.0888,
+          "y": 0.9081
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Brandon, W., Mishra, M., Nrusimha, A., Panda, R.,\nand Kelly, J. R. Reducing transformer key-value\ncache size with cross-layer attention. arXiv preprint\narXiv:2405.12981, 2024.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.499,
+          "y": 0.0862
+        },
+        {
+          "x": 0.8906,
+          "y": 0.0862
+        },
+        {
+          "x": 0.8906,
+          "y": 0.1454
+        },
+        {
+          "x": 0.499,
+          "y": 0.1454
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D.,\nDhariwal, P., Neelakantan, A., Shyam, P., Sastry, G.,\nAskell, A., et al. Language models are few-shot learners.\nAdvances in neural information processing systems, 33:\n1877\u20131901, 2020.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4992,
+          "y": 0.1575
+        },
+        {
+          "x": 0.8911,
+          "y": 0.1575
+        },
+        {
+          "x": 0.8911,
+          "y": 0.2308
+        },
+        {
+          "x": 0.4992,
+          "y": 0.2308
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Cai, Z., Zhang, Y., Gao, B., Liu, Y., Liu, T., Lu, K., Xiong,\nW., Dong, Y., Chang, B., Hu, J., et al. Pyramidkv: Dy-\nnamic kv cache compression based on pyramidal informa-\ntion funneling. arXiv preprint arXiv:2406.02069, 2024.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4986,
+          "y": 0.242
+        },
+        {
+          "x": 0.8907,
+          "y": 0.242
+        },
+        {
+          "x": 0.8907,
+          "y": 0.3026
+        },
+        {
+          "x": 0.4986,
+          "y": 0.3026
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Chevalier, A., Wettig, A., Ajith, A., and Chen, D. Adapting\nlanguage models to compress contexts. In Bouamor,\nH., Pino, J., and Bali, K. (eds.), Proceedings of the\n2023 Conference on Empirical Methods in Natural Lan-\nguage Processing, pp. 3829\u20133846, Singapore, December\n2023. Association for Computational Linguistics. doi:\n10.18653/v1/2023.emnlp-main.232. URL https://\naclanthology.org/2023.emnlp-main.232.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4981,
+          "y": 0.3129
+        },
+        {
+          "x": 0.8902,
+          "y": 0.3129
+        },
+        {
+          "x": 0.8902,
+          "y": 0.4336
+        },
+        {
+          "x": 0.4981,
+          "y": 0.4336
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Chowdhery, A., Narang, S., Devlin, J., Bosma, M., Mishra,\nG., Roberts, A., Barham, P., Chung, H. W., Sutton, C.,\nGehrmann, S., et al. Palm: Scaling language modeling\nwith pathways. ArXiv preprint, abs/2204.02311, 2022.\nURL https://arxiv.org/abs/2204.02311.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4988,
+          "y": 0.4434
+        },
+        {
+          "x": 0.8905,
+          "y": 0.4434
+        },
+        {
+          "x": 0.8905,
+          "y": 0.519
+        },
+        {
+          "x": 0.4988,
+          "y": 0.519
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Chuang, Y.-S., Xie, Y., Luo, H., Kim, Y., Glass, J., and\nHe, P. Dola: Decoding by contrasting layers improves\nfactuality in large language models. ArXiv preprint,\nabs/2309.03883, 2023. URL https://arxiv.org/\nabs/2309.03883.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5007,
+          "y": 0.5293
+        },
+        {
+          "x": 0.889,
+          "y": 0.5293
+        },
+        {
+          "x": 0.889,
+          "y": 0.6041
+        },
+        {
+          "x": 0.5007,
+          "y": 0.6041
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Cobbe, K., Kosaraju, V., Bavarian, M., Chen, M., Jun, H.,\nKaiser, L., Plappert, M., Tworek, J., Hilton, J., Nakano,\nR., et al. Training verifiers to solve math word problems.\nArXiv preprint, abs/2110.14168, 2021. URL https:\n//arxiv.org/abs/2110.14168.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4997,
+          "y": 0.615
+        },
+        {
+          "x": 0.891,
+          "y": 0.615
+        },
+        {
+          "x": 0.891,
+          "y": 0.6898
+        },
+        {
+          "x": 0.4997,
+          "y": 0.6898
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Dao, T. FlashAttention-2: Faster attention with better paral-\nlelism and work partitioning. In International Conference\non Learning Representations (ICLR), 2024.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4978,
+          "y": 0.7003
+        },
+        {
+          "x": 0.8901,
+          "y": 0.7003
+        },
+        {
+          "x": 0.8901,
+          "y": 0.7461
+        },
+        {
+          "x": 0.4978,
+          "y": 0.7461
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Dasigi, P., Lo, K., Beltagy, I., Cohan, A., Smith, N. A., and\nGardner, M. A dataset of information-seeking questions\nand answers anchored in research papers. In Toutanova,\nK., Rumshisky, A., Zettlemoyer, L., Hakkani-Tur, D.,\nBeltagy, I., Bethard, S., Cotterell, R., Chakraborty, T., and\nZhou, Y. (eds.), Proceedings of the 2021 Conference of\nthe North American Chapter of the Association for Com-\nputational Linguistics: Human Language Technologies,\npp. 4599\u20134610, Online, 2021. Association for Compu-\ntational Linguistics. doi: 10.18653/v1/2021.naacl-main.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4992,
+          "y": 0.7563
+        },
+        {
+          "x": 0.8911,
+          "y": 0.7563
+        },
+        {
+          "x": 0.8911,
+          "y": 0.907
+        },
+        {
+          "x": 0.4992,
+          "y": 0.907
+        }
+      ],
+      "id": 18,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "9",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4803,
+          "y": 0.9244
+        },
+        {
+          "x": 0.4944,
+          "y": 0.9244
+        },
+        {
+          "x": 0.4944,
+          "y": 0.9369
+        },
+        {
+          "x": 0.4803,
+          "y": 0.9369
+        }
+      ],
+      "id": 19,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

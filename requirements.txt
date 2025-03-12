@@ -3,3 +3,5 @@ pydantic
 fastcore
 requests
 python-dotenv
+transformers
+jina2

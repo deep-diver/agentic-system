@@ -1,0 +1,518 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\nTjong Kim Sang, E. F. and Veenstra, J. Representing text\nchunks. In Thompson, H. S. and Lascarides, A. (eds.),\nNinth Conference of the European Chapter of the As-\nsociation for Computational Linguistics, pp. 173\u2013179,\nBergen, Norway, 1999. Association for Computational\nLinguistics. URL https://aclanthology.org/\nE99-1023.\n\nTouvron, H., Martin, L., Stone, K., Albert, P., Almahairi,\nA., Babaei, Y., Bashlykov, N., Batra, S., Bhargava, P.,\nBhosale, S., et al. Llama 2: Open foundation and fine-\ntuned chat models. ArXiv preprint, abs/2307.09288, 2023.\nURL https://arxiv.org/abs/2307.09288.\n\nTrivedi, H., Balasubramanian, N., Khot, T., and Sabharwal,\nA. MuSiQue: Multihop questions via single-hop ques-\ntion composition. Transactions of the Association for\nComputational Linguistics, 10:539\u2013554, 2022. doi: 10.\n1162/tacl_a_00475. URL https://aclanthology.\norg/2022.tacl-1.31.\n\nWang, Q., Ding, L., Cao, Y., Tian, Z., Wang, S., Tao, D., and\nGuo, L. Recursively summarizing enables long-term dia-\nlogue memory in large language models. arXiv preprint\narXiv:2308.15022, 2023.\n\nWei, J., Wang, X., Schuurmans, D., Bosma, M., Xia, F., Chi,\nE., Le, Q. V., Zhou, D., et al. Chain-of-thought prompting\nelicits reasoning in large language models. Advances in\nneural information processing systems, 35:24824\u201324837,\n2022.\n\nWingate, D., Shoeybi, M., and Sorensen, T. Prompt com-\npression and contrastive conditioning for controllability\nand toxicity reduction in language models. In Findings of\nthe Association for Computational Linguistics: EMNLP\n2022, pp. 5621\u20135634, Abu Dhabi, United Arab Emi-\nrates, December 2022. Association for Computational\nLinguistics. doi: 10.18653/v1/2022.findings-emnlp.\n412. URL https://aclanthology.org/2022.\nfindings-emnlp.412.\n\nWu, H. and Tu, K. Layer-condensed kv cache for efficient\ninference of large language models, 2024. URL https:\n//arxiv.org/abs/2405.10637.\n\nWu, H., Zhan, M., Tan, H., Hou, Z., Liang, D., and\nSong, L. VCSUM: A versatile Chinese meeting sum-\nmarization dataset. In Rogers, A., Boyd-Graber, J.,\nand Okazaki, N. (eds.), Findings of the Association\nfor Computational Linguistics: ACL 2023, pp. 6065\u2013\n6079, Toronto, Canada, 2023. Association for Computa-\ntional Linguistics. doi: 10.18653/v1/2023.findings-acl.\n377. URL https://aclanthology.org/2023.\nfindings-acl.377.\n\nXiao, G., Tian, Y., Chen, B., Han, S., and Lewis, M. Ef-\nficient streaming language models with attention sinks.\nIn The Twelfth International Conference on Learning\nRepresentations, 2024. URL https://openreview.\nnet/forum?id=NG7sS51zVF.\n\nYang, A., Yang, B., Hui, B., Zheng, B., Yu, B., Zhou, C.,\nLi, C., Li, C., Liu, D., Huang, F., et al. Qwen2 technical\nreport. ArXiv preprint, abs/2407.10671, 2024a. URL\nhttps://arxiv.org/abs/2407.10671.\n\nYang, D., Han, X., Gao, Y., Hu, Y., Zhang, S., and\nZhao, H. PyramidInfer: Pyramid KV cache com-\npression for high-throughput LLM inference. In Ku,\nL.-W., Martins, A., and Srikumar, V. (eds.), Find-\nings of the Association for Computational Linguis-\ntics ACL 2024, pp. 3258\u20133270, Bangkok, Thailand\nand virtual meeting, 2024b. Association for Computa-\ntional Linguistics. doi: 10.18653/v1/2024.findings-acl.\n195. URL https://aclanthology.org/2024.\nfindings-acl.195.\n\nYang, Z., Qi, P., Zhang, S., Bengio, Y., Cohen, W., Salakhut-\ndinov, R., and Manning, C. D. HotpotQA: A dataset\nfor diverse, explainable multi-hop question answering.\nIn Riloff, E., Chiang, D., Hockenmaier, J., and Tsujii,\nJ. (eds.), Proceedings of the 2018 Conference on Em-\npirical Methods in Natural Language Processing, pp.\n2369\u20132380, Brussels, Belgium, 2018. Association for\nComputational Linguistics. doi: 10.18653/v1/D18-1259.\nURL https://aclanthology.org/D18-1259.\n\nYepes, A. J., You, Y., Milczek, J., Laverde, S., and Li, R. Fi-\nnancial report chunking for effective retrieval augmented\ngeneration, 2024. URL https://arxiv.org/abs/\n2402.05131.\n\nYou, Y., Li, J., Reddi, S. J., Hseu, J., Kumar, S., Bho-\njanapalli, S., Song, X., Demmel, J., Keutzer, K., and\nHsieh, C. Large batch optimization for deep learning:\nTraining BERT in 76 minutes. In 8th International Con-\nference on Learning Representations, ICLR 2020, Addis\nAbaba, Ethiopia, April 26-30, 2020. OpenReview.net,\n2020. URL https://openreview.net/forum?\nid=Syx4wnEtvH.\n\nYoung, A., Chen, B., Li, C., Huang, C., Zhang, G., Zhang,\nG., Li, H., Zhu, J., Chen, J., Chang, J., et al. Yi:\nOpen foundation models by 01. ai. ArXiv preprint,\nabs/2403.04652, 2024. URL https://arxiv.org/\nabs/2403.04652.\n\nZhang, X., Chen, Y., Hu, S., Xu, Z., Chen, J., Hao, M. K.,\nHan, X., Thai, Z. L., Wang, S., Liu, Z., et al. \u221e-bench:\nExtending long context evaluation beyond 100k tokens.\nArXiv preprint, abs/2402.13718, 2024. URL https:\n//arxiv.org/abs/2402.13718.\n\n13",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.173,
+          "y": 0.0575
+        },
+        {
+          "x": 0.802,
+          "y": 0.0575
+        },
+        {
+          "x": 0.802,
+          "y": 0.072
+        },
+        {
+          "x": 0.173,
+          "y": 0.072
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Tjong Kim Sang, E. F. and Veenstra, J. Representing text\nchunks. In Thompson, H. S. and Lascarides, A. (eds.),\nNinth Conference of the European Chapter of the As-\nsociation for Computational Linguistics, pp. 173\u2013179,\nBergen, Norway, 1999. Association for Computational\nLinguistics. URL https://aclanthology.org/\nE99-1023.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0858,
+          "y": 0.0861
+        },
+        {
+          "x": 0.4789,
+          "y": 0.0861
+        },
+        {
+          "x": 0.4789,
+          "y": 0.1914
+        },
+        {
+          "x": 0.0858,
+          "y": 0.1914
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Touvron, H., Martin, L., Stone, K., Albert, P., Almahairi,\nA., Babaei, Y., Bashlykov, N., Batra, S., Bhargava, P.,\nBhosale, S., et al. Llama 2: Open foundation and fine-\ntuned chat models. ArXiv preprint, abs/2307.09288, 2023.\nURL https://arxiv.org/abs/2307.09288.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0874,
+          "y": 0.2047
+        },
+        {
+          "x": 0.4788,
+          "y": 0.2047
+        },
+        {
+          "x": 0.4788,
+          "y": 0.2813
+        },
+        {
+          "x": 0.0874,
+          "y": 0.2813
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Trivedi, H., Balasubramanian, N., Khot, T., and Sabharwal,\nA. MuSiQue: Multihop questions via single-hop ques-\ntion composition. Transactions of the Association for\nComputational Linguistics, 10:539\u2013554, 2022. doi: 10.\n1162/tacl_a_00475. URL https://aclanthology.\norg/2022.tacl-1.31.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0896,
+          "y": 0.2942
+        },
+        {
+          "x": 0.4796,
+          "y": 0.2942
+        },
+        {
+          "x": 0.4796,
+          "y": 0.385
+        },
+        {
+          "x": 0.0896,
+          "y": 0.385
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Wang, Q., Ding, L., Cao, Y., Tian, Z., Wang, S., Tao, D., and\nGuo, L. Recursively summarizing enables long-term dia-\nlogue memory in large language models. arXiv preprint\narXiv:2308.15022, 2023.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0885,
+          "y": 0.3989
+        },
+        {
+          "x": 0.4778,
+          "y": 0.3989
+        },
+        {
+          "x": 0.4778,
+          "y": 0.4595
+        },
+        {
+          "x": 0.0885,
+          "y": 0.4595
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Wei, J., Wang, X., Schuurmans, D., Bosma, M., Xia, F., Chi,\nE., Le, Q. V., Zhou, D., et al. Chain-of-thought prompting\nelicits reasoning in large language models. Advances in\nneural information processing systems, 35:24824\u201324837,\n2022.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0866,
+          "y": 0.4723
+        },
+        {
+          "x": 0.4776,
+          "y": 0.4723
+        },
+        {
+          "x": 0.4776,
+          "y": 0.548
+        },
+        {
+          "x": 0.0866,
+          "y": 0.548
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Wingate, D., Shoeybi, M., and Sorensen, T. Prompt com-\npression and contrastive conditioning for controllability\nand toxicity reduction in language models. In Findings of\nthe Association for Computational Linguistics: EMNLP\n2022, pp. 5621\u20135634, Abu Dhabi, United Arab Emi-\nrates, December 2022. Association for Computational\nLinguistics. doi: 10.18653/v1/2022.findings-emnlp.\n412. URL https://aclanthology.org/2022.\nfindings-emnlp.412.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0862,
+          "y": 0.5616
+        },
+        {
+          "x": 0.4802,
+          "y": 0.5616
+        },
+        {
+          "x": 0.4802,
+          "y": 0.6998
+        },
+        {
+          "x": 0.0862,
+          "y": 0.6998
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Wu, H. and Tu, K. Layer-condensed kv cache for efficient\ninference of large language models, 2024. URL https:\n//arxiv.org/abs/2405.10637.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0868,
+          "y": 0.7112
+        },
+        {
+          "x": 0.4774,
+          "y": 0.7112
+        },
+        {
+          "x": 0.4774,
+          "y": 0.7577
+        },
+        {
+          "x": 0.0868,
+          "y": 0.7577
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Wu, H., Zhan, M., Tan, H., Hou, Z., Liang, D., and\nSong, L. VCSUM: A versatile Chinese meeting sum-\nmarization dataset. In Rogers, A., Boyd-Graber, J.,\nand Okazaki, N. (eds.), Findings of the Association\nfor Computational Linguistics: ACL 2023, pp. 6065\u2013\n6079, Toronto, Canada, 2023. Association for Computa-\ntional Linguistics. doi: 10.18653/v1/2023.findings-acl.\n377. URL https://aclanthology.org/2023.\nfindings-acl.377.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.7707
+        },
+        {
+          "x": 0.4804,
+          "y": 0.7707
+        },
+        {
+          "x": 0.4804,
+          "y": 0.9063
+        },
+        {
+          "x": 0.0871,
+          "y": 0.9063
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Xiao, G., Tian, Y., Chen, B., Han, S., and Lewis, M. Ef-\nficient streaming language models with attention sinks.\nIn The Twelfth International Conference on Learning\nRepresentations, 2024. URL https://openreview.\nnet/forum?id=NG7sS51zVF.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5,
+          "y": 0.0864
+        },
+        {
+          "x": 0.8927,
+          "y": 0.0864
+        },
+        {
+          "x": 0.8927,
+          "y": 0.1606
+        },
+        {
+          "x": 0.5,
+          "y": 0.1606
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Yang, A., Yang, B., Hui, B., Zheng, B., Yu, B., Zhou, C.,\nLi, C., Li, C., Liu, D., Huang, F., et al. Qwen2 technical\nreport. ArXiv preprint, abs/2407.10671, 2024a. URL\nhttps://arxiv.org/abs/2407.10671.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5006,
+          "y": 0.1711
+        },
+        {
+          "x": 0.8901,
+          "y": 0.1711
+        },
+        {
+          "x": 0.8901,
+          "y": 0.2308
+        },
+        {
+          "x": 0.5006,
+          "y": 0.2308
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Yang, D., Han, X., Gao, Y., Hu, Y., Zhang, S., and\nZhao, H. PyramidInfer: Pyramid KV cache com-\npression for high-throughput LLM inference. In Ku,\nL.-W., Martins, A., and Srikumar, V. (eds.), Find-\nings of the Association for Computational Linguis-\ntics ACL 2024, pp. 3258\u20133270, Bangkok, Thailand\nand virtual meeting, 2024b. Association for Computa-\ntional Linguistics. doi: 10.18653/v1/2024.findings-acl.\n195. URL https://aclanthology.org/2024.\nfindings-acl.195.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4997,
+          "y": 0.2402
+        },
+        {
+          "x": 0.8916,
+          "y": 0.2402
+        },
+        {
+          "x": 0.8916,
+          "y": 0.3911
+        },
+        {
+          "x": 0.4997,
+          "y": 0.3911
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Yang, Z., Qi, P., Zhang, S., Bengio, Y., Cohen, W., Salakhut-\ndinov, R., and Manning, C. D. HotpotQA: A dataset\nfor diverse, explainable multi-hop question answering.\nIn Riloff, E., Chiang, D., Hockenmaier, J., and Tsujii,\nJ. (eds.), Proceedings of the 2018 Conference on Em-\npirical Methods in Natural Language Processing, pp.\n2369\u20132380, Brussels, Belgium, 2018. Association for\nComputational Linguistics. doi: 10.18653/v1/D18-1259.\nURL https://aclanthology.org/D18-1259.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5007,
+          "y": 0.4012
+        },
+        {
+          "x": 0.8911,
+          "y": 0.4012
+        },
+        {
+          "x": 0.8911,
+          "y": 0.537
+        },
+        {
+          "x": 0.5007,
+          "y": 0.537
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Yepes, A. J., You, Y., Milczek, J., Laverde, S., and Li, R. Fi-\nnancial report chunking for effective retrieval augmented\ngeneration, 2024. URL https://arxiv.org/abs/\n2402.05131.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.501,
+          "y": 0.5463
+        },
+        {
+          "x": 0.8904,
+          "y": 0.5463
+        },
+        {
+          "x": 0.8904,
+          "y": 0.6066
+        },
+        {
+          "x": 0.501,
+          "y": 0.6066
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "You, Y., Li, J., Reddi, S. J., Hseu, J., Kumar, S., Bho-\njanapalli, S., Song, X., Demmel, J., Keutzer, K., and\nHsieh, C. Large batch optimization for deep learning:\nTraining BERT in 76 minutes. In 8th International Con-\nference on Learning Representations, ICLR 2020, Addis\nAbaba, Ethiopia, April 26-30, 2020. OpenReview.net,\n2020. URL https://openreview.net/forum?\nid=Syx4wnEtvH.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5,
+          "y": 0.6158
+        },
+        {
+          "x": 0.8915,
+          "y": 0.6158
+        },
+        {
+          "x": 0.8915,
+          "y": 0.7371
+        },
+        {
+          "x": 0.5,
+          "y": 0.7371
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Young, A., Chen, B., Li, C., Huang, C., Zhang, G., Zhang,\nG., Li, H., Zhu, J., Chen, J., Chang, J., et al. Yi:\nOpen foundation models by 01. ai. ArXiv preprint,\nabs/2403.04652, 2024. URL https://arxiv.org/\nabs/2403.04652.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5009,
+          "y": 0.7466
+        },
+        {
+          "x": 0.8906,
+          "y": 0.7466
+        },
+        {
+          "x": 0.8906,
+          "y": 0.8214
+        },
+        {
+          "x": 0.5009,
+          "y": 0.8214
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Zhang, X., Chen, Y., Hu, S., Xu, Z., Chen, J., Hao, M. K.,\nHan, X., Thai, Z. L., Wang, S., Liu, Z., et al. \u221e-bench:\nExtending long context evaluation beyond 100k tokens.\nArXiv preprint, abs/2402.13718, 2024. URL https:\n//arxiv.org/abs/2402.13718.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.499,
+          "y": 0.8308
+        },
+        {
+          "x": 0.8921,
+          "y": 0.8308
+        },
+        {
+          "x": 0.8921,
+          "y": 0.9068
+        },
+        {
+          "x": 0.499,
+          "y": 0.9068
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "13",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4777,
+          "y": 0.9238
+        },
+        {
+          "x": 0.498,
+          "y": 0.9238
+        },
+        {
+          "x": 0.498,
+          "y": 0.9374
+        },
+        {
+          "x": 0.4777,
+          "y": 0.9374
+        }
+      ],
+      "id": 17,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

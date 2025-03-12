@@ -1,0 +1,798 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n\u03f5\u03b8 resulting from the distribution mismatch between the prompt and the pertaining distributions for each example. Letting\npi \u03b8(o) and pi prompt correspond to the concept \u03b8 and \u03b8\u22c6.\n\nCondition 1 (distinguishability (Fang & Xie, 2022)). The \u03b8\u22c6 is distinguishable if for all \u03b8 \u2208 \u2126, \u03b8 \u0338= \u03b8\u22c6,\n\n$$\\sum_{i=1}^{k}K L_{i}(\\theta^{\\star}||\\theta)>\\epsilon_{\\theta},$$\n\n(3)\n\n# where the KLi(\u03b8\u22c6||\u03b8) := EO[1:i\u22121]\u223cpprompt[KL(pi prompt||pi \u03b8)].\n\nNoises from KV Cache Compression. Naturally, because of the sparsified KV cache, some history tokens in o1:t\u22121 at\ndifferent layers lost its attention score calculation with respect to the next word prediction ot. We can regard this as the noise\nadded onto the o1:t\u22121. Thus, distincting \u03b8\u22c6 from \u03b8 requires larger KL divergence. Following (Zhou et al., 2024), we provide\nthe following second condition about the distinguishability with the KV cache sparsity.\n\nCondition 2 (distinguishability under sparsified KV cache). With the noise introduced by the sparsified KV cache of the\nsparse ratio r, the distribution mismatch between the prompt and the pretraining distribution that is approximated by LLM\nis enlarged, resulting in a varied requirement with error term \u03be\u03b8(r) for \u03b8\u2217 being distinguishable if for all \u03b8 \u2208 \u0398, \u03b8 \u0338= \u03b8\u2217,\n\n$$\\sum_{i=1}^{k}K L_{i}(\\theta^{*}||\\theta)>\\epsilon_{\\theta}+\\xi_{\\theta}(r),\\quad\\mathrm{where}\\quad\\xi_{\\theta}(r)\\propto r.$$\n\n(4)\n\nLemma 1 (noisy-relaxed bound in (Fang & Xie, 2022; Zhou et al., 2024)). let B denotes the set of \u03b8 which does not\nsatisfy Condition 1. We assume that KL(pprompt(ytest|xtest))||p(ytest|xtest, \u03b8) is bounded for all \u03b8 and that \u03b8\u22c6 minimizes the\nmulti-class logistic risk as,\n\n$${\\cal L}_{C E}(\\theta)=-\\mathrm{i}\\mathrm{E}_{x_{t e t}\\sim p_{p r o m p t}}[p_{p r o m p t}(y_{t e s t}|x_{t e s t})\\cdot\\log p(y_{t e s t}|x_{t e s t},\\theta)].$$\n\n(5)\n\nIf\n\n$$\\mathbb{E}_{x_{t r e r}\\sim p_{u r o m p t}}[K L(p_{p r o m p t}(y_{t e s t}|x_{t e t})]]p(y_{t e s t}|x_{t e s t},\\theta))]\\leq(\\epsilon_{\\theta}+\\xi_{\\theta}(r)),\\quad\\forall\\quad\\theta\\in B,$$\n\n(6)\n\n# then\n\n$$\\operatorname*{lim}_{n\\rightarrow\\infty}L_{0-1}(f_{n})\\le\\mathrm{inf}\\,L_{0-1}(f)+g^{-1}\\left(\\mathrm{sup}(\\epsilon\\theta)\\right),$$\n\n(7)\n\nwhere g(\u03bd) = 1 (cid:0)(1 \u2212 \u03bd) log(1 \u2212 \u03bd) + (1 + \u03bd) log(1 + \u03bd)(cid:1) is the calibration function (Steinwart, 2007; Pires & Szepesv\u00e1ri,\n2\n2016) for the multiclass logistic loss for \u03bd \u2208 [0, 1].\n\nFollowing (Kleijn & der Vaart, 2012; Fang & Xie, 2022), KL divergence is assumed to haver the 2nd-order Taylor expansion\nwith the concept \u03b8. Then, we have the following theorem and proof.\n\nTheorem 1. (Fang & Xie, 2022; Zhou et al., 2024) Let the set of \u03b8 which does not satisfy Equation 3 in Condition 1 to be B.\nAssume that KL divergences have a 2nd-order Taylor expansion around \u03b8\u22c6:\n\n$$\\forall j>1,\\;\\;K L_{i}(\\theta^{\\star}||\\theta)=\\frac{1}{2}(\\theta-\\theta^{\\star})^{\\top}I_{j,\\theta^{\\star}}(\\theta-\\theta^{\\star})+O(|\\theta-\\theta^{\\star}||^{3})$$\n\n(8)\n\nmaxj \u03bbmax(Ij,\u03b8\u2217 )\nwhere Ij,\u03b8\u2217 is the Fisher information matrix of the j-th token distribution with respect to \u03b8\u22c6. Let \u03b3\u03b8\u2217 =\nmin j\u03bbmin(Ij,\u03b8\u2217 )\nwhere \u03bbmax, \u03bbmin return the largest and smallest eigenvalues. Then for k \u2265 2 and as n \u2192 \u221e, the 0-1 risk of the in-context\nlearning predictor fn is bounded as\n\n$$\\operatorname*{lim}_{n\\to\\infty}L_{o.l}(f_{n})\\leq\\operatorname*{inf}_{f}L_{o.l}(f)+g^{-1}\\left(O\\left({\\frac{\\gamma_{o^{*}}\\operatorname{sup}_{\\theta\\in{\\mathrm{B}}}(\\epsilon_{\\theta}+\\xi_{\\theta}(r)}{k-1}}\\right)\\right)$$\n\n(9)\n\n31",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1728,
+          "y": 0.0573
+        },
+        {
+          "x": 0.8033,
+          "y": 0.0573
+        },
+        {
+          "x": 0.8033,
+          "y": 0.0723
+        },
+        {
+          "x": 0.1728,
+          "y": 0.0723
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "\u03f5\u03b8 resulting from the distribution mismatch between the prompt and the pertaining distributions for each example. Letting\npi \u03b8(o) and pi prompt correspond to the concept \u03b8 and \u03b8\u22c6.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0868,
+          "y": 0.0853
+        },
+        {
+          "x": 0.8896,
+          "y": 0.0853
+        },
+        {
+          "x": 0.8896,
+          "y": 0.1174
+        },
+        {
+          "x": 0.0868,
+          "y": 0.1174
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Condition 1 (distinguishability (Fang & Xie, 2022)). The \u03b8\u22c6 is distinguishable if for all \u03b8 \u2208 \u2126, \u03b8 \u0338= \u03b8\u22c6,",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0867,
+          "y": 0.122
+        },
+        {
+          "x": 0.7693,
+          "y": 0.122
+        },
+        {
+          "x": 0.7693,
+          "y": 0.1383
+        },
+        {
+          "x": 0.0867,
+          "y": 0.1383
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\sum_{i=1}^{k}K L_{i}(\\theta^{\\star}||\\theta)>\\epsilon_{\\theta},$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4149,
+          "y": 0.1523
+        },
+        {
+          "x": 0.561,
+          "y": 0.1523
+        },
+        {
+          "x": 0.561,
+          "y": 0.1938
+        },
+        {
+          "x": 0.4149,
+          "y": 0.1938
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(3)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.864,
+          "y": 0.1637
+        },
+        {
+          "x": 0.8883,
+          "y": 0.1637
+        },
+        {
+          "x": 0.8883,
+          "y": 0.1801
+        },
+        {
+          "x": 0.864,
+          "y": 0.1801
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# where the KLi(\u03b8\u22c6||\u03b8) := EO[1:i\u22121]\u223cpprompt[KL(pi prompt||pi \u03b8)].",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0879,
+          "y": 0.2046
+        },
+        {
+          "x": 0.4958,
+          "y": 0.2046
+        },
+        {
+          "x": 0.4958,
+          "y": 0.2253
+        },
+        {
+          "x": 0.0879,
+          "y": 0.2253
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Noises from KV Cache Compression. Naturally, because of the sparsified KV cache, some history tokens in o1:t\u22121 at\ndifferent layers lost its attention score calculation with respect to the next word prediction ot. We can regard this as the noise\nadded onto the o1:t\u22121. Thus, distincting \u03b8\u22c6 from \u03b8 requires larger KL divergence. Following (Zhou et al., 2024), we provide\nthe following second condition about the distinguishability with the KV cache sparsity.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0864,
+          "y": 0.2346
+        },
+        {
+          "x": 0.891,
+          "y": 0.2346
+        },
+        {
+          "x": 0.891,
+          "y": 0.2962
+        },
+        {
+          "x": 0.0864,
+          "y": 0.2962
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Condition 2 (distinguishability under sparsified KV cache). With the noise introduced by the sparsified KV cache of the\nsparse ratio r, the distribution mismatch between the prompt and the pretraining distribution that is approximated by LLM\nis enlarged, resulting in a varied requirement with error term \u03be\u03b8(r) for \u03b8\u2217 being distinguishable if for all \u03b8 \u2208 \u0398, \u03b8 \u0338= \u03b8\u2217,",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.3009
+        },
+        {
+          "x": 0.8909,
+          "y": 0.3009
+        },
+        {
+          "x": 0.8909,
+          "y": 0.3494
+        },
+        {
+          "x": 0.087,
+          "y": 0.3494
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\sum_{i=1}^{k}K L_{i}(\\theta^{*}||\\theta)>\\epsilon_{\\theta}+\\xi_{\\theta}(r),\\quad\\mathrm{where}\\quad\\xi_{\\theta}(r)\\propto r.$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.3088,
+          "y": 0.3614
+        },
+        {
+          "x": 0.6623,
+          "y": 0.3614
+        },
+        {
+          "x": 0.6623,
+          "y": 0.4033
+        },
+        {
+          "x": 0.3088,
+          "y": 0.4033
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(4)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.8643,
+          "y": 0.3738
+        },
+        {
+          "x": 0.8882,
+          "y": 0.3738
+        },
+        {
+          "x": 0.8882,
+          "y": 0.3894
+        },
+        {
+          "x": 0.8643,
+          "y": 0.3894
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Lemma 1 (noisy-relaxed bound in (Fang & Xie, 2022; Zhou et al., 2024)). let B denotes the set of \u03b8 which does not\nsatisfy Condition 1. We assume that KL(pprompt(ytest|xtest))||p(ytest|xtest, \u03b8) is bounded for all \u03b8 and that \u03b8\u22c6 minimizes the\nmulti-class logistic risk as,",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.4246
+        },
+        {
+          "x": 0.8891,
+          "y": 0.4246
+        },
+        {
+          "x": 0.8891,
+          "y": 0.4732
+        },
+        {
+          "x": 0.0871,
+          "y": 0.4732
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$${\\cal L}_{C E}(\\theta)=-\\mathrm{i}\\mathrm{E}_{x_{t e t}\\sim p_{p r o m p t}}[p_{p r o m p t}(y_{t e s t}|x_{t e s t})\\cdot\\log p(y_{t e s t}|x_{t e s t},\\theta)].$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.2683,
+          "y": 0.4843
+        },
+        {
+          "x": 0.7035,
+          "y": 0.4843
+        },
+        {
+          "x": 0.7035,
+          "y": 0.506
+        },
+        {
+          "x": 0.2683,
+          "y": 0.506
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(5)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.8641,
+          "y": 0.4859
+        },
+        {
+          "x": 0.8884,
+          "y": 0.4859
+        },
+        {
+          "x": 0.8884,
+          "y": 0.502
+        },
+        {
+          "x": 0.8641,
+          "y": 0.502
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "If",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.5159
+        },
+        {
+          "x": 0.1052,
+          "y": 0.5159
+        },
+        {
+          "x": 0.1052,
+          "y": 0.5318
+        },
+        {
+          "x": 0.087,
+          "y": 0.5318
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\mathbb{E}_{x_{t r e r}\\sim p_{u r o m p t}}[K L(p_{p r o m p t}(y_{t e s t}|x_{t e t})]]p(y_{t e s t}|x_{t e s t},\\theta))]\\leq(\\epsilon_{\\theta}+\\xi_{\\theta}(r)),\\quad\\forall\\quad\\theta\\in B,$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.2098,
+          "y": 0.5441
+        },
+        {
+          "x": 0.7624,
+          "y": 0.5441
+        },
+        {
+          "x": 0.7624,
+          "y": 0.5639
+        },
+        {
+          "x": 0.2098,
+          "y": 0.5639
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(6)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.8644,
+          "y": 0.5455
+        },
+        {
+          "x": 0.8883,
+          "y": 0.5455
+        },
+        {
+          "x": 0.8883,
+          "y": 0.5611
+        },
+        {
+          "x": 0.8644,
+          "y": 0.5611
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# then",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0878,
+          "y": 0.5767
+        },
+        {
+          "x": 0.1207,
+          "y": 0.5767
+        },
+        {
+          "x": 0.1207,
+          "y": 0.59
+        },
+        {
+          "x": 0.0878,
+          "y": 0.59
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\operatorname*{lim}_{n\\rightarrow\\infty}L_{0-1}(f_{n})\\le\\mathrm{inf}\\,L_{0-1}(f)+g^{-1}\\left(\\mathrm{sup}(\\epsilon\\theta)\\right),$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.3186,
+          "y": 0.6009
+        },
+        {
+          "x": 0.6557,
+          "y": 0.6009
+        },
+        {
+          "x": 0.6557,
+          "y": 0.6358
+        },
+        {
+          "x": 0.3186,
+          "y": 0.6358
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(7)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.8642,
+          "y": 0.6095
+        },
+        {
+          "x": 0.8884,
+          "y": 0.6095
+        },
+        {
+          "x": 0.8884,
+          "y": 0.6265
+        },
+        {
+          "x": 0.8642,
+          "y": 0.6265
+        }
+      ],
+      "id": 18,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "where g(\u03bd) = 1 (cid:0)(1 \u2212 \u03bd) log(1 \u2212 \u03bd) + (1 + \u03bd) log(1 + \u03bd)(cid:1) is the calibration function (Steinwart, 2007; Pires & Szepesv\u00e1ri,\n2\n2016) for the multiclass logistic loss for \u03bd \u2208 [0, 1].",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0864,
+          "y": 0.6471
+        },
+        {
+          "x": 0.8898,
+          "y": 0.6471
+        },
+        {
+          "x": 0.8898,
+          "y": 0.6806
+        },
+        {
+          "x": 0.0864,
+          "y": 0.6806
+        }
+      ],
+      "id": 19,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Following (Kleijn & der Vaart, 2012; Fang & Xie, 2022), KL divergence is assumed to haver the 2nd-order Taylor expansion\nwith the concept \u03b8. Then, we have the following theorem and proof.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0872,
+          "y": 0.692
+        },
+        {
+          "x": 0.8875,
+          "y": 0.692
+        },
+        {
+          "x": 0.8875,
+          "y": 0.7231
+        },
+        {
+          "x": 0.0872,
+          "y": 0.7231
+        }
+      ],
+      "id": 20,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Theorem 1. (Fang & Xie, 2022; Zhou et al., 2024) Let the set of \u03b8 which does not satisfy Equation 3 in Condition 1 to be B.\nAssume that KL divergences have a 2nd-order Taylor expansion around \u03b8\u22c6:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0866,
+          "y": 0.7285
+        },
+        {
+          "x": 0.8902,
+          "y": 0.7285
+        },
+        {
+          "x": 0.8902,
+          "y": 0.7597
+        },
+        {
+          "x": 0.0866,
+          "y": 0.7597
+        }
+      ],
+      "id": 21,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\forall j>1,\\;\\;K L_{i}(\\theta^{\\star}||\\theta)=\\frac{1}{2}(\\theta-\\theta^{\\star})^{\\top}I_{j,\\theta^{\\star}}(\\theta-\\theta^{\\star})+O(|\\theta-\\theta^{\\star}||^{3})$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.2656,
+          "y": 0.7721
+        },
+        {
+          "x": 0.711,
+          "y": 0.7721
+        },
+        {
+          "x": 0.711,
+          "y": 0.8009
+        },
+        {
+          "x": 0.2656,
+          "y": 0.8009
+        }
+      ],
+      "id": 22,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(8)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.8648,
+          "y": 0.779
+        },
+        {
+          "x": 0.8883,
+          "y": 0.779
+        },
+        {
+          "x": 0.8883,
+          "y": 0.795
+        },
+        {
+          "x": 0.8648,
+          "y": 0.795
+        }
+      ],
+      "id": 23,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "maxj \u03bbmax(Ij,\u03b8\u2217 )\nwhere Ij,\u03b8\u2217 is the Fisher information matrix of the j-th token distribution with respect to \u03b8\u22c6. Let \u03b3\u03b8\u2217 =\nmin j\u03bbmin(Ij,\u03b8\u2217 )\nwhere \u03bbmax, \u03bbmin return the largest and smallest eigenvalues. Then for k \u2265 2 and as n \u2192 \u221e, the 0-1 risk of the in-context\nlearning predictor fn is bounded as",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0863,
+          "y": 0.8158
+        },
+        {
+          "x": 0.8874,
+          "y": 0.8158
+        },
+        {
+          "x": 0.8874,
+          "y": 0.865
+        },
+        {
+          "x": 0.0863,
+          "y": 0.865
+        }
+      ],
+      "id": 24,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\operatorname*{lim}_{n\\to\\infty}L_{o.l}(f_{n})\\leq\\operatorname*{inf}_{f}L_{o.l}(f)+g^{-1}\\left(O\\left({\\frac{\\gamma_{o^{*}}\\operatorname{sup}_{\\theta\\in{\\mathrm{B}}}(\\epsilon_{\\theta}+\\xi_{\\theta}(r)}{k-1}}\\right)\\right)$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.2535,
+          "y": 0.8738
+        },
+        {
+          "x": 0.7186,
+          "y": 0.8738
+        },
+        {
+          "x": 0.7186,
+          "y": 0.9136
+        },
+        {
+          "x": 0.2535,
+          "y": 0.9136
+        }
+      ],
+      "id": 25,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(9)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.8643,
+          "y": 0.8859
+        },
+        {
+          "x": 0.8884,
+          "y": 0.8859
+        },
+        {
+          "x": 0.8884,
+          "y": 0.9015
+        },
+        {
+          "x": 0.8643,
+          "y": 0.9015
+        }
+      ],
+      "id": 26,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "31",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4758,
+          "y": 0.9237
+        },
+        {
+          "x": 0.4963,
+          "y": 0.9237
+        },
+        {
+          "x": 0.4963,
+          "y": 0.9378
+        },
+        {
+          "x": 0.4758,
+          "y": 0.9378
+        }
+      ],
+      "id": 27,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

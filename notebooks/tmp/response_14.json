@@ -1,0 +1,210 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\nZhang, Z., Sheng, Y., Zhou, T., Chen, T., Zheng, L., Cai,\nR., Song, Z., Tian, Y., R\u00e9, C., Barrett, C., et al. H2o:\nHeavy-hitter oracle for efficient generative inference of\nlarge language models. Advances in Neural Information\nProcessing Systems, 36:34661\u201334710, 2023.\n\nZheng, L., Chiang, W.-L., Sheng, Y., Zhuang, S., Wu, Z.,\nZhuang, Y., Lin, Z., Li, Z., Li, D., Xing, E., et al. Judging\nllm-as-a-judge with mt-bench and chatbot arena. Ad-\nvances in Neural Information Processing Systems, 36:\n46595\u201346623, 2023.\n\nZhong, M., Yin, D., Yu, T., Zaidi, A., Mutuma, M., Jha, R.,\nAwadallah, A. H., Celikyilmaz, A., Liu, Y., Qiu, X., and\nRadev, D. QMSum: A new benchmark for query-based\nmulti-domain meeting summarization. In Toutanova, K.,\nRumshisky, A., Zettlemoyer, L., Hakkani-Tur, D., Belt-\nagy, I., Bethard, S., Cotterell, R., Chakraborty, T., and\nZhou, Y. (eds.), Proceedings of the 2021 Conference of\nthe North American Chapter of the Association for Com-\nputational Linguistics: Human Language Technologies,\npp. 5905\u20135921, Online, 2021. Association for Compu-\ntational Linguistics. doi: 10.18653/v1/2021.naacl-main.\n472. URL https://aclanthology.org/2021.\nnaacl-main.472.\n\nZhou, W., Jiang, Y. E., Cui, P., Wang, T., Xiao, Z., Hou, Y.,\nCotterell, R., and Sachan, M. Recurrentgpt: Interactive\ngeneration of (arbitrarily) long text, 2023.\n\nZhou, Z., Tao, R., Zhu, J., Luo, Y., Wang, Z., and Han, B.\nCan language models perform robust reasoning in chain-\nof-thought prompting with noisy rationales? In The\nThirty-eighth Annual Conference on Neural Information\nProcessing Systems, 2024.\n\n14",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.173,
+          "y": 0.0573
+        },
+        {
+          "x": 0.8027,
+          "y": 0.0573
+        },
+        {
+          "x": 0.8027,
+          "y": 0.0718
+        },
+        {
+          "x": 0.173,
+          "y": 0.0718
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Zhang, Z., Sheng, Y., Zhou, T., Chen, T., Zheng, L., Cai,\nR., Song, Z., Tian, Y., R\u00e9, C., Barrett, C., et al. H2o:\nHeavy-hitter oracle for efficient generative inference of\nlarge language models. Advances in Neural Information\nProcessing Systems, 36:34661\u201334710, 2023.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0869,
+          "y": 0.0864
+        },
+        {
+          "x": 0.4783,
+          "y": 0.0864
+        },
+        {
+          "x": 0.4783,
+          "y": 0.1615
+        },
+        {
+          "x": 0.0869,
+          "y": 0.1615
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Zheng, L., Chiang, W.-L., Sheng, Y., Zhuang, S., Wu, Z.,\nZhuang, Y., Lin, Z., Li, Z., Li, D., Xing, E., et al. Judging\nllm-as-a-judge with mt-bench and chatbot arena. Ad-\nvances in Neural Information Processing Systems, 36:\n46595\u201346623, 2023.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.1716
+        },
+        {
+          "x": 0.4775,
+          "y": 0.1716
+        },
+        {
+          "x": 0.4775,
+          "y": 0.2467
+        },
+        {
+          "x": 0.087,
+          "y": 0.2467
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Zhong, M., Yin, D., Yu, T., Zaidi, A., Mutuma, M., Jha, R.,\nAwadallah, A. H., Celikyilmaz, A., Liu, Y., Qiu, X., and\nRadev, D. QMSum: A new benchmark for query-based\nmulti-domain meeting summarization. In Toutanova, K.,\nRumshisky, A., Zettlemoyer, L., Hakkani-Tur, D., Belt-\nagy, I., Bethard, S., Cotterell, R., Chakraborty, T., and\nZhou, Y. (eds.), Proceedings of the 2021 Conference of\nthe North American Chapter of the Association for Com-\nputational Linguistics: Human Language Technologies,\npp. 5905\u20135921, Online, 2021. Association for Compu-\ntational Linguistics. doi: 10.18653/v1/2021.naacl-main.\n472. URL https://aclanthology.org/2021.\nnaacl-main.472.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.089,
+          "y": 0.2566
+        },
+        {
+          "x": 0.4794,
+          "y": 0.2566
+        },
+        {
+          "x": 0.4794,
+          "y": 0.4527
+        },
+        {
+          "x": 0.089,
+          "y": 0.4527
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Zhou, W., Jiang, Y. E., Cui, P., Wang, T., Xiao, Z., Hou, Y.,\nCotterell, R., and Sachan, M. Recurrentgpt: Interactive\ngeneration of (arbitrarily) long text, 2023.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0864,
+          "y": 0.4627
+        },
+        {
+          "x": 0.4767,
+          "y": 0.4627
+        },
+        {
+          "x": 0.4767,
+          "y": 0.5094
+        },
+        {
+          "x": 0.0864,
+          "y": 0.5094
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Zhou, Z., Tao, R., Zhu, J., Luo, Y., Wang, Z., and Han, B.\nCan language models perform robust reasoning in chain-\nof-thought prompting with noisy rationales? In The\nThirty-eighth Annual Conference on Neural Information\nProcessing Systems, 2024.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.085,
+          "y": 0.518
+        },
+        {
+          "x": 0.4786,
+          "y": 0.518
+        },
+        {
+          "x": 0.4786,
+          "y": 0.5943
+        },
+        {
+          "x": 0.085,
+          "y": 0.5943
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "14",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4779,
+          "y": 0.9237
+        },
+        {
+          "x": 0.4982,
+          "y": 0.9237
+        },
+        {
+          "x": 0.4982,
+          "y": 0.9368
+        },
+        {
+          "x": 0.4779,
+          "y": 0.9368
+        }
+      ],
+      "id": 6,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

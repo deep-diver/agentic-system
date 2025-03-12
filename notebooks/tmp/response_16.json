@@ -1,0 +1,378 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n# A. In-depth Analysis of ChunkKV vs. Discrete Token Methods\n\nA.1. Quantitative Analysis\n\nTo rigorously evaluate the effectiveness of ChunkKV compared to discrete token-based methods, we conducted systematic\nexperiments using a LLaMA-3-8B-Instruct model. We randomly selected 100 sequences from the each sub-category of\nLongBench dataset and analyzed two key metrics across different model layers: KV cache L1 loss and attention cosine\nsimilarity. For each sequence, we: 1. Computed the full KV cache and attention patterns without compression as ground\ntruth. 2. Applied ChunkKV, SnapKV, and H2O compression methods with a fixed 10% compression ratio, and the parameters\nof the three methods are set the same as in Table 14. 3. Measured the differences between compressed and uncompressed\nversions.\n\n![image](/image/placeholder)\n- Chart Title: Layer-wise KV cache L Loss\n- X-Axis: Layer\n- Y-Axis: L Loss\n- Chart Type: line\n|  | Layer 0 | Layer 1 | Layer 2 | Layer 3 | Layer 4 | Layer 5 | Layer 6 | Layer 7 | Layer 8 | Layer 9 | Layer 10 | Layer 11 | Layer 12 | Layer 13 | Layer 14 | Layer 15 | Layer 16 | Layer 17 | Layer 18 | Layer 19 | Layer 20 | Layer 21 | Layer 22 | Layer 23 | Layer 24 | Layer 25 | Layer 26 | Layer 27 | Layer 28 | Layer 29 | Layer 30 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| item_01 | 0.6Not explicitly visible | 0.8Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.8Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible |\n\n\nFigure 6: Layer-wise comparison of L1 loss and attention cosine similarity between ChunkKV and discrete token-based\nmethods in Single-Document QA sub-category of LongBench.\n\nResults Analysis As shown in Figure 6, ChunkKV demonstrates superior performance across both metrics:\n\n- \u2022 KV Cache L1 Loss: ChunkKV achieves consistently lower L1 loss compared to SnapKV and H2O, particularly in the\n- early and middle layers (layers 5-25). This indicates better preservation of the original KV cache information through\n- the semantic chunk-based approach.\n\n\n- \u2022 Attention Cosine Similarity: ChunkKV exhibits higher similarity scores across most layers, with notably strong\n- performance in layers 0-5 and 20-30. This suggests better preservation of attention relationships between tokens, which\n- is crucial for maintaining semantic understanding.\n\n\nTo quantify these improvements, we calculated average metrics across all layers, as shown in Table 11. ChunkKV achieves\nboth the lowest L1 loss and highest attention cosine similarity, outperforming both baseline methods.\n\nSignificance of Results While the improvements may appear modest in absolute terms (approximately 2% in L1 loss and\n1.5% in cosine similarity), their practical significance is substantial. These metrics reflect the model\u2019s ability to maintain\ncrucial semantic relationships and attention patterns, which are essential for complex reasoning tasks. The consistent\nimprovements across different sequences demonstrate that preserving semantic chunks leads to better information retention\nthan selecting individual tokens.\n\nThe enhanced performance is particularly evident in the middle layers of the model, which are typically responsible for\nhigher-level semantic processing. This provides concrete evidence for why ChunkKV achieves superior performance on\ndownstream tasks compared to discrete token-based methods.\n\n16",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1726,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8027,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8027,
+          "y": 0.0721
+        },
+        {
+          "x": 0.1726,
+          "y": 0.0721
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# A. In-depth Analysis of ChunkKV vs. Discrete Token Methods",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0881,
+          "y": 0.084
+        },
+        {
+          "x": 0.6154,
+          "y": 0.084
+        },
+        {
+          "x": 0.6154,
+          "y": 0.1009
+        },
+        {
+          "x": 0.0881,
+          "y": 0.1009
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "A.1. Quantitative Analysis",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0878,
+          "y": 0.1103
+        },
+        {
+          "x": 0.2762,
+          "y": 0.1103
+        },
+        {
+          "x": 0.2762,
+          "y": 0.1256
+        },
+        {
+          "x": 0.0878,
+          "y": 0.1256
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "To rigorously evaluate the effectiveness of ChunkKV compared to discrete token-based methods, we conducted systematic\nexperiments using a LLaMA-3-8B-Instruct model. We randomly selected 100 sequences from the each sub-category of\nLongBench dataset and analyzed two key metrics across different model layers: KV cache L1 loss and attention cosine\nsimilarity. For each sequence, we: 1. Computed the full KV cache and attention patterns without compression as ground\ntruth. 2. Applied ChunkKV, SnapKV, and H2O compression methods with a fixed 10% compression ratio, and the parameters\nof the three methods are set the same as in Table 14. 3. Measured the differences between compressed and uncompressed\nversions.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0861,
+          "y": 0.1343
+        },
+        {
+          "x": 0.8895,
+          "y": 0.1343
+        },
+        {
+          "x": 0.8895,
+          "y": 0.2395
+        },
+        {
+          "x": 0.0861,
+          "y": 0.2395
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "chart",
+      "content": {
+        "html": "",
+        "markdown": "![image](/image/placeholder)\n- Chart Title: Layer-wise KV cache L Loss\n- X-Axis: Layer\n- Y-Axis: L Loss\n- Chart Type: line\n|  | Layer 0 | Layer 1 | Layer 2 | Layer 3 | Layer 4 | Layer 5 | Layer 6 | Layer 7 | Layer 8 | Layer 9 | Layer 10 | Layer 11 | Layer 12 | Layer 13 | Layer 14 | Layer 15 | Layer 16 | Layer 17 | Layer 18 | Layer 19 | Layer 20 | Layer 21 | Layer 22 | Layer 23 | Layer 24 | Layer 25 | Layer 26 | Layer 27 | Layer 28 | Layer 29 | Layer 30 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| item_01 | 0.6Not explicitly visible | 0.8Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.8Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible | 0.9Not explicitly visible |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0942,
+          "y": 0.2481
+        },
+        {
+          "x": 0.882,
+          "y": 0.2481
+        },
+        {
+          "x": 0.882,
+          "y": 0.5037
+        },
+        {
+          "x": 0.0942,
+          "y": 0.5037
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "Figure 6: Layer-wise comparison of L1 loss and attention cosine similarity between ChunkKV and discrete token-based\nmethods in Single-Document QA sub-category of LongBench.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0926,
+          "y": 0.5154
+        },
+        {
+          "x": 0.8836,
+          "y": 0.5154
+        },
+        {
+          "x": 0.8836,
+          "y": 0.5483
+        },
+        {
+          "x": 0.0926,
+          "y": 0.5483
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Results Analysis As shown in Figure 6, ChunkKV demonstrates superior performance across both metrics:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.5758
+        },
+        {
+          "x": 0.7953,
+          "y": 0.5758
+        },
+        {
+          "x": 0.7953,
+          "y": 0.5934
+        },
+        {
+          "x": 0.087,
+          "y": 0.5934
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 KV Cache L1 Loss: ChunkKV achieves consistently lower L1 loss compared to SnapKV and H2O, particularly in the\n- early and middle layers (layers 5-25). This indicates better preservation of the original KV cache information through\n- the semantic chunk-based approach.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1046,
+          "y": 0.613
+        },
+        {
+          "x": 0.889,
+          "y": 0.613
+        },
+        {
+          "x": 0.889,
+          "y": 0.6585
+        },
+        {
+          "x": 0.1046,
+          "y": 0.6585
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 Attention Cosine Similarity: ChunkKV exhibits higher similarity scores across most layers, with notably strong\n- performance in layers 0-5 and 20-30. This suggests better preservation of attention relationships between tokens, which\n- is crucial for maintaining semantic understanding.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1052,
+          "y": 0.6731
+        },
+        {
+          "x": 0.8891,
+          "y": 0.6731
+        },
+        {
+          "x": 0.8891,
+          "y": 0.7201
+        },
+        {
+          "x": 0.1052,
+          "y": 0.7201
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "To quantify these improvements, we calculated average metrics across all layers, as shown in Table 11. ChunkKV achieves\nboth the lowest L1 loss and highest attention cosine similarity, outperforming both baseline methods.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0866,
+          "y": 0.7408
+        },
+        {
+          "x": 0.8888,
+          "y": 0.7408
+        },
+        {
+          "x": 0.8888,
+          "y": 0.7716
+        },
+        {
+          "x": 0.0866,
+          "y": 0.7716
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Significance of Results While the improvements may appear modest in absolute terms (approximately 2% in L1 loss and\n1.5% in cosine similarity), their practical significance is substantial. These metrics reflect the model\u2019s ability to maintain\ncrucial semantic relationships and attention patterns, which are essential for complex reasoning tasks. The consistent\nimprovements across different sequences demonstrate that preserving semantic chunks leads to better information retention\nthan selecting individual tokens.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0877,
+          "y": 0.7789
+        },
+        {
+          "x": 0.8897,
+          "y": 0.7789
+        },
+        {
+          "x": 0.8897,
+          "y": 0.854
+        },
+        {
+          "x": 0.0877,
+          "y": 0.854
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The enhanced performance is particularly evident in the middle layers of the model, which are typically responsible for\nhigher-level semantic processing. This provides concrete evidence for why ChunkKV achieves superior performance on\ndownstream tasks compared to discrete token-based methods.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0872,
+          "y": 0.8621
+        },
+        {
+          "x": 0.8898,
+          "y": 0.8621
+        },
+        {
+          "x": 0.8898,
+          "y": 0.9073
+        },
+        {
+          "x": 0.0872,
+          "y": 0.9073
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "16",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4777,
+          "y": 0.924
+        },
+        {
+          "x": 0.4986,
+          "y": 0.924
+        },
+        {
+          "x": 0.4986,
+          "y": 0.9378
+        },
+        {
+          "x": 0.4777,
+          "y": 0.9378
+        }
+      ],
+      "id": 12,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

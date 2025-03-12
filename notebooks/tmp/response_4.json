@@ -1,0 +1,350 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n| Algorithm 1 ChunkKV |\n| --- |\n| Input: Q \u2208 RTq\u00d7d, K \u2208 RTk\u00d7d, V \u2208 RTv\u00d7d, observe window size w, chunk size c, compressed KV cache max length Lmax |\n| Output: Compressed KV cache K\u2032, V\u2032 |\n| Observe Window Calculation: |\n| A \u2190 QTq\u2212w:Tq KT {Attention scores for the observe window} |\n| (cid:6) Tk (cid:7) C \u2190 {Calculate the number of chunks} c |\n| Chunk Attention Score Calculation: |\n| for i = 1 to C do |\n| (cid:80)ic Ai \u2190 A:,j {Sum of observation scores j=(i\u22121)c+1 for each chunk} |\n| end for |\n| Top-K Chunk Selection: |\n| (cid:4) Lmax (cid:5) k \u2190 c |\n| Top_K_Indices \u2190 indices of Top-k chunks based on |\n| Ai Compression: |\n| K\u2032, V\u2032 \u2190 index_select(K, V, Top_K_Indices) Concatenation: |\n| concat(K\u2032 |\n| K\u2032 \u2190 0:Lmax\u2212w, KTk\u2212w:Tk ) |\n| V\u2032 \u2190 concat(V\u2032 0:Lmax\u2212w, VTv\u2212w:Tv ) |\n| K\u2032, V\u2032 |\n\n\nis the observe window, K is the Key matrix and the win-\ndow size w is usually set to {4, 8, 16, 32}. Next, the num-\n(cid:6) Tk (cid:7), where Tk is\nber of chunks C is calculated as C =\nc\nthe length of the Key matrix and c is the chunk size. The\nobservation scores for each chunk are then computed as\n(cid:80)ic\nAi = A:,j for i = 1, 2, . . . , C. Referring to\nj=(i\u22121)c+1\nprevious works (Zhang et al., 2023; Li et al., 2024; Yang\net al., 2024b; Cai et al., 2024), we still use the top-k algo-\nrithm as ChunkKV\u2019s sampling policy. For the top-k chunk\nselection, the top-k chunks are selected based on their obser-\n(cid:4) Lmax (cid:5), and Lmax is the maximum\nvation scores, where k =\nc\nlength of the compressed KV cache. The size of the last\nchunk will equal min(c, Lmax \u2212 (k \u2212 1) \u00d7 c). The indices\nof the top-k chunks will keep the original sequence order.\nIn the compression step, the key and value matrices are\nonly retained based on the selected indices, resulting in the\ncompressed KV cache. Finally, the observe window of the\noriginal KV cache will be concatenated to the compressed\nKV cache by replacing the last w tokens to keep important\ninformation. The compressed KV cache is then used for\nsubsequent attention computations.\n\n# 3.3. Layer-Wise Index Reuse\n\nFurthermore, we investigated the preserved KV cache in-\ndices by ChunkKV and found that they exhibit higher sim-\nilarity compared to previous methods. Figure 2 shows the\nlayer-wise similarity heatmaps of SnapKV and ChunkKV.\nEach cell represents the similarity between the preserved\n\n| Algorithm 2 Layer-wise Index Reuse for ChunkKV |\n| --- |\n| Input: Number of layers in LLMs Nlayers, number of reuse layers Nreuse |\n| Initialize: Dictionary to store indices Ireuse = {} |\n| for l = 0 to (Nlayers \u2212 1) do |\n| if l mod Nreuse == 0 then |\n| K\u2032 l, V\u2032 l, Il \u2190 ChunkKV(Kl, Vl) |\n| Ireuse[l] \u2190 Il |\n| else |\n| (cid:106) (cid:107) Il \u2190 Ireuse[ l \u00d7 Nreuse] Nreuse |\n|  |\n| end if |\n| K\u2032 \u2190 index_select(Kl, Il) l |\n| V\u2032 \u2190 index_select(Vl, Il) l |\n|  |\n| end for |\n\n\nKV cache indices of two layers, with deeper colors indicat-\ning higher similarity. The results demonstrate that the KV\ncache indices preserved by ChunkKV are more similar to\nthose in neighboring layers. As shown in Table 2, ChunkKV\nconsistently achieves a higher average Jaccard similarity\nbetween adjacent layers compared to SnapKV in different\nmodel architectures, indicating that the retained token in-\ndex in ChunkKV is more similar to each other. For a more\ndetailed visualization, please refer to Appendix B.1.2.\n\nTable 2: Retained KV Cache Indices Similarity of Adjacent\nLayers for Different Models.\n\n| Method | H2O | SnapKV | ChunkKV |\n| --- | --- | --- | --- |\n| LLaMA-3-8B | 25.31% | 27.95% | 57.74% |\n| Qwen2-7B | 14.91% | 16.50% | 44.26% |\n| Mistral-7B | 15.15% | 15.78% | 52.16% |\n\n\nBased on the above findings, we propose a training-free\nlayer-wise index reuse method to further reduce the ad-\nditional cost of the KV cache compression time, which\nreuses compressed token indices across multiple layers.\nThis procedure is formally described in Algorithm 2. The\nChunkKV compression process returns the compressed\nKV cache and their respective token indices, denoted as\nIl. For layer-wise index reuse, we define a grouping of\nlayers such that all Nreuse layers share the same token in-\ndices for ChunkKV. Specifically, for a group of layers\n{l, l + 1, . . . , l + Nreuse \u2212 1}, we perform ChunkKV on the\nfirst layer l to obtain the token indices Il and reuse Il for the\nsubsequent layers l+1, l+2, . . . , l+Nreuse\u22121. The notation\nKl[Il] and Vl[Il] indicates the selection of key and value\ncaches based on the indices in Il. The efficiency analysis\nfor layer-wise index reuse is provided in Appendix B.1.1.\n\nTheoretical Understanding. We provide a theoretical un-\nderstanding from the in-context learning (ICL) (Fang & Xie,\n2022) to interpret why maintaining KV cache according to a\n\n4",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1722,
+          "y": 0.0575
+        },
+        {
+          "x": 0.8026,
+          "y": 0.0575
+        },
+        {
+          "x": 0.8026,
+          "y": 0.0717
+        },
+        {
+          "x": 0.1722,
+          "y": 0.0717
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Algorithm 1 ChunkKV |\n| --- |\n| Input: Q \u2208 RTq\u00d7d, K \u2208 RTk\u00d7d, V \u2208 RTv\u00d7d, observe window size w, chunk size c, compressed KV cache max length Lmax |\n| Output: Compressed KV cache K\u2032, V\u2032 |\n| Observe Window Calculation: |\n| A \u2190 QTq\u2212w:Tq KT {Attention scores for the observe window} |\n| (cid:6) Tk (cid:7) C \u2190 {Calculate the number of chunks} c |\n| Chunk Attention Score Calculation: |\n| for i = 1 to C do |\n| (cid:80)ic Ai \u2190 A:,j {Sum of observation scores j=(i\u22121)c+1 for each chunk} |\n| end for |\n| Top-K Chunk Selection: |\n| (cid:4) Lmax (cid:5) k \u2190 c |\n| Top_K_Indices \u2190 indices of Top-k chunks based on |\n| Ai Compression: |\n| K\u2032, V\u2032 \u2190 index_select(K, V, Top_K_Indices) Concatenation: |\n| concat(K\u2032 |\n| K\u2032 \u2190 0:Lmax\u2212w, KTk\u2212w:Tk ) |\n| V\u2032 \u2190 concat(V\u2032 0:Lmax\u2212w, VTv\u2212w:Tv ) |\n| K\u2032, V\u2032 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0966,
+          "y": 0.087
+        },
+        {
+          "x": 0.4931,
+          "y": 0.087
+        },
+        {
+          "x": 0.4931,
+          "y": 0.4434
+        },
+        {
+          "x": 0.0966,
+          "y": 0.4434
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "is the observe window, K is the Key matrix and the win-\ndow size w is usually set to {4, 8, 16, 32}. Next, the num-\n(cid:6) Tk (cid:7), where Tk is\nber of chunks C is calculated as C =\nc\nthe length of the Key matrix and c is the chunk size. The\nobservation scores for each chunk are then computed as\n(cid:80)ic\nAi = A:,j for i = 1, 2, . . . , C. Referring to\nj=(i\u22121)c+1\nprevious works (Zhang et al., 2023; Li et al., 2024; Yang\net al., 2024b; Cai et al., 2024), we still use the top-k algo-\nrithm as ChunkKV\u2019s sampling policy. For the top-k chunk\nselection, the top-k chunks are selected based on their obser-\n(cid:4) Lmax (cid:5), and Lmax is the maximum\nvation scores, where k =\nc\nlength of the compressed KV cache. The size of the last\nchunk will equal min(c, Lmax \u2212 (k \u2212 1) \u00d7 c). The indices\nof the top-k chunks will keep the original sequence order.\nIn the compression step, the key and value matrices are\nonly retained based on the selected indices, resulting in the\ncompressed KV cache. Finally, the observe window of the\noriginal KV cache will be concatenated to the compressed\nKV cache by replacing the last w tokens to keep important\ninformation. The compressed KV cache is then used for\nsubsequent attention computations.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0875,
+          "y": 0.4734
+        },
+        {
+          "x": 0.4774,
+          "y": 0.4734
+        },
+        {
+          "x": 0.4774,
+          "y": 0.7912
+        },
+        {
+          "x": 0.0875,
+          "y": 0.7912
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 3.3. Layer-Wise Index Reuse",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.8077
+        },
+        {
+          "x": 0.2924,
+          "y": 0.8077
+        },
+        {
+          "x": 0.2924,
+          "y": 0.8225
+        },
+        {
+          "x": 0.0871,
+          "y": 0.8225
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Furthermore, we investigated the preserved KV cache in-\ndices by ChunkKV and found that they exhibit higher sim-\nilarity compared to previous methods. Figure 2 shows the\nlayer-wise similarity heatmaps of SnapKV and ChunkKV.\nEach cell represents the similarity between the preserved",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0885,
+          "y": 0.8315
+        },
+        {
+          "x": 0.4773,
+          "y": 0.8315
+        },
+        {
+          "x": 0.4773,
+          "y": 0.9075
+        },
+        {
+          "x": 0.0885,
+          "y": 0.9075
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Algorithm 2 Layer-wise Index Reuse for ChunkKV |\n| --- |\n| Input: Number of layers in LLMs Nlayers, number of reuse layers Nreuse |\n| Initialize: Dictionary to store indices Ireuse = {} |\n| for l = 0 to (Nlayers \u2212 1) do |\n| if l mod Nreuse == 0 then |\n| K\u2032 l, V\u2032 l, Il \u2190 ChunkKV(Kl, Vl) |\n| Ireuse[l] \u2190 Il |\n| else |\n| (cid:106) (cid:107) Il \u2190 Ireuse[ l \u00d7 Nreuse] Nreuse |\n|  |\n| end if |\n| K\u2032 \u2190 index_select(Kl, Il) l |\n| V\u2032 \u2190 index_select(Vl, Il) l |\n|  |\n| end for |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4969,
+          "y": 0.0865
+        },
+        {
+          "x": 0.8901,
+          "y": 0.0865
+        },
+        {
+          "x": 0.8901,
+          "y": 0.3003
+        },
+        {
+          "x": 0.4969,
+          "y": 0.3003
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "KV cache indices of two layers, with deeper colors indicat-\ning higher similarity. The results demonstrate that the KV\ncache indices preserved by ChunkKV are more similar to\nthose in neighboring layers. As shown in Table 2, ChunkKV\nconsistently achieves a higher average Jaccard similarity\nbetween adjacent layers compared to SnapKV in different\nmodel architectures, indicating that the retained token in-\ndex in ChunkKV is more similar to each other. For a more\ndetailed visualization, please refer to Appendix B.1.2.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5,
+          "y": 0.336
+        },
+        {
+          "x": 0.8903,
+          "y": 0.336
+        },
+        {
+          "x": 0.8903,
+          "y": 0.4727
+        },
+        {
+          "x": 0.5,
+          "y": 0.4727
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 2: Retained KV Cache Indices Similarity of Adjacent\nLayers for Different Models.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5002,
+          "y": 0.488
+        },
+        {
+          "x": 0.8885,
+          "y": 0.488
+        },
+        {
+          "x": 0.8885,
+          "y": 0.5188
+        },
+        {
+          "x": 0.5002,
+          "y": 0.5188
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Method | H2O | SnapKV | ChunkKV |\n| --- | --- | --- | --- |\n| LLaMA-3-8B | 25.31% | 27.95% | 57.74% |\n| Qwen2-7B | 14.91% | 16.50% | 44.26% |\n| Mistral-7B | 15.15% | 15.78% | 52.16% |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.538,
+          "y": 0.5318
+        },
+        {
+          "x": 0.8464,
+          "y": 0.5318
+        },
+        {
+          "x": 0.8464,
+          "y": 0.5969
+        },
+        {
+          "x": 0.538,
+          "y": 0.5969
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Based on the above findings, we propose a training-free\nlayer-wise index reuse method to further reduce the ad-\nditional cost of the KV cache compression time, which\nreuses compressed token indices across multiple layers.\nThis procedure is formally described in Algorithm 2. The\nChunkKV compression process returns the compressed\nKV cache and their respective token indices, denoted as\nIl. For layer-wise index reuse, we define a grouping of\nlayers such that all Nreuse layers share the same token in-\ndices for ChunkKV. Specifically, for a group of layers\n{l, l + 1, . . . , l + Nreuse \u2212 1}, we perform ChunkKV on the\nfirst layer l to obtain the token indices Il and reuse Il for the\nsubsequent layers l+1, l+2, . . . , l+Nreuse\u22121. The notation\nKl[Il] and Vl[Il] indicates the selection of key and value\ncaches based on the indices in Il. The efficiency analysis\nfor layer-wise index reuse is provided in Appendix B.1.1.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4999,
+          "y": 0.6131
+        },
+        {
+          "x": 0.8895,
+          "y": 0.6131
+        },
+        {
+          "x": 0.8895,
+          "y": 0.8542
+        },
+        {
+          "x": 0.4999,
+          "y": 0.8542
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Theoretical Understanding. We provide a theoretical un-\nderstanding from the in-context learning (ICL) (Fang & Xie,\n2022) to interpret why maintaining KV cache according to a",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.501,
+          "y": 0.8615
+        },
+        {
+          "x": 0.891,
+          "y": 0.8615
+        },
+        {
+          "x": 0.891,
+          "y": 0.9082
+        },
+        {
+          "x": 0.501,
+          "y": 0.9082
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "4",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4803,
+          "y": 0.9246
+        },
+        {
+          "x": 0.4942,
+          "y": 0.9246
+        },
+        {
+          "x": 0.4942,
+          "y": 0.9365
+        },
+        {
+          "x": 0.4803,
+          "y": 0.9365
+        }
+      ],
+      "id": 11,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

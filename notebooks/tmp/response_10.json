@@ -1,0 +1,462 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n365. URL https://aclanthology.org/2021.\nnaacl-main.365.\n\nDiao, S., Wang, P., Lin, Y., Pan, R., Liu, X., and Zhang,\nT. Active prompting with chain-of-thought for large lan-\nguage models. In Ku, L.-W., Martins, A., and Srikumar,\nV . (eds.), Proceedings of the 62nd Annual Meeting of\nthe Association for Computational Linguistics (Volume\n1: Long Papers), pp. 1330\u20131350, Bangkok, Thailand,\nAugust 2024. Association for Computational Linguis-\ntics. doi: 10.18653/v1/2024.acl-long.73. URL https:\n//aclanthology.org/2024.acl-long.73.\n\nFabbri, A., Li, I., She, T., Li, S., and Radev, D. Multi-news:\nA large-scale multi-document summarization dataset and\nabstractive hierarchical model. In Korhonen, A., Traum,\nD., and M\u00e0rquez, L. (eds.), Proceedings of the 57th An-\nnual Meeting of the Association for Computational Lin-\nguistics, pp. 1074\u20131084, Florence, Italy, 2019. Associ-\nation for Computational Linguistics. doi: 10.18653/v1/\nP19-1102. URL https://aclanthology.org/\nP19-1102.\n\nFang, H. and Xie, P. An end-to-end contrastive self-\nsupervised learning framework for language understand-\ning. Transactions of the Association for Computational\nLinguistics, 10:1324\u20131340, 2022. doi: 10.1162/tacl_\na_00521. URL https://aclanthology.org/\n2022.tacl-1.76/.\n\nFei, W., Niu, X., Zhou, P., Hou, L., Bai, B., Deng,\nL., and Han, W. Extending context window of large\nlanguage models via semantic compression. In Ku,\nL.-W., Martins, A., and Srikumar, V. (eds.), Find-\nings of the Association for Computational Linguistics\nACL 2024, pp. 5169\u20135181, Bangkok, Thailand and vir-\ntual meeting, August 2024. Association for Computa-\ntional Linguistics. doi: 10.18653/v1/2024.findings-acl.\n306. URL https://aclanthology.org/2024.\nfindings-acl.306.\n\nFu, Q., Cho, M., Merth, T., Mehta, S., Rastegari, M., and\nNajibi, M. LazyLLM: Dynamic token pruning for ef-\nficient long context LLM inference. In Workshop on\nEfficient Systems for Foundation Models II @ ICML2024,\n2024a. URL https://openreview.net/forum?\nid=gGZD1dsJqZ.\n\nFu, Y., Bailis, P., Stoica, I., and Zhang, H. Break the se-\nquential dependency of llm inference using lookahead\ndecoding. arXiv preprint arXiv:2402.02057, 2024b.\n\nGe, S., Zhang, Y., Liu, L., Zhang, M., Han, J., and Gao, J.\nModel tells you what to discard: Adaptive kv cache com-\npression for llms. ArXiv preprint, abs/2310.01801, 2023.\nURL https://arxiv.org/abs/2310.01801.\n\nGliwa, B., Mochol, I., Biesek, M., and Wawer, A. SAM-\nSum corpus: A human-annotated dialogue dataset for\nabstractive summarization. In Wang, L., Cheung, J. C. K.,\nCarenini, G., and Liu, F. (eds.), Proceedings of the 2nd\nWorkshop on New Frontiers in Summarization, pp. 70\u2013\n79, Hong Kong, China, 2019. Association for Computa-\ntional Linguistics. doi: 10.18653/v1/D19-5409. URL\nhttps://aclanthology.org/D19-5409.\n\nGuo, D., Xu, C., Duan, N., Yin, J., and McAuley, J. J.\nLongcoder: A long-range pre-trained language model for\ncode completion. In Krause, A., Brunskill, E., Cho, K.,\nEngelhardt, B., Sabato, S., and Scarlett, J. (eds.), Inter-\nnational Conference on Machine Learning, ICML 2023,\n23-29 July 2023, Honolulu, Hawaii, USA, volume 202 of\nProceedings of Machine Learning Research, pp. 12098\u2013\n12107. PMLR, 2023. URL https://proceedings.\nmlr.press/v202/guo23j.html.\n\nGuo, D., Yang, D., Zhang, H., Song, J., Zhang, R., Xu, R.,\nZhu, Q., Ma, S., Wang, P., Bi, X., et al. Deepseek-r1: In-\ncentivizing reasoning capability in llms via reinforcement\nlearning. arXiv preprint arXiv:2501.12948, 2025.\n\nHan, C., Wang, Q., Peng, H., Xiong, W., Chen, Y., Ji, H.,\nand Wang, S. LM-infinite: Zero-shot extreme length gen-\neralization for large language models. In Duh, K., Gomez,\nH., and Bethard, S. (eds.), Proceedings of the 2024 Con-\nference of the North American Chapter of the Association\nfor Computational Linguistics: Human Language Tech-\nnologies (Volume 1: Long Papers), pp. 3991\u20134008, Mex-\nico City, Mexico, 2024. Association for Computational\nLinguistics. URL https://aclanthology.org/\n2024.naacl-long.222.\n\nHe, W., Liu, K., Liu, J., Lyu, Y., Zhao, S., Xiao, X., Liu, Y.,\nWang, Y., Wu, H., She, Q., Liu, X., Wu, T., and Wang, H.\nDuReader: a Chinese machine reading comprehension\ndataset from real-world applications. In Choi, E., Seo, M.,\nChen, D., Jia, R., and Berant, J. (eds.), Proceedings of the\nWorkshop on Machine Reading for Question Answering,\npp. 37\u201346, Melbourne, Australia, 2018. Association for\nComputational Linguistics. doi: 10.18653/v1/W18-2605.\nURL https://aclanthology.org/W18-2605.\n\nHo, X., Duong Nguyen, A.-K., Sugawara, S., and\nAizawa, A. Constructing a multi-hop QA dataset\nfor comprehensive evaluation of reasoning steps. In\nScott, D., Bel, N., and Zong, C. (eds.), Proceed-\nings of the 28th International Conference on Compu-\ntational Linguistics, pp. 6609\u20136625, Barcelona, Spain\n(Online), 2020. International Committee on Computa-\ntional Linguistics. doi: 10.18653/v1/2020.coling-main.\n580. URL https://aclanthology.org/2020.\ncoling-main.580.\n\n10",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1725,
+          "y": 0.0574
+        },
+        {
+          "x": 0.803,
+          "y": 0.0574
+        },
+        {
+          "x": 0.803,
+          "y": 0.0722
+        },
+        {
+          "x": 0.1725,
+          "y": 0.0722
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "365. URL https://aclanthology.org/2021.\nnaacl-main.365.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1037,
+          "y": 0.0858
+        },
+        {
+          "x": 0.479,
+          "y": 0.0858
+        },
+        {
+          "x": 0.479,
+          "y": 0.1156
+        },
+        {
+          "x": 0.1037,
+          "y": 0.1156
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Diao, S., Wang, P., Lin, Y., Pan, R., Liu, X., and Zhang,\nT. Active prompting with chain-of-thought for large lan-\nguage models. In Ku, L.-W., Martins, A., and Srikumar,\nV . (eds.), Proceedings of the 62nd Annual Meeting of\nthe Association for Computational Linguistics (Volume\n1: Long Papers), pp. 1330\u20131350, Bangkok, Thailand,\nAugust 2024. Association for Computational Linguis-\ntics. doi: 10.18653/v1/2024.acl-long.73. URL https:\n//aclanthology.org/2024.acl-long.73.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0876,
+          "y": 0.1273
+        },
+        {
+          "x": 0.4795,
+          "y": 0.1273
+        },
+        {
+          "x": 0.4795,
+          "y": 0.2646
+        },
+        {
+          "x": 0.0876,
+          "y": 0.2646
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Fabbri, A., Li, I., She, T., Li, S., and Radev, D. Multi-news:\nA large-scale multi-document summarization dataset and\nabstractive hierarchical model. In Korhonen, A., Traum,\nD., and M\u00e0rquez, L. (eds.), Proceedings of the 57th An-\nnual Meeting of the Association for Computational Lin-\nguistics, pp. 1074\u20131084, Florence, Italy, 2019. Associ-\nation for Computational Linguistics. doi: 10.18653/v1/\nP19-1102. URL https://aclanthology.org/\nP19-1102.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0877,
+          "y": 0.2757
+        },
+        {
+          "x": 0.4781,
+          "y": 0.2757
+        },
+        {
+          "x": 0.4781,
+          "y": 0.4103
+        },
+        {
+          "x": 0.0877,
+          "y": 0.4103
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Fang, H. and Xie, P. An end-to-end contrastive self-\nsupervised learning framework for language understand-\ning. Transactions of the Association for Computational\nLinguistics, 10:1324\u20131340, 2022. doi: 10.1162/tacl_\na_00521. URL https://aclanthology.org/\n2022.tacl-1.76/.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0891,
+          "y": 0.4226
+        },
+        {
+          "x": 0.4782,
+          "y": 0.4226
+        },
+        {
+          "x": 0.4782,
+          "y": 0.5124
+        },
+        {
+          "x": 0.0891,
+          "y": 0.5124
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Fei, W., Niu, X., Zhou, P., Hou, L., Bai, B., Deng,\nL., and Han, W. Extending context window of large\nlanguage models via semantic compression. In Ku,\nL.-W., Martins, A., and Srikumar, V. (eds.), Find-\nings of the Association for Computational Linguistics\nACL 2024, pp. 5169\u20135181, Bangkok, Thailand and vir-\ntual meeting, August 2024. Association for Computa-\ntional Linguistics. doi: 10.18653/v1/2024.findings-acl.\n306. URL https://aclanthology.org/2024.\nfindings-acl.306.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0877,
+          "y": 0.5233
+        },
+        {
+          "x": 0.479,
+          "y": 0.5233
+        },
+        {
+          "x": 0.479,
+          "y": 0.6765
+        },
+        {
+          "x": 0.0877,
+          "y": 0.6765
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Fu, Q., Cho, M., Merth, T., Mehta, S., Rastegari, M., and\nNajibi, M. LazyLLM: Dynamic token pruning for ef-\nficient long context LLM inference. In Workshop on\nEfficient Systems for Foundation Models II @ ICML2024,\n2024a. URL https://openreview.net/forum?\nid=gGZD1dsJqZ.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0872,
+          "y": 0.6871
+        },
+        {
+          "x": 0.4778,
+          "y": 0.6871
+        },
+        {
+          "x": 0.4778,
+          "y": 0.778
+        },
+        {
+          "x": 0.0872,
+          "y": 0.778
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Fu, Y., Bailis, P., Stoica, I., and Zhang, H. Break the se-\nquential dependency of llm inference using lookahead\ndecoding. arXiv preprint arXiv:2402.02057, 2024b.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0875,
+          "y": 0.7892
+        },
+        {
+          "x": 0.4779,
+          "y": 0.7892
+        },
+        {
+          "x": 0.4779,
+          "y": 0.8353
+        },
+        {
+          "x": 0.0875,
+          "y": 0.8353
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Ge, S., Zhang, Y., Liu, L., Zhang, M., Han, J., and Gao, J.\nModel tells you what to discard: Adaptive kv cache com-\npression for llms. ArXiv preprint, abs/2310.01801, 2023.\nURL https://arxiv.org/abs/2310.01801.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0878,
+          "y": 0.8467
+        },
+        {
+          "x": 0.4785,
+          "y": 0.8467
+        },
+        {
+          "x": 0.4785,
+          "y": 0.9078
+        },
+        {
+          "x": 0.0878,
+          "y": 0.9078
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Gliwa, B., Mochol, I., Biesek, M., and Wawer, A. SAM-\nSum corpus: A human-annotated dialogue dataset for\nabstractive summarization. In Wang, L., Cheung, J. C. K.,\nCarenini, G., and Liu, F. (eds.), Proceedings of the 2nd\nWorkshop on New Frontiers in Summarization, pp. 70\u2013\n79, Hong Kong, China, 2019. Association for Computa-\ntional Linguistics. doi: 10.18653/v1/D19-5409. URL\nhttps://aclanthology.org/D19-5409.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.505,
+          "y": 0.0864
+        },
+        {
+          "x": 0.8907,
+          "y": 0.0864
+        },
+        {
+          "x": 0.8907,
+          "y": 0.2066
+        },
+        {
+          "x": 0.505,
+          "y": 0.2066
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Guo, D., Xu, C., Duan, N., Yin, J., and McAuley, J. J.\nLongcoder: A long-range pre-trained language model for\ncode completion. In Krause, A., Brunskill, E., Cho, K.,\nEngelhardt, B., Sabato, S., and Scarlett, J. (eds.), Inter-\nnational Conference on Machine Learning, ICML 2023,\n23-29 July 2023, Honolulu, Hawaii, USA, volume 202 of\nProceedings of Machine Learning Research, pp. 12098\u2013\n12107. PMLR, 2023. URL https://proceedings.\nmlr.press/v202/guo23j.html.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5,
+          "y": 0.2196
+        },
+        {
+          "x": 0.892,
+          "y": 0.2196
+        },
+        {
+          "x": 0.892,
+          "y": 0.357
+        },
+        {
+          "x": 0.5,
+          "y": 0.357
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Guo, D., Yang, D., Zhang, H., Song, J., Zhang, R., Xu, R.,\nZhu, Q., Ma, S., Wang, P., Bi, X., et al. Deepseek-r1: In-\ncentivizing reasoning capability in llms via reinforcement\nlearning. arXiv preprint arXiv:2501.12948, 2025.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4992,
+          "y": 0.3686
+        },
+        {
+          "x": 0.8914,
+          "y": 0.3686
+        },
+        {
+          "x": 0.8914,
+          "y": 0.4296
+        },
+        {
+          "x": 0.4992,
+          "y": 0.4296
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Han, C., Wang, Q., Peng, H., Xiong, W., Chen, Y., Ji, H.,\nand Wang, S. LM-infinite: Zero-shot extreme length gen-\neralization for large language models. In Duh, K., Gomez,\nH., and Bethard, S. (eds.), Proceedings of the 2024 Con-\nference of the North American Chapter of the Association\nfor Computational Linguistics: Human Language Tech-\nnologies (Volume 1: Long Papers), pp. 3991\u20134008, Mex-\nico City, Mexico, 2024. Association for Computational\nLinguistics. URL https://aclanthology.org/\n2024.naacl-long.222.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4984,
+          "y": 0.4423
+        },
+        {
+          "x": 0.8918,
+          "y": 0.4423
+        },
+        {
+          "x": 0.8918,
+          "y": 0.5938
+        },
+        {
+          "x": 0.4984,
+          "y": 0.5938
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "He, W., Liu, K., Liu, J., Lyu, Y., Zhao, S., Xiao, X., Liu, Y.,\nWang, Y., Wu, H., She, Q., Liu, X., Wu, T., and Wang, H.\nDuReader: a Chinese machine reading comprehension\ndataset from real-world applications. In Choi, E., Seo, M.,\nChen, D., Jia, R., and Berant, J. (eds.), Proceedings of the\nWorkshop on Machine Reading for Question Answering,\npp. 37\u201346, Melbourne, Australia, 2018. Association for\nComputational Linguistics. doi: 10.18653/v1/W18-2605.\nURL https://aclanthology.org/W18-2605.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4975,
+          "y": 0.6075
+        },
+        {
+          "x": 0.8915,
+          "y": 0.6075
+        },
+        {
+          "x": 0.8915,
+          "y": 0.743
+        },
+        {
+          "x": 0.4975,
+          "y": 0.743
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Ho, X., Duong Nguyen, A.-K., Sugawara, S., and\nAizawa, A. Constructing a multi-hop QA dataset\nfor comprehensive evaluation of reasoning steps. In\nScott, D., Bel, N., and Zong, C. (eds.), Proceed-\nings of the 28th International Conference on Compu-\ntational Linguistics, pp. 6609\u20136625, Barcelona, Spain\n(Online), 2020. International Committee on Computa-\ntional Linguistics. doi: 10.18653/v1/2020.coling-main.\n580. URL https://aclanthology.org/2020.\ncoling-main.580.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5017,
+          "y": 0.7564
+        },
+        {
+          "x": 0.8925,
+          "y": 0.7564
+        },
+        {
+          "x": 0.8925,
+          "y": 0.9064
+        },
+        {
+          "x": 0.5017,
+          "y": 0.9064
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "10",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4776,
+          "y": 0.9235
+        },
+        {
+          "x": 0.4984,
+          "y": 0.9235
+        },
+        {
+          "x": 0.4984,
+          "y": 0.9377
+        },
+        {
+          "x": 0.4776,
+          "y": 0.9377
+        }
+      ],
+      "id": 15,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

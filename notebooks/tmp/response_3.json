@@ -1,0 +1,490 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\nreasoning (O1 and R1) LLMs, achieving state-of-the-art\nperformance.\n\n# 2. Related Work\n\nKV Cache Compression. KV cache compression technol-\nogy has developed rapidly in the era of LLM, with meth-\nods mainly focused on evicting unimportant tokens. The\ncompression process occurs before the attention blocks, op-\ntimizing both the prefilling time and GPU memory. Xiao\net al. (2024) and Han et al. (2024) propose that initial and re-\ncent tokens consistently have high attention scores between\ndifferent layers and attention heads. As a result, retaining\nthese tokens in the KV cache is more likely to preserve im-\nportant information. Furthermore, FastGen (Ge et al., 2023)\nevicts tokens based on observed patterns. H2O (Zhang et al.,\n2023) and SnapKV (Li et al., 2024) employ dynamic KV\ncache compression methods, evaluating the importance of\ntokens based on attention scores and then evicting the less\nimportant ones. As inference scenarios become increas-\ningly complex, dynamic KV cache compression methods\ndemonstrate powerful performance. Recently, Yang et al.\n(2024b) and Cai et al. (2024) have closely examined the dis-\ntributions of attention scores during the pre-filling stage of\nthe Retrieval-Augmented Generation (RAG) task, discover-\ning a pyramidal KV cache compression pattern in different\ntransformer layers.\n\nAlthough these KV cache compression methods have ex-\nplored efficient GPU memory management while maintain-\ning original performance, our study focuses more on the\nsemantic information of the prompt. We find that chunks\nof the original KV cache are more important than discrete\ntokens.\n\nChunking Method. The chunking methodology is widely\nused in the field of NLP due to its simplicity and effective-\nness (Tjong Kim Sang & Veenstra, 1999). In the era of\nLLMs, chunking is primarily applied in data pre-processing.\nFor example, Shi et al. suggest grouping related train-\ning data into chunks to achieve better convergence curves\nto pre-train LLMs. Fei et al. (2024) apply a topic-based\nchunking method to improve the semantic compression of\nprompts. Furthermore, chunking plays an important role in\nthe Retrieval-Augmented Generation (RAG) field (Yepes\net al., 2024; Smith & Troynikov, 2024; Anthropic, 2024). It\nserves to divide documents into units of information with\nsemantic content suitable for embedding-based retrieval and\nprocessing by LLMs.\n\nLayer-Wise Technique The layer-wise technique is widely\nused in the training and inference of large language models\n(LLMs). LISA (Pan et al., 2024a) is a layer-wise sampling\nmethod based on observations of the training dynamics of\nLow-Rank Adaptation (LoRA)(Hu et al., 2022) across lay-\n\ners. LAMB(You et al., 2020) is a layer-wise adaptive learn-\ning rate method that speeds up LLM training by stabilizing\ntraining convergence with large batch sizes. DoLa (Chuang\net al., 2023) employs layer-wise contrasting to reduce hallu-\ncinations during LLM inference.\n\n# 3. ChunkKV\n\n3.1. Preliminary Study of KV Cache Compression\n\nWith the increasing long-context capabilities of LLMs, the\nKV cache has become crucial for improving inference effi-\nciency. However, it can consume significant GPU memory\nwhen handling long input contexts. The GPU memory cost\nof the KV cache for the decoding stage can be calculated as\nfollows:\n\n$$M_{K V}=2\\times B\\times S\\times L\\times N\\times D\\times2\\qquad\\qquad(1)$$\n\nwhere B is the batch size, S is the sequence length of prompt\nand decoded length, L is the number of layers, N is the num-\nber of attention heads, D is the dimension of each attention\nhead, and the first 2 accounts for the KV matrices, while\nthe last 2 accounts for the precision when using float16.\nTable E shows the configuration parameters for LLaMA-\n3-8B-Instruct (Meta, 2024). With a batch size B = 1 and\na sequence length of prompt S = 2048, the GPU mem-\nory cost of the KV cache is nearly 1 GB. If the batch size\nexceeds 24, the GPU memory cost of the KV cache will\nexceed the capacity of an RTX 4090 GPU. To address this\nissue, KV cache compression methods have been proposed,\nwith the aim of retaining only a minimal amount of KV\ncache while preserving as much information as possible.\nFor more details on the LLM configuration parameters, re-\nfer to Appendix E.\n\n3.2. Chunk Based KV Compression\n\nTo address the limitations of existing KV cache compression\nmethods, we propose ChunkKV, a novel KV cache com-\npression method that retains the most informative semantic\nchunks. The key idea behind ChunkKV is to group tokens\nin the KV cache into chunks that preserve more semantic\ninformation, such as a chunk containing a subject, verb and\nobject. As illustrated in Figure 1, ChunkKV preserves the\nchunks of the KV cache that contain more semantic infor-\nmation. First, we define a chunk as a group of tokens that\ncontain related semantic information. By retaining the most\ninformative chunks from the original KV cache, ChunkKV\ncan effectively reduce the memory usage of the KV cache\nwhile preserving essential information.\n\nThe Algorithm 1 shows the pseudocode outline of ChunkKV.\nFirst, following H2O (Zhang et al., 2023) and SnapKV (Li\net al., 2024), we set the observe window by computing the\nobservation scores A \u2190 QTq\u2212w:Tq KT , where QTq\u2212w:Tq\n\n3",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1729,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8024,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8024,
+          "y": 0.072
+        },
+        {
+          "x": 0.1729,
+          "y": 0.072
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "reasoning (O1 and R1) LLMs, achieving state-of-the-art\nperformance.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1001,
+          "y": 0.0863
+        },
+        {
+          "x": 0.476,
+          "y": 0.0863
+        },
+        {
+          "x": 0.476,
+          "y": 0.116
+        },
+        {
+          "x": 0.1001,
+          "y": 0.116
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 2. Related Work",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0868,
+          "y": 0.1352
+        },
+        {
+          "x": 0.2291,
+          "y": 0.1352
+        },
+        {
+          "x": 0.2291,
+          "y": 0.1516
+        },
+        {
+          "x": 0.0868,
+          "y": 0.1516
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "KV Cache Compression. KV cache compression technol-\nogy has developed rapidly in the era of LLM, with meth-\nods mainly focused on evicting unimportant tokens. The\ncompression process occurs before the attention blocks, op-\ntimizing both the prefilling time and GPU memory. Xiao\net al. (2024) and Han et al. (2024) propose that initial and re-\ncent tokens consistently have high attention scores between\ndifferent layers and attention heads. As a result, retaining\nthese tokens in the KV cache is more likely to preserve im-\nportant information. Furthermore, FastGen (Ge et al., 2023)\nevicts tokens based on observed patterns. H2O (Zhang et al.,\n2023) and SnapKV (Li et al., 2024) employ dynamic KV\ncache compression methods, evaluating the importance of\ntokens based on attention scores and then evicting the less\nimportant ones. As inference scenarios become increas-\ningly complex, dynamic KV cache compression methods\ndemonstrate powerful performance. Recently, Yang et al.\n(2024b) and Cai et al. (2024) have closely examined the dis-\ntributions of attention scores during the pre-filling stage of\nthe Retrieval-Augmented Generation (RAG) task, discover-\ning a pyramidal KV cache compression pattern in different\ntransformer layers.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0879,
+          "y": 0.1614
+        },
+        {
+          "x": 0.4795,
+          "y": 0.1614
+        },
+        {
+          "x": 0.4795,
+          "y": 0.4928
+        },
+        {
+          "x": 0.0879,
+          "y": 0.4928
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Although these KV cache compression methods have ex-\nplored efficient GPU memory management while maintain-\ning original performance, our study focuses more on the\nsemantic information of the prompt. We find that chunks\nof the original KV cache are more important than discrete\ntokens.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0884,
+          "y": 0.5017
+        },
+        {
+          "x": 0.4769,
+          "y": 0.5017
+        },
+        {
+          "x": 0.4769,
+          "y": 0.5912
+        },
+        {
+          "x": 0.0884,
+          "y": 0.5912
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Chunking Method. The chunking methodology is widely\nused in the field of NLP due to its simplicity and effective-\nness (Tjong Kim Sang & Veenstra, 1999). In the era of\nLLMs, chunking is primarily applied in data pre-processing.\nFor example, Shi et al. suggest grouping related train-\ning data into chunks to achieve better convergence curves\nto pre-train LLMs. Fei et al. (2024) apply a topic-based\nchunking method to improve the semantic compression of\nprompts. Furthermore, chunking plays an important role in\nthe Retrieval-Augmented Generation (RAG) field (Yepes\net al., 2024; Smith & Troynikov, 2024; Anthropic, 2024). It\nserves to divide documents into units of information with\nsemantic content suitable for embedding-based retrieval and\nprocessing by LLMs.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0883,
+          "y": 0.5994
+        },
+        {
+          "x": 0.4774,
+          "y": 0.5994
+        },
+        {
+          "x": 0.4774,
+          "y": 0.8097
+        },
+        {
+          "x": 0.0883,
+          "y": 0.8097
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Layer-Wise Technique The layer-wise technique is widely\nused in the training and inference of large language models\n(LLMs). LISA (Pan et al., 2024a) is a layer-wise sampling\nmethod based on observations of the training dynamics of\nLow-Rank Adaptation (LoRA)(Hu et al., 2022) across lay-",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0877,
+          "y": 0.8182
+        },
+        {
+          "x": 0.4765,
+          "y": 0.8182
+        },
+        {
+          "x": 0.4765,
+          "y": 0.8945
+        },
+        {
+          "x": 0.0877,
+          "y": 0.8945
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "ers. LAMB(You et al., 2020) is a layer-wise adaptive learn-\ning rate method that speeds up LLM training by stabilizing\ntraining convergence with large batch sizes. DoLa (Chuang\net al., 2023) employs layer-wise contrasting to reduce hallu-\ncinations during LLM inference.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4994,
+          "y": 0.0866
+        },
+        {
+          "x": 0.8906,
+          "y": 0.0866
+        },
+        {
+          "x": 0.8906,
+          "y": 0.1617
+        },
+        {
+          "x": 0.4994,
+          "y": 0.1617
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 3. ChunkKV",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4989,
+          "y": 0.1807
+        },
+        {
+          "x": 0.6105,
+          "y": 0.1807
+        },
+        {
+          "x": 0.6105,
+          "y": 0.1972
+        },
+        {
+          "x": 0.4989,
+          "y": 0.1972
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "3.1. Preliminary Study of KV Cache Compression",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4992,
+          "y": 0.207
+        },
+        {
+          "x": 0.8509,
+          "y": 0.207
+        },
+        {
+          "x": 0.8509,
+          "y": 0.2224
+        },
+        {
+          "x": 0.4992,
+          "y": 0.2224
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "With the increasing long-context capabilities of LLMs, the\nKV cache has become crucial for improving inference effi-\nciency. However, it can consume significant GPU memory\nwhen handling long input contexts. The GPU memory cost\nof the KV cache for the decoding stage can be calculated as\nfollows:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5006,
+          "y": 0.2304
+        },
+        {
+          "x": 0.8905,
+          "y": 0.2304
+        },
+        {
+          "x": 0.8905,
+          "y": 0.3195
+        },
+        {
+          "x": 0.5006,
+          "y": 0.3195
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$M_{K V}=2\\times B\\times S\\times L\\times N\\times D\\times2\\qquad\\qquad(1)$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5655,
+          "y": 0.3288
+        },
+        {
+          "x": 0.8876,
+          "y": 0.3288
+        },
+        {
+          "x": 0.8876,
+          "y": 0.3454
+        },
+        {
+          "x": 0.5655,
+          "y": 0.3454
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "where B is the batch size, S is the sequence length of prompt\nand decoded length, L is the number of layers, N is the num-\nber of attention heads, D is the dimension of each attention\nhead, and the first 2 accounts for the KV matrices, while\nthe last 2 accounts for the precision when using float16.\nTable E shows the configuration parameters for LLaMA-\n3-8B-Instruct (Meta, 2024). With a batch size B = 1 and\na sequence length of prompt S = 2048, the GPU mem-\nory cost of the KV cache is nearly 1 GB. If the batch size\nexceeds 24, the GPU memory cost of the KV cache will\nexceed the capacity of an RTX 4090 GPU. To address this\nissue, KV cache compression methods have been proposed,\nwith the aim of retaining only a minimal amount of KV\ncache while preserving as much information as possible.\nFor more details on the LLM configuration parameters, re-\nfer to Appendix E.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4997,
+          "y": 0.3617
+        },
+        {
+          "x": 0.8918,
+          "y": 0.3617
+        },
+        {
+          "x": 0.8918,
+          "y": 0.603
+        },
+        {
+          "x": 0.4997,
+          "y": 0.603
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "3.2. Chunk Based KV Compression",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4993,
+          "y": 0.6192
+        },
+        {
+          "x": 0.7517,
+          "y": 0.6192
+        },
+        {
+          "x": 0.7517,
+          "y": 0.6346
+        },
+        {
+          "x": 0.4993,
+          "y": 0.6346
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "To address the limitations of existing KV cache compression\nmethods, we propose ChunkKV, a novel KV cache com-\npression method that retains the most informative semantic\nchunks. The key idea behind ChunkKV is to group tokens\nin the KV cache into chunks that preserve more semantic\ninformation, such as a chunk containing a subject, verb and\nobject. As illustrated in Figure 1, ChunkKV preserves the\nchunks of the KV cache that contain more semantic infor-\nmation. First, we define a chunk as a group of tokens that\ncontain related semantic information. By retaining the most\ninformative chunks from the original KV cache, ChunkKV\ncan effectively reduce the memory usage of the KV cache\nwhile preserving essential information.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4999,
+          "y": 0.6427
+        },
+        {
+          "x": 0.8899,
+          "y": 0.6427
+        },
+        {
+          "x": 0.8899,
+          "y": 0.8386
+        },
+        {
+          "x": 0.4999,
+          "y": 0.8386
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The Algorithm 1 shows the pseudocode outline of ChunkKV.\nFirst, following H2O (Zhang et al., 2023) and SnapKV (Li\net al., 2024), we set the observe window by computing the\nobservation scores A \u2190 QTq\u2212w:Tq KT , where QTq\u2212w:Tq",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.501,
+          "y": 0.8466
+        },
+        {
+          "x": 0.8899,
+          "y": 0.8466
+        },
+        {
+          "x": 0.8899,
+          "y": 0.9087
+        },
+        {
+          "x": 0.501,
+          "y": 0.9087
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "3",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4806,
+          "y": 0.9245
+        },
+        {
+          "x": 0.4945,
+          "y": 0.9245
+        },
+        {
+          "x": 0.4945,
+          "y": 0.9372
+        },
+        {
+          "x": 0.4806,
+          "y": 0.9372
+        }
+      ],
+      "id": 16,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

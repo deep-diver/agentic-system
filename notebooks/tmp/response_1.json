@@ -1,0 +1,378 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "# ChunkKV: Semantic-Preserving KV Cache Compression for\nEfficient Long-Context LLM Inference\n\nXiang Liu 1 Zhenheng Tang 2 Peijie Dong 1 Zeyu Li 1 Bo Li 2 Xuming Hu 1 Xiaowen Chu 1\n\n# Abstract\n\nTo reduce memory costs in long-context inference\nwith Large Language Models (LLMs), many re-\ncent works focus on compressing the key-value\n(KV) cache of different tokens. However, we\nidentify that the previous KV cache compression\nmethods measure token importance individually,\nneglecting the dependency between different to-\nkens in the real-world language characterics. In\nlight of this, we introduce ChunkKV, grouping the\ntokens in a chunk as a basic compressing unit, and\nretaining the most informative semantic chunks\nwhile discarding the less important ones. Further-\nmore, observing that ChunkKV exhibits higher\nsimilarity in the preserved indices across differ-\nent layers, we propose layer-wise index reuse\nto further reduce computational overhead. We\nevaluated ChunkKV on cutting-edge long-context\nbenchmarks including LongBench and Needle-\nIn-A-HayStack, as well as the GSM8K and Jail-\nbreakV in-context learning benchmark. Our ex-\nperiments with instruction tuning and multi-step\nreasoning (O1 and R1) LLMs, achieve up to 10%\nperformance improvement under aggressive com-\npression ratios compared to existing methods.\n\n# 1. Introduction\n\n2025\nFeb\n1\n[cs.CL]\narXiv:2502.00299v1\n\nLarge Language Models (LLMs) have become essential for\naddressing various downstream tasks of natural language\nprocessing (NLP), including summarization and question\nanswering, which require the interpretation of a long con-\ntext from sources such as books, reports, and documents,\noften encompassing tens of thousands of tokens (Brown\net al., 2020; Tay et al., 2022; Touvron et al., 2023). Re-\ncent advances in long-context technology within the field of\n\n1The Hong Kong University of Science and Technol-\nogy(Guangzhou), Guangzhou, China 2The Hong Kong University\nof Science and Technology, Hong Kong, China. Correspondence\nto: Xuming Hu <xuminghu@hkust-gz.edu.cn>, Xiaowen Chu\n<xwchu@hkust-gz.edu.cn>.\n\nmachine learning (ML) systems (Dao, 2024; Jacobs et al.,\n2023; Xiao et al., 2024) have significantly enhanced com-\nputational throughputs and reduced latency of LLMs to\nprocess increasingly large input context lengths (Liu et al.,\n2024b; Young et al., 2024) with saving historical KV cache\n(key value attentions). However, the memory requirement\nof the KV cache in serving super-long contexts becomes a\nnew bottlneck (Zhang et al., 2023; Reid et al., 2024). For\ninstance, the KV cache for a single token in a 7B-parameter\nmodel requires approximately 0.5 MB of GPU memory, re-\nsulting in a 10,000-token prompt consuming around 5 GB\nof GPU memory.\n\nTo address the substantial GPU memory consumption\ncaused by KV caching, recent studies consider compressing\nthe KV cache by pruning non-important discrete parts from\nthe prompt tokens (Zhang et al., 2023; Li et al., 2024; Ge\net al., 2023; Cai et al., 2024; Fu et al., 2024a; Yang et al.,\n2024b; Liu et al., 2024e; Tang et al., 2024). H2O (Zhang\net al., 2023) and SnapKV (Li et al., 2024) have shown that\nretaining less than 50% of the discrete KV cache can signif-\nicantly reduce GPU memory usage with minimal impact on\nperformance. However, we identify that the previous KV\ncache compression methods (Zhang et al., 2023; Cai et al.,\n2024) measure token importance isolatedly, neglecting the\ndependency between different tokens in the real-world lan-\nguage characterics. For example, as shown in Figure 1,\nfocusing on token-level importance might excessively fo-\ncus on words about subjects \u201cturaco\u201d in the question while\nomitting crucial information about the objects (foods) in the\ndocuments, resulting the loss of essential semantic informa-\ntion. This motivates us to rethink the following question:\n\nHow to avoid isolated token importance measurement and\npreserve the semantic information in KV cache?\n\nIn light of this, we observe that the complete semantic in-\nformation usually appear in a continuous sequence (Fang &\nXie, 2022). Thus, we introduce a straightforward yet effec-\ntive ChunkKV, grouping the tokens in a chunk as a basic\ncompressing unit, which should be preserved or discarded\nas a whole. Thus, it retains the most informative semantic\nchunks from the original KV cache. As shown in Figure 1,\npreserving a chunk helps to catch the subject, predicate,\nand object. Furthermore, we investigate that the preserved\n\n1",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# ChunkKV: Semantic-Preserving KV Cache Compression for\nEfficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1823,
+          "y": 0.1113
+        },
+        {
+          "x": 0.7946,
+          "y": 0.1113
+        },
+        {
+          "x": 0.7946,
+          "y": 0.1555
+        },
+        {
+          "x": 0.1823,
+          "y": 0.1555
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Xiang Liu 1 Zhenheng Tang 2 Peijie Dong 1 Zeyu Li 1 Bo Li 2 Xuming Hu 1 Xiaowen Chu 1",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1568,
+          "y": 0.2
+        },
+        {
+          "x": 0.8123,
+          "y": 0.2
+        },
+        {
+          "x": 0.8123,
+          "y": 0.218
+        },
+        {
+          "x": 0.1568,
+          "y": 0.218
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# Abstract",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.2425,
+          "y": 0.2435
+        },
+        {
+          "x": 0.3212,
+          "y": 0.2435
+        },
+        {
+          "x": 0.3212,
+          "y": 0.2603
+        },
+        {
+          "x": 0.2425,
+          "y": 0.2603
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "To reduce memory costs in long-context inference\nwith Large Language Models (LLMs), many re-\ncent works focus on compressing the key-value\n(KV) cache of different tokens. However, we\nidentify that the previous KV cache compression\nmethods measure token importance individually,\nneglecting the dependency between different to-\nkens in the real-world language characterics. In\nlight of this, we introduce ChunkKV, grouping the\ntokens in a chunk as a basic compressing unit, and\nretaining the most informative semantic chunks\nwhile discarding the less important ones. Further-\nmore, observing that ChunkKV exhibits higher\nsimilarity in the preserved indices across differ-\nent layers, we propose layer-wise index reuse\nto further reduce computational overhead. We\nevaluated ChunkKV on cutting-edge long-context\nbenchmarks including LongBench and Needle-\nIn-A-HayStack, as well as the GSM8K and Jail-\nbreakV in-context learning benchmark. Our ex-\nperiments with instruction tuning and multi-step\nreasoning (O1 and R1) LLMs, achieve up to 10%\nperformance improvement under aggressive com-\npression ratios compared to existing methods.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1207,
+          "y": 0.2671
+        },
+        {
+          "x": 0.4454,
+          "y": 0.2671
+        },
+        {
+          "x": 0.4454,
+          "y": 0.6315
+        },
+        {
+          "x": 0.1207,
+          "y": 0.6315
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 1. Introduction",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.089,
+          "y": 0.6606
+        },
+        {
+          "x": 0.2184,
+          "y": 0.6606
+        },
+        {
+          "x": 0.2184,
+          "y": 0.6767
+        },
+        {
+          "x": 0.089,
+          "y": 0.6767
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "2025\nFeb\n1\n[cs.CL]\narXiv:2502.00299v1",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0252,
+          "y": 0.2756
+        },
+        {
+          "x": 0.0606,
+          "y": 0.2756
+        },
+        {
+          "x": 0.0606,
+          "y": 0.7017
+        },
+        {
+          "x": 0.0252,
+          "y": 0.7017
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Large Language Models (LLMs) have become essential for\naddressing various downstream tasks of natural language\nprocessing (NLP), including summarization and question\nanswering, which require the interpretation of a long con-\ntext from sources such as books, reports, and documents,\noften encompassing tens of thousands of tokens (Brown\net al., 2020; Tay et al., 2022; Touvron et al., 2023). Re-\ncent advances in long-context technology within the field of",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0875,
+          "y": 0.6864
+        },
+        {
+          "x": 0.4763,
+          "y": 0.6864
+        },
+        {
+          "x": 0.4763,
+          "y": 0.8071
+        },
+        {
+          "x": 0.0875,
+          "y": 0.8071
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "footnote",
+      "content": {
+        "html": "",
+        "markdown": "1The Hong Kong University of Science and Technol-\nogy(Guangzhou), Guangzhou, China 2The Hong Kong University\nof Science and Technology, Hong Kong, China. Correspondence\nto: Xuming Hu <xuminghu@hkust-gz.edu.cn>, Xiaowen Chu\n<xwchu@hkust-gz.edu.cn>.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0881,
+          "y": 0.8167
+        },
+        {
+          "x": 0.4771,
+          "y": 0.8167
+        },
+        {
+          "x": 0.4771,
+          "y": 0.8808
+        },
+        {
+          "x": 0.0881,
+          "y": 0.8808
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "machine learning (ML) systems (Dao, 2024; Jacobs et al.,\n2023; Xiao et al., 2024) have significantly enhanced com-\nputational throughputs and reduced latency of LLMs to\nprocess increasingly large input context lengths (Liu et al.,\n2024b; Young et al., 2024) with saving historical KV cache\n(key value attentions). However, the memory requirement\nof the KV cache in serving super-long contexts becomes a\nnew bottlneck (Zhang et al., 2023; Reid et al., 2024). For\ninstance, the KV cache for a single token in a 7B-parameter\nmodel requires approximately 0.5 MB of GPU memory, re-\nsulting in a 10,000-token prompt consuming around 5 GB\nof GPU memory.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4995,
+          "y": 0.245
+        },
+        {
+          "x": 0.8905,
+          "y": 0.245
+        },
+        {
+          "x": 0.8905,
+          "y": 0.4262
+        },
+        {
+          "x": 0.4995,
+          "y": 0.4262
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "To address the substantial GPU memory consumption\ncaused by KV caching, recent studies consider compressing\nthe KV cache by pruning non-important discrete parts from\nthe prompt tokens (Zhang et al., 2023; Li et al., 2024; Ge\net al., 2023; Cai et al., 2024; Fu et al., 2024a; Yang et al.,\n2024b; Liu et al., 2024e; Tang et al., 2024). H2O (Zhang\net al., 2023) and SnapKV (Li et al., 2024) have shown that\nretaining less than 50% of the discrete KV cache can signif-\nicantly reduce GPU memory usage with minimal impact on\nperformance. However, we identify that the previous KV\ncache compression methods (Zhang et al., 2023; Cai et al.,\n2024) measure token importance isolatedly, neglecting the\ndependency between different tokens in the real-world lan-\nguage characterics. For example, as shown in Figure 1,\nfocusing on token-level importance might excessively fo-\ncus on words about subjects \u201cturaco\u201d in the question while\nomitting crucial information about the objects (foods) in the\ndocuments, resulting the loss of essential semantic informa-\ntion. This motivates us to rethink the following question:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4997,
+          "y": 0.4349
+        },
+        {
+          "x": 0.8913,
+          "y": 0.4349
+        },
+        {
+          "x": 0.8913,
+          "y": 0.72
+        },
+        {
+          "x": 0.4997,
+          "y": 0.72
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "How to avoid isolated token importance measurement and\npreserve the semantic information in KV cache?",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4999,
+          "y": 0.7291
+        },
+        {
+          "x": 0.8894,
+          "y": 0.7291
+        },
+        {
+          "x": 0.8894,
+          "y": 0.7587
+        },
+        {
+          "x": 0.4999,
+          "y": 0.7587
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "In light of this, we observe that the complete semantic in-\nformation usually appear in a continuous sequence (Fang &\nXie, 2022). Thus, we introduce a straightforward yet effec-\ntive ChunkKV, grouping the tokens in a chunk as a basic\ncompressing unit, which should be preserved or discarded\nas a whole. Thus, it retains the most informative semantic\nchunks from the original KV cache. As shown in Figure 1,\npreserving a chunk helps to catch the subject, predicate,\nand object. Furthermore, we investigate that the preserved",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4998,
+          "y": 0.7666
+        },
+        {
+          "x": 0.8915,
+          "y": 0.7666
+        },
+        {
+          "x": 0.8915,
+          "y": 0.9024
+        },
+        {
+          "x": 0.4998,
+          "y": 0.9024
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "1",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4822,
+          "y": 0.9244
+        },
+        {
+          "x": 0.4922,
+          "y": 0.9244
+        },
+        {
+          "x": 0.4922,
+          "y": 0.9371
+        },
+        {
+          "x": 0.4822,
+          "y": 0.9371
+        }
+      ],
+      "id": 12,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

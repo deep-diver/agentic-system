@@ -1,0 +1,266 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n![image](/image/placeholder)\n- Chart Title: Mistral-7B-Instruct with SnapKV\n- Y-Axis: Layer\n- Chart Type: line\n|  | top_chart | second_chart | bottom_chart |\n| --- | --- | --- | --- |\n| item_01 | 0.8No units explicitly mentioned | 0.6No units explicitly mentioned | 0.4No units explicitly mentioned |\n\n\nFigure 11: Layer-wise similarity heatmaps of the preserved KV cache indices by SnapKV on Mistral-7B-Instruct\n\nMistral-7B-Instruct with ChunkKV\n\n![image](/image/placeholder)\n- Chart Title: Mistral-/B-Instruct with ChuckV\n- X-Axis: Layer\n- Y-Axis: Layer\n- Chart Type: line\n|  | top_graph | middle_graph | bottom_graph |\n| --- | --- | --- | --- |\n| item_01 | 0.27 | 0.31 | 0.26 |\n\n\nFigure 12: Layer-wise similarity heatmaps of the preserved KV cache indices by ChunkKV on Mistral-7B-Instruct\n\nB.1.3. INDEX REUSE PERFORMANCE\n\nFigure 16 illustrates the performance of ChunkKV with varying index reuse layers on the GSM8K benchmark. The\nexperiment reveals that math problems are more sensitive to index reuse layers compared to LongBench. Both LLaMA3-8B-\n\n22",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1711,
+          "y": 0.0576
+        },
+        {
+          "x": 0.8039,
+          "y": 0.0576
+        },
+        {
+          "x": 0.8039,
+          "y": 0.0718
+        },
+        {
+          "x": 0.1711,
+          "y": 0.0718
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "chart",
+      "content": {
+        "html": "",
+        "markdown": "![image](/image/placeholder)\n- Chart Title: Mistral-7B-Instruct with SnapKV\n- Y-Axis: Layer\n- Chart Type: line\n|  | top_chart | second_chart | bottom_chart |\n| --- | --- | --- | --- |\n| item_01 | 0.8No units explicitly mentioned | 0.6No units explicitly mentioned | 0.4No units explicitly mentioned |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.2436,
+          "y": 0.0825
+        },
+        {
+          "x": 0.7633,
+          "y": 0.0825
+        },
+        {
+          "x": 0.7633,
+          "y": 0.4149
+        },
+        {
+          "x": 0.2436,
+          "y": 0.4149
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 11: Layer-wise similarity heatmaps of the preserved KV cache indices by SnapKV on Mistral-7B-Instruct",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1155,
+          "y": 0.4326
+        },
+        {
+          "x": 0.8611,
+          "y": 0.4326
+        },
+        {
+          "x": 0.8611,
+          "y": 0.4491
+        },
+        {
+          "x": 0.1155,
+          "y": 0.4491
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Mistral-7B-Instruct with ChunkKV",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.36,
+          "y": 0.4635
+        },
+        {
+          "x": 0.5827,
+          "y": 0.4635
+        },
+        {
+          "x": 0.5827,
+          "y": 0.4757
+        },
+        {
+          "x": 0.36,
+          "y": 0.4757
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "chart",
+      "content": {
+        "html": "",
+        "markdown": "![image](/image/placeholder)\n- Chart Title: Mistral-/B-Instruct with ChuckV\n- X-Axis: Layer\n- Y-Axis: Layer\n- Chart Type: line\n|  | top_graph | middle_graph | bottom_graph |\n| --- | --- | --- | --- |\n| item_01 | 0.27 | 0.31 | 0.26 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.2494,
+          "y": 0.4685
+        },
+        {
+          "x": 0.7409,
+          "y": 0.4685
+        },
+        {
+          "x": 0.7409,
+          "y": 0.7973
+        },
+        {
+          "x": 0.2494,
+          "y": 0.7973
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 12: Layer-wise similarity heatmaps of the preserved KV cache indices by ChunkKV on Mistral-7B-Instruct",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1089,
+          "y": 0.8114
+        },
+        {
+          "x": 0.8655,
+          "y": 0.8114
+        },
+        {
+          "x": 0.8655,
+          "y": 0.8285
+        },
+        {
+          "x": 0.1089,
+          "y": 0.8285
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "B.1.3. INDEX REUSE PERFORMANCE",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0872,
+          "y": 0.8527
+        },
+        {
+          "x": 0.3501,
+          "y": 0.8527
+        },
+        {
+          "x": 0.3501,
+          "y": 0.8684
+        },
+        {
+          "x": 0.0872,
+          "y": 0.8684
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 16 illustrates the performance of ChunkKV with varying index reuse layers on the GSM8K benchmark. The\nexperiment reveals that math problems are more sensitive to index reuse layers compared to LongBench. Both LLaMA3-8B-",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.8768
+        },
+        {
+          "x": 0.8916,
+          "y": 0.8768
+        },
+        {
+          "x": 0.8916,
+          "y": 0.908
+        },
+        {
+          "x": 0.087,
+          "y": 0.908
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "22",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4765,
+          "y": 0.9237
+        },
+        {
+          "x": 0.4985,
+          "y": 0.9237
+        },
+        {
+          "x": 0.4985,
+          "y": 0.9371
+        },
+        {
+          "x": 0.4765,
+          "y": 0.9371
+        }
+      ],
+      "id": 8,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

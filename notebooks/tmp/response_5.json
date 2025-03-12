@@ -1,0 +1,378 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n![image](/image/placeholder)\nSnapKV ChunkKV \n0 0 \n1 1 \n2 2 \n3 3 1.0 \n4 4 \n5 5 \n6 6 \n7 7 \n8 8 \n0.8 \n9 9 \n10 10 \n11 11 \n12 12 \n13 13 \n0.6 \n14 14 \nLayer 16 16 \n15 15 \n17 17 \n18 18 \n19 19 0.4 \n20 20 \n21 21 \n22 22 \n23 23 \n24 24 \n0.2 \n25 25 \n26 26 \n27 27 \n28 28 \n29 29 \n30 30 \n31 31 \n0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 \nLayer Layer \n\n\nFigure 2: Layer-wise similarity heatmaps of the preserved KV cache indices by SnapKV (left) and ChunkKV (right) on\nLLaMA-3-8B-Instruct.\n\ncontinuous sequence in ChunkKV is better than according to\nsparse tokens. Informally speaking, the continuously chunk-\nlevel KV cache preserves the whole examples (semantic\ninformation) in ICL, thus reducing the requirement on dis-\ntinguishability, i.e lower bound of KL divergence between\nthe example and the question (Equation 4 in Condition 2).\nThe complete analysis is provided in Appendix C.\n\n# 4. Experiment Results\n\nIn this section, we conduct experiments to evaluate the ef-\nfectiveness of ChunkKV on KV cache compression in two\nbenchmark fields, with a chunk size set to 10 even for vari-\nous model architectures. The first is the In-Context Learn-\ning benchmark, for which we select GSM8K (Cobbe et al.,\n2021) and Jailbreakv (Luo et al., 2024) to evaluate the perfor-\nmance of ChunkKV, furthermore we also include multi-step\nreasoning LLM DeepSeek-R1-Distill-Llama-8B (Guo et al.,\n2025) to evaluate the performance of ChunkKV. The In-\nContext Learning scenario is a crucial capability for LLMs\nand has been adapted in many powerful technologies such as\nChain-of-Thought (Wei et al., 2022; Diao et al., 2024; Pan\net al., 2024b). The second is the Long-Context benchmark,\nwhich includes LongBench (Bai et al., 2024) and Needle-In-\nA-HayStack (NIAH) (Kamradt, 2023), both widely used for\nassessing KV cache compression methods. All experiments\nwere conducted three times, using the mean score to ensure\nrobustness.\n\n4.1. In-Context Learning\n\nThe In-Context Learning (ICL) ability significantly en-\nhances the impact of prompts on large language models\n(LLMs). For example, the Chain-of-Thought approach (Wei\n\net al., 2022) increases the accuracy of the GSM8K of the\nPaLM model (Chowdhery et al., 2022) from 18% to 57%\nwithout additional training. In this section, we evaluate\nthe performance of ChunkKV on the GSM8K, Many-Shot\nGSM8K (Agarwal et al., 2024), and JailbreakV (Luo et al.,\n2024) benchmarks.\n\nTable 3: GSM8K Performance Comparison.\n\n| Ratio | StreamingLLM | H2O | SnapKV | PyramidKV | ChunkKV (Ours) |\n| --- | --- | --- | --- | --- | --- |\n| DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 |\n| 10% | 51.6% | 55.6% | 57.6% | 62.6% | 65.7% |\n| LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 |\n| 30% | 70.5% | 72.2% | 76.1% | 77.1% | 77.3% |\n| 20% | 63.8% | 64.0% | 68.8% | 71.4% | 77.6% |\n| 10% | 47.8% | 45.0% | 50.3% | 48.2% | 65.7% |\n| LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 |\n| 30% | 70.6% | 73.6% | 70.2% | 68.2% | 74.6% |\n| Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 |\n| 30% | 70.8% | 61.2% | 70.8% | 64.7% | 73.5% |\n\n\nGSM8K In the in-context learning scenario, we\nevaluated multiple KV cache compression methods\nfor GSM8K (Cobbe et al., 2021), which contains\nmore than 1,000 arithmetic questions on LLaMA-3-8B-\nInstruct, LLaMA-3.1-8B-Instruct (Meta, 2024), Qwen2-\n7B-Instruct (Yang et al., 2024a) and DeepSeek-R1-Distill-\nLlama-8B (Guo et al., 2025). Follow the Agarwal et al.\n(2024), we consider many-shot GSM8K as a long-context\nreasoning scenario, which is a more challenging task than\nLongBench (Bai et al., 2024). The CoT prompt settings\nfor this experiment are the same as those used by Wei et al.\n(2022), for many-shot GSM8K we set the number of shots\nto 50, which the prompt length is more than 4k tokens.\n\n5",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1711,
+          "y": 0.0576
+        },
+        {
+          "x": 0.8041,
+          "y": 0.0576
+        },
+        {
+          "x": 0.8041,
+          "y": 0.0719
+        },
+        {
+          "x": 0.1711,
+          "y": 0.0719
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "figure",
+      "content": {
+        "html": "",
+        "markdown": "![image](/image/placeholder)\nSnapKV ChunkKV \n0 0 \n1 1 \n2 2 \n3 3 1.0 \n4 4 \n5 5 \n6 6 \n7 7 \n8 8 \n0.8 \n9 9 \n10 10 \n11 11 \n12 12 \n13 13 \n0.6 \n14 14 \nLayer 16 16 \n15 15 \n17 17 \n18 18 \n19 19 0.4 \n20 20 \n21 21 \n22 22 \n23 23 \n24 24 \n0.2 \n25 25 \n26 26 \n27 27 \n28 28 \n29 29 \n30 30 \n31 31 \n0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 \nLayer Layer \n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0957,
+          "y": 0.0678
+        },
+        {
+          "x": 0.8915,
+          "y": 0.0678
+        },
+        {
+          "x": 0.8915,
+          "y": 0.3201
+        },
+        {
+          "x": 0.0957,
+          "y": 0.3201
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 2: Layer-wise similarity heatmaps of the preserved KV cache indices by SnapKV (left) and ChunkKV (right) on\nLLaMA-3-8B-Instruct.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.086,
+          "y": 0.3299
+        },
+        {
+          "x": 0.8895,
+          "y": 0.3299
+        },
+        {
+          "x": 0.8895,
+          "y": 0.3614
+        },
+        {
+          "x": 0.086,
+          "y": 0.3614
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "continuous sequence in ChunkKV is better than according to\nsparse tokens. Informally speaking, the continuously chunk-\nlevel KV cache preserves the whole examples (semantic\ninformation) in ICL, thus reducing the requirement on dis-\ntinguishability, i.e lower bound of KL divergence between\nthe example and the question (Equation 4 in Condition 2).\nThe complete analysis is provided in Appendix C.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0873,
+          "y": 0.3873
+        },
+        {
+          "x": 0.4771,
+          "y": 0.3873
+        },
+        {
+          "x": 0.4771,
+          "y": 0.4951
+        },
+        {
+          "x": 0.0873,
+          "y": 0.4951
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 4. Experiment Results",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.5132
+        },
+        {
+          "x": 0.2777,
+          "y": 0.5132
+        },
+        {
+          "x": 0.2777,
+          "y": 0.5303
+        },
+        {
+          "x": 0.087,
+          "y": 0.5303
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "In this section, we conduct experiments to evaluate the ef-\nfectiveness of ChunkKV on KV cache compression in two\nbenchmark fields, with a chunk size set to 10 even for vari-\nous model architectures. The first is the In-Context Learn-\ning benchmark, for which we select GSM8K (Cobbe et al.,\n2021) and Jailbreakv (Luo et al., 2024) to evaluate the perfor-\nmance of ChunkKV, furthermore we also include multi-step\nreasoning LLM DeepSeek-R1-Distill-Llama-8B (Guo et al.,\n2025) to evaluate the performance of ChunkKV. The In-\nContext Learning scenario is a crucial capability for LLMs\nand has been adapted in many powerful technologies such as\nChain-of-Thought (Wei et al., 2022; Diao et al., 2024; Pan\net al., 2024b). The second is the Long-Context benchmark,\nwhich includes LongBench (Bai et al., 2024) and Needle-In-\nA-HayStack (NIAH) (Kamradt, 2023), both widely used for\nassessing KV cache compression methods. All experiments\nwere conducted three times, using the mean score to ensure\nrobustness.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0879,
+          "y": 0.5394
+        },
+        {
+          "x": 0.4782,
+          "y": 0.5394
+        },
+        {
+          "x": 0.4782,
+          "y": 0.811
+        },
+        {
+          "x": 0.0879,
+          "y": 0.811
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "4.1. In-Context Learning",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0867,
+          "y": 0.8275
+        },
+        {
+          "x": 0.2666,
+          "y": 0.8275
+        },
+        {
+          "x": 0.2666,
+          "y": 0.8433
+        },
+        {
+          "x": 0.0867,
+          "y": 0.8433
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The In-Context Learning (ICL) ability significantly en-\nhances the impact of prompts on large language models\n(LLMs). For example, the Chain-of-Thought approach (Wei",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0879,
+          "y": 0.8512
+        },
+        {
+          "x": 0.476,
+          "y": 0.8512
+        },
+        {
+          "x": 0.476,
+          "y": 0.8977
+        },
+        {
+          "x": 0.0879,
+          "y": 0.8977
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "et al., 2022) increases the accuracy of the GSM8K of the\nPaLM model (Chowdhery et al., 2022) from 18% to 57%\nwithout additional training. In this section, we evaluate\nthe performance of ChunkKV on the GSM8K, Many-Shot\nGSM8K (Agarwal et al., 2024), and JailbreakV (Luo et al.,\n2024) benchmarks.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4999,
+          "y": 0.3872
+        },
+        {
+          "x": 0.8913,
+          "y": 0.3872
+        },
+        {
+          "x": 0.8913,
+          "y": 0.4785
+        },
+        {
+          "x": 0.4999,
+          "y": 0.4785
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "Table 3: GSM8K Performance Comparison.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.545,
+          "y": 0.4895
+        },
+        {
+          "x": 0.8384,
+          "y": 0.4895
+        },
+        {
+          "x": 0.8384,
+          "y": 0.5064
+        },
+        {
+          "x": 0.545,
+          "y": 0.5064
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Ratio | StreamingLLM | H2O | SnapKV | PyramidKV | ChunkKV (Ours) |\n| --- | --- | --- | --- | --- | --- |\n| DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 69.4% \u2191 |\n| 10% | 51.6% | 55.6% | 57.6% | 62.6% | 65.7% |\n| LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 79.5% \u2191 |\n| 30% | 70.5% | 72.2% | 76.1% | 77.1% | 77.3% |\n| 20% | 63.8% | 64.0% | 68.8% | 71.4% | 77.6% |\n| 10% | 47.8% | 45.0% | 50.3% | 48.2% | 65.7% |\n| LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 | LlaMa-3-8B-Instruct FullKV: 76.8% \u2191 |\n| 30% | 70.6% | 73.6% | 70.2% | 68.2% | 74.6% |\n| Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 | Qwen2-7B-Instruct FullKV: 71.1% \u2191 |\n| 30% | 70.8% | 61.2% | 70.8% | 64.7% | 73.5% |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5054,
+          "y": 0.5191
+        },
+        {
+          "x": 0.8852,
+          "y": 0.5191
+        },
+        {
+          "x": 0.8852,
+          "y": 0.6995
+        },
+        {
+          "x": 0.5054,
+          "y": 0.6995
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "GSM8K In the in-context learning scenario, we\nevaluated multiple KV cache compression methods\nfor GSM8K (Cobbe et al., 2021), which contains\nmore than 1,000 arithmetic questions on LLaMA-3-8B-\nInstruct, LLaMA-3.1-8B-Instruct (Meta, 2024), Qwen2-\n7B-Instruct (Yang et al., 2024a) and DeepSeek-R1-Distill-\nLlama-8B (Guo et al., 2025). Follow the Agarwal et al.\n(2024), we consider many-shot GSM8K as a long-context\nreasoning scenario, which is a more challenging task than\nLongBench (Bai et al., 2024). The CoT prompt settings\nfor this experiment are the same as those used by Wei et al.\n(2022), for many-shot GSM8K we set the number of shots\nto 50, which the prompt length is more than 4k tokens.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4999,
+          "y": 0.7117
+        },
+        {
+          "x": 0.8903,
+          "y": 0.7117
+        },
+        {
+          "x": 0.8903,
+          "y": 0.9086
+        },
+        {
+          "x": 0.4999,
+          "y": 0.9086
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "5",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4805,
+          "y": 0.924
+        },
+        {
+          "x": 0.4946,
+          "y": 0.924
+        },
+        {
+          "x": 0.4946,
+          "y": 0.9376
+        },
+        {
+          "x": 0.4805,
+          "y": 0.9376
+        }
+      ],
+      "id": 12,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

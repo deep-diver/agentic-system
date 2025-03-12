@@ -1,0 +1,546 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\nTable 11: Detailed comparison of KV cache metrics across different task categories in LongBench.\n\n| Method | Single-Document QA | Multi-Document QA | Summarization | Few-shot Learning | Synthetic & Code |\n| --- | --- | --- | --- | --- | --- |\n| KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 |\n| ChunkKV | 0.8741 | 0.8748 | 0.8770 | 0.8861 | 0.8726 |\n| SnapKV | 0.8921 | 0.8933 | 0.8930 | 0.8917 | 0.8938 |\n| H2O | 0.8905 | 0.8917 | 0.8913 | 0.8906 | 0.8915 |\n| Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 |\n| ChunkKV | 0.3567 | 0.3651 | 0.3841 | 0.4330 | 0.3805 |\n| SnapKV | 0.3513 | 0.3594 | 0.3771 | 0.4305 | 0.3759 |\n| H2O | 0.3491 | 0.3572 | 0.3750 | 0.4284 | 0.3740 |\n\n\nA.2. Hypothetical Scenario\n\nTo provide a deeper understanding of ChunkKV\u2019s effectiveness compared to discrete token-based methods, we present a\ndetailed analysis using a hypothetical scenario. This analysis aims to illustrate the fundamental differences between these\napproaches and explain why ChunkKV is more effective at preserving semantic information in long contexts.\n\nConsider a comprehensive document that contains detailed information on various animals, including their habitats, diets,\nand behaviors. A user asks the question \"What do pandas eat in the wild?\"\n\nBoth ChunkKV and discrete token-based methods would use this question to calculate observation scores for the document.\nHowever, their approaches to selecting and retaining information differ significantly.\n\nA.2.1. DISCRETE TOKEN-BASED METHOD\n\nA discrete token-based method might identify and retain individual tokens with high relevance scores, such as:\n\n\u2022 \u201cpandas\",\u201ceat\", \u201cbamboo\", \u201cwild\", \u201cdiet\", \u201cfood\"\n\nAlthough these tokens are relevant, they lack context and coherence. The method might discard other essential tokens that\nprovide crucial context or complete the information.\n\nA.2.2. CHUNKKV METHOD\n\nIn contrast, ChunkKV would identify and retain semantically meaningful chunks, such as:\n\n- \u2022 \u201cIn the wild, pandas primarily eat bamboo shoots and leaves\"\n- \u2022 \u201cTheir diet consists of 99% bamboo, but they occasionally consume other vegetation\"\n- \u2022 \u201cWild pandas may also eat small rodents or birds when available\"\n\n\nBy preserving these chunks, ChunkKV maintains not only the relevant keywords but also their contextual relationships and\nadditional pertinent information.\n\nA.3. Comparative Analysis\n\nThe advantages of ChunkKV become evident when we consider how these retained pieces of information would be used in\nsubsequent processing:\n\n1. Contextual Understanding: Discrete tokens require the model to reconstruct meaning from isolated words, which\ncould lead to ambiguity. ChunkKV provides complete phrases or sentences, allowing for immediate and accurate\ncomprehension.\n\n17",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1723,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8025,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8025,
+          "y": 0.0723
+        },
+        {
+          "x": 0.1723,
+          "y": 0.0723
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 11: Detailed comparison of KV cache metrics across different task categories in LongBench.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1613,
+          "y": 0.0836
+        },
+        {
+          "x": 0.8088,
+          "y": 0.0836
+        },
+        {
+          "x": 0.8088,
+          "y": 0.0999
+        },
+        {
+          "x": 0.1613,
+          "y": 0.0999
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Method | Single-Document QA | Multi-Document QA | Summarization | Few-shot Learning | Synthetic & Code |\n| --- | --- | --- | --- | --- | --- |\n| KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 | KV Cache L1 Loss \u2193 |\n| ChunkKV | 0.8741 | 0.8748 | 0.8770 | 0.8861 | 0.8726 |\n| SnapKV | 0.8921 | 0.8933 | 0.8930 | 0.8917 | 0.8938 |\n| H2O | 0.8905 | 0.8917 | 0.8913 | 0.8906 | 0.8915 |\n| Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 | Attention Score Cosine Similarity \u2191 |\n| ChunkKV | 0.3567 | 0.3651 | 0.3841 | 0.4330 | 0.3805 |\n| SnapKV | 0.3513 | 0.3594 | 0.3771 | 0.4305 | 0.3759 |\n| H2O | 0.3491 | 0.3572 | 0.3750 | 0.4284 | 0.3740 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1672,
+          "y": 0.1118
+        },
+        {
+          "x": 0.8077,
+          "y": 0.1118
+        },
+        {
+          "x": 0.8077,
+          "y": 0.2983
+        },
+        {
+          "x": 0.1672,
+          "y": 0.2983
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "A.2. Hypothetical Scenario",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0875,
+          "y": 0.3218
+        },
+        {
+          "x": 0.2797,
+          "y": 0.3218
+        },
+        {
+          "x": 0.2797,
+          "y": 0.3383
+        },
+        {
+          "x": 0.0875,
+          "y": 0.3383
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "To provide a deeper understanding of ChunkKV\u2019s effectiveness compared to discrete token-based methods, we present a\ndetailed analysis using a hypothetical scenario. This analysis aims to illustrate the fundamental differences between these\napproaches and explain why ChunkKV is more effective at preserving semantic information in long contexts.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.3461
+        },
+        {
+          "x": 0.8898,
+          "y": 0.3461
+        },
+        {
+          "x": 0.8898,
+          "y": 0.3921
+        },
+        {
+          "x": 0.0871,
+          "y": 0.3921
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Consider a comprehensive document that contains detailed information on various animals, including their habitats, diets,\nand behaviors. A user asks the question \"What do pandas eat in the wild?\"",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0873,
+          "y": 0.3985
+        },
+        {
+          "x": 0.8901,
+          "y": 0.3985
+        },
+        {
+          "x": 0.8901,
+          "y": 0.4287
+        },
+        {
+          "x": 0.0873,
+          "y": 0.4287
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Both ChunkKV and discrete token-based methods would use this question to calculate observation scores for the document.\nHowever, their approaches to selecting and retaining information differ significantly.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0877,
+          "y": 0.4362
+        },
+        {
+          "x": 0.8906,
+          "y": 0.4362
+        },
+        {
+          "x": 0.8906,
+          "y": 0.467
+        },
+        {
+          "x": 0.0877,
+          "y": 0.467
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "A.2.1. DISCRETE TOKEN-BASED METHOD",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0874,
+          "y": 0.4807
+        },
+        {
+          "x": 0.3871,
+          "y": 0.4807
+        },
+        {
+          "x": 0.3871,
+          "y": 0.496
+        },
+        {
+          "x": 0.0874,
+          "y": 0.496
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "A discrete token-based method might identify and retain individual tokens with high relevance scores, such as:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0867,
+          "y": 0.5047
+        },
+        {
+          "x": 0.8128,
+          "y": 0.5047
+        },
+        {
+          "x": 0.8128,
+          "y": 0.5206
+        },
+        {
+          "x": 0.0867,
+          "y": 0.5206
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "\u2022 \u201cpandas\",\u201ceat\", \u201cbamboo\", \u201cwild\", \u201cdiet\", \u201cfood\"",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1054,
+          "y": 0.5349
+        },
+        {
+          "x": 0.4432,
+          "y": 0.5349
+        },
+        {
+          "x": 0.4432,
+          "y": 0.5516
+        },
+        {
+          "x": 0.1054,
+          "y": 0.5516
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Although these tokens are relevant, they lack context and coherence. The method might discard other essential tokens that\nprovide crucial context or complete the information.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0866,
+          "y": 0.5656
+        },
+        {
+          "x": 0.8889,
+          "y": 0.5656
+        },
+        {
+          "x": 0.8889,
+          "y": 0.5972
+        },
+        {
+          "x": 0.0866,
+          "y": 0.5972
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "A.2.2. CHUNKKV METHOD",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0875,
+          "y": 0.611
+        },
+        {
+          "x": 0.2882,
+          "y": 0.611
+        },
+        {
+          "x": 0.2882,
+          "y": 0.6262
+        },
+        {
+          "x": 0.0875,
+          "y": 0.6262
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "In contrast, ChunkKV would identify and retain semantically meaningful chunks, such as:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0872,
+          "y": 0.6347
+        },
+        {
+          "x": 0.6797,
+          "y": 0.6347
+        },
+        {
+          "x": 0.6797,
+          "y": 0.6503
+        },
+        {
+          "x": 0.0872,
+          "y": 0.6503
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 \u201cIn the wild, pandas primarily eat bamboo shoots and leaves\"\n- \u2022 \u201cTheir diet consists of 99% bamboo, but they occasionally consume other vegetation\"\n- \u2022 \u201cWild pandas may also eat small rodents or birds when available\"\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1061,
+          "y": 0.6635
+        },
+        {
+          "x": 0.6806,
+          "y": 0.6635
+        },
+        {
+          "x": 0.6806,
+          "y": 0.7296
+        },
+        {
+          "x": 0.1061,
+          "y": 0.7296
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "By preserving these chunks, ChunkKV maintains not only the relevant keywords but also their contextual relationships and\nadditional pertinent information.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0874,
+          "y": 0.7443
+        },
+        {
+          "x": 0.8898,
+          "y": 0.7443
+        },
+        {
+          "x": 0.8898,
+          "y": 0.7753
+        },
+        {
+          "x": 0.0874,
+          "y": 0.7753
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "A.3. Comparative Analysis",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0868,
+          "y": 0.7906
+        },
+        {
+          "x": 0.28,
+          "y": 0.7906
+        },
+        {
+          "x": 0.28,
+          "y": 0.8071
+        },
+        {
+          "x": 0.0868,
+          "y": 0.8071
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The advantages of ChunkKV become evident when we consider how these retained pieces of information would be used in\nsubsequent processing:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.8151
+        },
+        {
+          "x": 0.8888,
+          "y": 0.8151
+        },
+        {
+          "x": 0.8888,
+          "y": 0.8461
+        },
+        {
+          "x": 0.087,
+          "y": 0.8461
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "1. Contextual Understanding: Discrete tokens require the model to reconstruct meaning from isolated words, which\ncould lead to ambiguity. ChunkKV provides complete phrases or sentences, allowing for immediate and accurate\ncomprehension.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0994,
+          "y": 0.8616
+        },
+        {
+          "x": 0.8888,
+          "y": 0.8616
+        },
+        {
+          "x": 0.8888,
+          "y": 0.9069
+        },
+        {
+          "x": 0.0994,
+          "y": 0.9069
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "17",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4769,
+          "y": 0.9231
+        },
+        {
+          "x": 0.498,
+          "y": 0.9231
+        },
+        {
+          "x": 0.498,
+          "y": 0.9378
+        },
+        {
+          "x": 0.4769,
+          "y": 0.9378
+        }
+      ],
+      "id": 18,
+      "page": 1
+    }
+  ],
+  "model": "document-parse-250116",
+  "usage": {
+    "pages": 1
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "error": {
-    "message": "Inference failed.",
-    "type": "system_error",
-    "code": "internal_error",
-    "param": null
-  }
-}

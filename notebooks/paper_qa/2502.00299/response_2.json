@@ -1,0 +1,408 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\nQuestion: purple-crested turaco eats what food?\n\n| Discrete KV methods: \ud835\udc46\" = \ud835\udc53(\ud835\udc61\") | ChunkKV: \ud835\udc46! = \t \u2211 #\" $% \ud835\udc53 \ud835\udc61\" , \twhere\t\ud835\udc50\t = \t {\ud835\udc61%, \u2026 , \ud835\udc61#} |\n| --- | --- |\n| Discrete KV methods with a low sparsity \u2026\u2026 \u2026\u2026 purple-crested turaco \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Purple-crested turacos \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Bird \u2026\u2026 \u2026\u2026 eat \u2026\u2026 \u2026\u2026 \u2026\u2026 turacos, \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 pulp \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Turaco \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 water \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 leaves \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 nuts \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 coexist with various other animals, including those that might enjoy strawberries \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026. | ChunkKV with a low sparsity \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 After fruit consumption, they \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 porphyreolophus primarily consumes fruits \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026, \u2026\u2026 similar turacos, the purple-crested turaco have faster minimum transit times when consuming smaller seed diets than larger seed diets, \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 |\n| Discrete KV methods with a high sparsity \u2026\u2026 \u2026\u2026 purple-crested turaco \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Purple-crested turacos \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 eat \u2026\u2026 \u2026\u2026 \u2026\u2026 turacos, \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Turaco \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 coexist with various other animals, including those that might enjoy strawberries \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026. | ChunkKV with a high sparsity \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 After fruit consumption, they \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 porphyreolophus primarily consumes fruits \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026, \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026\u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 |\n\n\nFigure 1: Illustration of the impact of the token discrete method and the chunk method on semantic preservation. The\ndiscrete method preserves words related to the question but often omits the subject. In contrast, the chunk method retains the\nsubject of the words, maintaining more accurate semantic information. For the equation: S is the score function, and c is a\nchunk of tokens.\n\nTable 1: Comparison of Methods on KV Cache Compression.\n\n| Method | KV Cache Compression | Dynamic Policy | Layer-Wise Policy | Semantic Information | Efficient Index Reuse |\n| --- | --- | --- | --- | --- | --- |\n| StreamingLLM (Xiao et al., 2024) | \u2713 |  |  |  |  |\n| H2O (Zhang et al., 2023) | \u2713 | \u2713 |  |  |  |\n| SnapKV (Li et al., 2024) | \u2713 | \u2713 |  |  |  |\n| PyramidInfer (Yang et al., 2024b) | \u2713 | \u2713 | \u2713 |  |  |\n| PyramidKV (Cai et al., 2024) | \u2713 | \u2713 | \u2713 |  |  |\n| ChunkKV(Ours) | \u2713 | \u2713 | \u2713 | \u2713 | \u2713 |\n\n\nKV cache indices by ChunkKV exhibit a higher similarity\ncompared to previous methods. Consequently, we develop a\ntechnique called layer-wise index reuse, which reduces the\nadditional computational time introduced by the KV cache\ncompression method. As outlined in Table 1, recent highly\nrelevant KV cache compression methods lack the ability to\nretain semantic information and efficiently reuse indices.\n\nTo evaluate ChunkKV\u2019s performance, we conduct com-\nprehensive experiments across multiple cutting-edge long-\ncontext benchmarks: long-context tasks including Long-\nBench (Bai et al., 2024) and Needle-In-A-HayStack\n(NIAH) (Kamradt, 2023), in-context learning tasks such as\nGSM8K (Cobbe et al., 2021) and JailbreakV (Luo et al.,\n2024). And also different models including DeepSeek-\nR1-Distill-Llama-8B (Guo et al., 2025),LLaMA-3-8B-\nInstruct (Meta, 2024), Mistral-7B-Instruct (Jiang et al.,\n2023a), and Qwen2-7B-Instruct (Yang et al., 2024a). Our\nexperimental results demonstrate that ChunkKV surpasses\nexisting KV cache compression methods in both efficiency\n\nand accuracy, primarily due to its ability to preserve essen-\ntial information through selective chunk retention. These\nfindings establish ChunkKV as a simple yet effective ap-\nproach to KV cache compression.\n\nWe summarize our key contributions as follows:\n\n- \u2022 We identify the phenomenon in which discrete KV cache\n- compression methods inadvertently prune the necessary\n- semantic information.\n\n\n- \u2022 We propose ChunkKV, a simple KV cache compression\n- method that uses the fragmentation method that keeps the\n- semantic information, and propose the layer-wise index\n- reuse technique to reduce the additional computational\n- time.\n\n\n- \u2022 We evaluate ChunkKV on cutting-edge long-context\n- benchmarks including LongBench and Needle-In-A-\n- HayStack, as well as the GSM8K, many-shot GSM8K and\n- JailbreakV in-context learning benchmark, and multi-step\n\n\n2",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1721,
+          "y": 0.0576
+        },
+        {
+          "x": 0.8018,
+          "y": 0.0576
+        },
+        {
+          "x": 0.8018,
+          "y": 0.0719
+        },
+        {
+          "x": 0.1721,
+          "y": 0.0719
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Question: purple-crested turaco eats what food?",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.3131,
+          "y": 0.0904
+        },
+        {
+          "x": 0.6613,
+          "y": 0.0904
+        },
+        {
+          "x": 0.6613,
+          "y": 0.105
+        },
+        {
+          "x": 0.3131,
+          "y": 0.105
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Discrete KV methods: \ud835\udc46\" = \ud835\udc53(\ud835\udc61\") | ChunkKV: \ud835\udc46! = \t \u2211 #\" $% \ud835\udc53 \ud835\udc61\" , \twhere\t\ud835\udc50\t = \t {\ud835\udc61%, \u2026 , \ud835\udc61#} |\n| --- | --- |\n| Discrete KV methods with a low sparsity \u2026\u2026 \u2026\u2026 purple-crested turaco \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Purple-crested turacos \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Bird \u2026\u2026 \u2026\u2026 eat \u2026\u2026 \u2026\u2026 \u2026\u2026 turacos, \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 pulp \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Turaco \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 water \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 leaves \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 nuts \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 coexist with various other animals, including those that might enjoy strawberries \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026. | ChunkKV with a low sparsity \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 After fruit consumption, they \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 porphyreolophus primarily consumes fruits \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026, \u2026\u2026 similar turacos, the purple-crested turaco have faster minimum transit times when consuming smaller seed diets than larger seed diets, \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 |\n| Discrete KV methods with a high sparsity \u2026\u2026 \u2026\u2026 purple-crested turaco \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Purple-crested turacos \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 eat \u2026\u2026 \u2026\u2026 \u2026\u2026 turacos, \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 Turaco \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 coexist with various other animals, including those that might enjoy strawberries \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026. | ChunkKV with a high sparsity \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 After fruit consumption, they \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 porphyreolophus primarily consumes fruits \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026, \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026\u2026\u2026 \u2026\u2026 \u2026\u2026 \u2026\u2026 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0931,
+          "y": 0.099
+        },
+        {
+          "x": 0.881,
+          "y": 0.099
+        },
+        {
+          "x": 0.881,
+          "y": 0.3232
+        },
+        {
+          "x": 0.0931,
+          "y": 0.3232
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 1: Illustration of the impact of the token discrete method and the chunk method on semantic preservation. The\ndiscrete method preserves words related to the question but often omits the subject. In contrast, the chunk method retains the\nsubject of the words, maintaining more accurate semantic information. For the equation: S is the score function, and c is a\nchunk of tokens.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0867,
+          "y": 0.3418
+        },
+        {
+          "x": 0.8886,
+          "y": 0.3418
+        },
+        {
+          "x": 0.8886,
+          "y": 0.4025
+        },
+        {
+          "x": 0.0867,
+          "y": 0.4025
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 1: Comparison of Methods on KV Cache Compression.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.2821,
+          "y": 0.4172
+        },
+        {
+          "x": 0.6915,
+          "y": 0.4172
+        },
+        {
+          "x": 0.6915,
+          "y": 0.4339
+        },
+        {
+          "x": 0.2821,
+          "y": 0.4339
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Method | KV Cache Compression | Dynamic Policy | Layer-Wise Policy | Semantic Information | Efficient Index Reuse |\n| --- | --- | --- | --- | --- | --- |\n| StreamingLLM (Xiao et al., 2024) | \u2713 |  |  |  |  |\n| H2O (Zhang et al., 2023) | \u2713 | \u2713 |  |  |  |\n| SnapKV (Li et al., 2024) | \u2713 | \u2713 |  |  |  |\n| PyramidInfer (Yang et al., 2024b) | \u2713 | \u2713 | \u2713 |  |  |\n| PyramidKV (Cai et al., 2024) | \u2713 | \u2713 | \u2713 |  |  |\n| ChunkKV(Ours) | \u2713 | \u2713 | \u2713 | \u2713 | \u2713 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1316,
+          "y": 0.4461
+        },
+        {
+          "x": 0.8419,
+          "y": 0.4461
+        },
+        {
+          "x": 0.8419,
+          "y": 0.5753
+        },
+        {
+          "x": 0.1316,
+          "y": 0.5753
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "KV cache indices by ChunkKV exhibit a higher similarity\ncompared to previous methods. Consequently, we develop a\ntechnique called layer-wise index reuse, which reduces the\nadditional computational time introduced by the KV cache\ncompression method. As outlined in Table 1, recent highly\nrelevant KV cache compression methods lack the ability to\nretain semantic information and efficiently reuse indices.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0883,
+          "y": 0.6008
+        },
+        {
+          "x": 0.4758,
+          "y": 0.6008
+        },
+        {
+          "x": 0.4758,
+          "y": 0.7082
+        },
+        {
+          "x": 0.0883,
+          "y": 0.7082
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "To evaluate ChunkKV\u2019s performance, we conduct com-\nprehensive experiments across multiple cutting-edge long-\ncontext benchmarks: long-context tasks including Long-\nBench (Bai et al., 2024) and Needle-In-A-HayStack\n(NIAH) (Kamradt, 2023), in-context learning tasks such as\nGSM8K (Cobbe et al., 2021) and JailbreakV (Luo et al.,\n2024). And also different models including DeepSeek-\nR1-Distill-Llama-8B (Guo et al., 2025),LLaMA-3-8B-\nInstruct (Meta, 2024), Mistral-7B-Instruct (Jiang et al.,\n2023a), and Qwen2-7B-Instruct (Yang et al., 2024a). Our\nexperimental results demonstrate that ChunkKV surpasses\nexisting KV cache compression methods in both efficiency",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0879,
+          "y": 0.7161
+        },
+        {
+          "x": 0.4769,
+          "y": 0.7161
+        },
+        {
+          "x": 0.4769,
+          "y": 0.8973
+        },
+        {
+          "x": 0.0879,
+          "y": 0.8973
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "and accuracy, primarily due to its ability to preserve essen-\ntial information through selective chunk retention. These\nfindings establish ChunkKV as a simple yet effective ap-\nproach to KV cache compression.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4989,
+          "y": 0.6022
+        },
+        {
+          "x": 0.8908,
+          "y": 0.6022
+        },
+        {
+          "x": 0.8908,
+          "y": 0.6621
+        },
+        {
+          "x": 0.4989,
+          "y": 0.6621
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "We summarize our key contributions as follows:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5,
+          "y": 0.6696
+        },
+        {
+          "x": 0.8179,
+          "y": 0.6696
+        },
+        {
+          "x": 0.8179,
+          "y": 0.6849
+        },
+        {
+          "x": 0.5,
+          "y": 0.6849
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 We identify the phenomenon in which discrete KV cache\n- compression methods inadvertently prune the necessary\n- semantic information.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4992,
+          "y": 0.7024
+        },
+        {
+          "x": 0.8886,
+          "y": 0.7024
+        },
+        {
+          "x": 0.8886,
+          "y": 0.7478
+        },
+        {
+          "x": 0.4992,
+          "y": 0.7478
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 We propose ChunkKV, a simple KV cache compression\n- method that uses the fragmentation method that keeps the\n- semantic information, and propose the layer-wise index\n- reuse technique to reduce the additional computational\n- time.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4991,
+          "y": 0.7602
+        },
+        {
+          "x": 0.889,
+          "y": 0.7602
+        },
+        {
+          "x": 0.889,
+          "y": 0.8332
+        },
+        {
+          "x": 0.4991,
+          "y": 0.8332
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 We evaluate ChunkKV on cutting-edge long-context\n- benchmarks including LongBench and Needle-In-A-\n- HayStack, as well as the GSM8K, many-shot GSM8K and\n- JailbreakV in-context learning benchmark, and multi-step\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4975,
+          "y": 0.8464
+        },
+        {
+          "x": 0.8901,
+          "y": 0.8464
+        },
+        {
+          "x": 0.8901,
+          "y": 0.9074
+        },
+        {
+          "x": 0.4975,
+          "y": 0.9074
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "2",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4805,
+          "y": 0.9243
+        },
+        {
+          "x": 0.4944,
+          "y": 0.9243
+        },
+        {
+          "x": 0.4944,
+          "y": 0.9365
+        },
+        {
+          "x": 0.4805,
+          "y": 0.9365
+        }
+      ],
+      "id": 13,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250116",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

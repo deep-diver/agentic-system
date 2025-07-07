@@ -6,3 +6,7 @@ requests
 python-dotenv
 transformers
 jina2
+google-adk
+litellm
+langchain_upstage
+langgraph

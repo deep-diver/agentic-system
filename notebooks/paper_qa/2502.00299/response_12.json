@@ -1,0 +1,604 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\nLiu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua,\nM., Petroni, F., and Liang, P. Lost in the middle: How\nlanguage models use long contexts. Transactions of the\nAssociation for Computational Linguistics, 12:157\u2013173,\n2024c. doi: 10.1162/tacl_a_00638. URL https://\naclanthology.org/2024.tacl-1.9.\n\nLiu, T., Xu, C., and McAuley, J. Repobench: Benchmarking\nrepository-level code auto-completion systems. In The\nTwelfth International Conference on Learning Represen-\ntations, 2024d. URL https://openreview.net/\nforum?id=pPjZIOuQuF.\n\nLiu, Z., Desai, A., Liao, F., Wang, W., Xie, V., Xu, Z., Kyril-\nlidis, A., and Shrivastava, A. Scissorhands: Exploiting\nthe persistence of importance hypothesis for llm kv cache\ncompression at test time. Advances in Neural Information\nProcessing Systems, 36, 2024e.\n\nLuo, W., Ma, S., Liu, X., Guo, X., and Xiao, C. Jailbreakv:\nA benchmark for assessing the robustness of multimodal\nlarge language models against jailbreak attacks. In First\nConference on Language Modeling, 2024. URL https:\n//openreview.net/forum?id=GC4mXVfquq.\n\nMeta. Introducing meta llama 3: The most capable openly\navailable llm to date. https://ai.meta.com/\nblog/meta-llama-3/, 2024. Accessed: 2024-06-\n07.\n\nMohtashami, A. and Jaggi, M. Landmark attention:\nRandom-access infinite context length for transformers.\nArXiv preprint, abs/2305.16300, 2023. URL https:\n//arxiv.org/abs/2305.16300.\n\nOpenAI. Gpt-4o-mini: Advancing cost-efficient intelli-\ngence, 2023. Accessed: 2023-12-14.\n\nPan, R., Liu, X., Diao, S., Pi, R., Zhang, J., Han, C.,\nand Zhang, T. Lisa: Layerwise importance sampling\nfor memory-efficient large language model fine-tuning.\nArXiv preprint, abs/2403.17919, 2024a. URL https:\n//arxiv.org/abs/2403.17919.\n\nPan, R., Xing, S., Diao, S., Sun, W., Liu, X., Shum, K.,\nZhang, J., Pi, R., and Zhang, T. Plum: Prompt learning us-\ning metaheuristics. In Ku, L.-W., Martins, A., and Sriku-\nmar, V. (eds.), Findings of the Association for Computa-\ntional Linguistics ACL 2024, pp. 2177\u20132197, Bangkok,\nThailand and virtual meeting, August 2024b. Association\nfor Computational Linguistics. doi: 10.18653/v1/2024.\nfindings-acl.129. URL https://aclanthology.\norg/2024.findings-acl.129.\n\nPires, B. \u00c1. and Szepesv\u00e1ri, C. Multiclass classification\ncalibration functions. arXiv preprint arXiv:1609.06385,\n2016.\n\nReid, M., Savinov, N., Teplyashin, D., Lepikhin, D., Lill-\nicrap, T., Alayrac, J.-b., Soricut, R., Lazaridou, A., Fi-\nrat, O., Schrittwieser, J., et al. Gemini 1.5: Unlocking\nmultimodal understanding across millions of tokens of\ncontext. ArXiv preprint, abs/2403.05530, 2024. URL\nhttps://arxiv.org/abs/2403.05530.\n\nShaham, U., Ivgi, M., Efrat, A., Berant, J., and\nLevy, O. ZeroSCROLLS: A zero-shot benchmark for\nlong text understanding. In Bouamor, H., Pino, J.,\nand Bali, K. (eds.), Findings of the Association for\nComputational Linguistics: EMNLP 2023, pp. 7977\u2013\n7989, Singapore, 2023. Association for Computational\nLinguistics. doi: 10.18653/v1/2023.findings-emnlp.\n536. URL https://aclanthology.org/2023.\nfindings-emnlp.536.\n\nShi, W., Min, S., Lomeli, M., Zhou, C., Li, M., Lin, X. V.,\nSmith, N. A., Zettlemoyer, L., Yih, W.-t., and Lewis,\nM. In-context pretraining: Language modeling beyond\ndocument boundaries. In The Twelfth International Con-\nference on Learning Representations.\n\nSmith, B. and Troynikov, A. Evaluating chunking\nstrategies for retrieval. Technical report, Chroma,\n2024. URL https://research.trychroma.\ncom/evaluating-chunking.\n\nSteinwart, I. How to compare different loss functions and\ntheir risks. Constructive Approximation, 26:225\u2013287,\n2007. URL https://api.semanticscholar.\norg/CorpusID:16660598.\n\nSun, Y., Dong, L., Zhu, Y., Huang, S., Wang, W., Ma,\nS., Zhang, Q., Wang, J., and Wei, F. You only cache\nonce: Decoder-decoder architectures for language models.\narXiv preprint arXiv:2405.05254, 2024.\n\nTang, J., Zhao, Y., Zhu, K., Xiao, G., Kasikci, B., and Han,\nS. Quest: Query-aware sparsity for efficient long-context\nllm inference. ArXiv preprint, abs/2406.10774, 2024.\nURL https://arxiv.org/abs/2406.10774.\n\nTay, Y., Dehghani, M., Abnar, S., Shen, Y., Bahri, D.,\nPham, P., Rao, J., Yang, L., Ruder, S., and Metzler,\nD. Long range arena : A benchmark for efficient trans-\nformers. In 9th International Conference on Learn-\ning Representations, ICLR 2021, Virtual Event, Austria,\nMay 3-7, 2021. OpenReview.net, 2021. URL https:\n//openreview.net/forum?id=qVyeW-grC2k.\n\nTay, Y., Dehghani, M., Tran, V. Q., Garcia, X., Bahri, D.,\nSchuster, T., Zheng, H. S., Houlsby, N., and Metzler, D.\nUnifying language learning paradigms. ArXiv preprint,\nabs/2205.05131, 2022. URL https://arxiv.org/\nabs/2205.05131.\n\n12",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1728,
+          "y": 0.0575
+        },
+        {
+          "x": 0.8022,
+          "y": 0.0575
+        },
+        {
+          "x": 0.8022,
+          "y": 0.0719
+        },
+        {
+          "x": 0.1728,
+          "y": 0.0719
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua,\nM., Petroni, F., and Liang, P. Lost in the middle: How\nlanguage models use long contexts. Transactions of the\nAssociation for Computational Linguistics, 12:157\u2013173,\n2024c. doi: 10.1162/tacl_a_00638. URL https://\naclanthology.org/2024.tacl-1.9.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0866,
+          "y": 0.0861
+        },
+        {
+          "x": 0.4786,
+          "y": 0.0861
+        },
+        {
+          "x": 0.4786,
+          "y": 0.1777
+        },
+        {
+          "x": 0.0866,
+          "y": 0.1777
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Liu, T., Xu, C., and McAuley, J. Repobench: Benchmarking\nrepository-level code auto-completion systems. In The\nTwelfth International Conference on Learning Represen-\ntations, 2024d. URL https://openreview.net/\nforum?id=pPjZIOuQuF.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0865,
+          "y": 0.1877
+        },
+        {
+          "x": 0.4781,
+          "y": 0.1877
+        },
+        {
+          "x": 0.4781,
+          "y": 0.2631
+        },
+        {
+          "x": 0.0865,
+          "y": 0.2631
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Liu, Z., Desai, A., Liao, F., Wang, W., Xie, V., Xu, Z., Kyril-\nlidis, A., and Shrivastava, A. Scissorhands: Exploiting\nthe persistence of importance hypothesis for llm kv cache\ncompression at test time. Advances in Neural Information\nProcessing Systems, 36, 2024e.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0869,
+          "y": 0.2736
+        },
+        {
+          "x": 0.4773,
+          "y": 0.2736
+        },
+        {
+          "x": 0.4773,
+          "y": 0.3486
+        },
+        {
+          "x": 0.0869,
+          "y": 0.3486
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Luo, W., Ma, S., Liu, X., Guo, X., and Xiao, C. Jailbreakv:\nA benchmark for assessing the robustness of multimodal\nlarge language models against jailbreak attacks. In First\nConference on Language Modeling, 2024. URL https:\n//openreview.net/forum?id=GC4mXVfquq.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0877,
+          "y": 0.3597
+        },
+        {
+          "x": 0.4777,
+          "y": 0.3597
+        },
+        {
+          "x": 0.4777,
+          "y": 0.4351
+        },
+        {
+          "x": 0.0877,
+          "y": 0.4351
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Meta. Introducing meta llama 3: The most capable openly\navailable llm to date. https://ai.meta.com/\nblog/meta-llama-3/, 2024. Accessed: 2024-06-\n07.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0878,
+          "y": 0.4458
+        },
+        {
+          "x": 0.477,
+          "y": 0.4458
+        },
+        {
+          "x": 0.477,
+          "y": 0.5048
+        },
+        {
+          "x": 0.0878,
+          "y": 0.5048
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Mohtashami, A. and Jaggi, M. Landmark attention:\nRandom-access infinite context length for transformers.\nArXiv preprint, abs/2305.16300, 2023. URL https:\n//arxiv.org/abs/2305.16300.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0875,
+          "y": 0.5162
+        },
+        {
+          "x": 0.4781,
+          "y": 0.5162
+        },
+        {
+          "x": 0.4781,
+          "y": 0.5772
+        },
+        {
+          "x": 0.0875,
+          "y": 0.5772
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "OpenAI. Gpt-4o-mini: Advancing cost-efficient intelli-\ngence, 2023. Accessed: 2023-12-14.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0863,
+          "y": 0.5879
+        },
+        {
+          "x": 0.4779,
+          "y": 0.5879
+        },
+        {
+          "x": 0.4779,
+          "y": 0.6176
+        },
+        {
+          "x": 0.0863,
+          "y": 0.6176
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Pan, R., Liu, X., Diao, S., Pi, R., Zhang, J., Han, C.,\nand Zhang, T. Lisa: Layerwise importance sampling\nfor memory-efficient large language model fine-tuning.\nArXiv preprint, abs/2403.17919, 2024a. URL https:\n//arxiv.org/abs/2403.17919.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0874,
+          "y": 0.6283
+        },
+        {
+          "x": 0.4785,
+          "y": 0.6283
+        },
+        {
+          "x": 0.4785,
+          "y": 0.7043
+        },
+        {
+          "x": 0.0874,
+          "y": 0.7043
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Pan, R., Xing, S., Diao, S., Sun, W., Liu, X., Shum, K.,\nZhang, J., Pi, R., and Zhang, T. Plum: Prompt learning us-\ning metaheuristics. In Ku, L.-W., Martins, A., and Sriku-\nmar, V. (eds.), Findings of the Association for Computa-\ntional Linguistics ACL 2024, pp. 2177\u20132197, Bangkok,\nThailand and virtual meeting, August 2024b. Association\nfor Computational Linguistics. doi: 10.18653/v1/2024.\nfindings-acl.129. URL https://aclanthology.\norg/2024.findings-acl.129.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0857,
+          "y": 0.7148
+        },
+        {
+          "x": 0.4794,
+          "y": 0.7148
+        },
+        {
+          "x": 0.4794,
+          "y": 0.8501
+        },
+        {
+          "x": 0.0857,
+          "y": 0.8501
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Pires, B. \u00c1. and Szepesv\u00e1ri, C. Multiclass classification\ncalibration functions. arXiv preprint arXiv:1609.06385,\n2016.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.8606
+        },
+        {
+          "x": 0.4773,
+          "y": 0.8606
+        },
+        {
+          "x": 0.4773,
+          "y": 0.9068
+        },
+        {
+          "x": 0.087,
+          "y": 0.9068
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Reid, M., Savinov, N., Teplyashin, D., Lepikhin, D., Lill-\nicrap, T., Alayrac, J.-b., Soricut, R., Lazaridou, A., Fi-\nrat, O., Schrittwieser, J., et al. Gemini 1.5: Unlocking\nmultimodal understanding across millions of tokens of\ncontext. ArXiv preprint, abs/2403.05530, 2024. URL\nhttps://arxiv.org/abs/2403.05530.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5011,
+          "y": 0.0861
+        },
+        {
+          "x": 0.8906,
+          "y": 0.0861
+        },
+        {
+          "x": 0.8906,
+          "y": 0.1768
+        },
+        {
+          "x": 0.5011,
+          "y": 0.1768
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Shaham, U., Ivgi, M., Efrat, A., Berant, J., and\nLevy, O. ZeroSCROLLS: A zero-shot benchmark for\nlong text understanding. In Bouamor, H., Pino, J.,\nand Bali, K. (eds.), Findings of the Association for\nComputational Linguistics: EMNLP 2023, pp. 7977\u2013\n7989, Singapore, 2023. Association for Computational\nLinguistics. doi: 10.18653/v1/2023.findings-emnlp.\n536. URL https://aclanthology.org/2023.\nfindings-emnlp.536.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4981,
+          "y": 0.1891
+        },
+        {
+          "x": 0.8916,
+          "y": 0.1891
+        },
+        {
+          "x": 0.8916,
+          "y": 0.3234
+        },
+        {
+          "x": 0.4981,
+          "y": 0.3234
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Shi, W., Min, S., Lomeli, M., Zhou, C., Li, M., Lin, X. V.,\nSmith, N. A., Zettlemoyer, L., Yih, W.-t., and Lewis,\nM. In-context pretraining: Language modeling beyond\ndocument boundaries. In The Twelfth International Con-\nference on Learning Representations.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4992,
+          "y": 0.3368
+        },
+        {
+          "x": 0.8913,
+          "y": 0.3368
+        },
+        {
+          "x": 0.8913,
+          "y": 0.4122
+        },
+        {
+          "x": 0.4992,
+          "y": 0.4122
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Smith, B. and Troynikov, A. Evaluating chunking\nstrategies for retrieval. Technical report, Chroma,\n2024. URL https://research.trychroma.\ncom/evaluating-chunking.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4995,
+          "y": 0.424
+        },
+        {
+          "x": 0.8919,
+          "y": 0.424
+        },
+        {
+          "x": 0.8919,
+          "y": 0.4851
+        },
+        {
+          "x": 0.4995,
+          "y": 0.4851
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Steinwart, I. How to compare different loss functions and\ntheir risks. Constructive Approximation, 26:225\u2013287,\n2007. URL https://api.semanticscholar.\norg/CorpusID:16660598.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.499,
+          "y": 0.4965
+        },
+        {
+          "x": 0.8916,
+          "y": 0.4965
+        },
+        {
+          "x": 0.8916,
+          "y": 0.5564
+        },
+        {
+          "x": 0.499,
+          "y": 0.5564
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Sun, Y., Dong, L., Zhu, Y., Huang, S., Wang, W., Ma,\nS., Zhang, Q., Wang, J., and Wei, F. You only cache\nonce: Decoder-decoder architectures for language models.\narXiv preprint arXiv:2405.05254, 2024.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.501,
+          "y": 0.5685
+        },
+        {
+          "x": 0.8903,
+          "y": 0.5685
+        },
+        {
+          "x": 0.8903,
+          "y": 0.63
+        },
+        {
+          "x": 0.501,
+          "y": 0.63
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Tang, J., Zhao, Y., Zhu, K., Xiao, G., Kasikci, B., and Han,\nS. Quest: Query-aware sparsity for efficient long-context\nllm inference. ArXiv preprint, abs/2406.10774, 2024.\nURL https://arxiv.org/abs/2406.10774.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5,
+          "y": 0.6406
+        },
+        {
+          "x": 0.8902,
+          "y": 0.6406
+        },
+        {
+          "x": 0.8902,
+          "y": 0.7019
+        },
+        {
+          "x": 0.5,
+          "y": 0.7019
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Tay, Y., Dehghani, M., Abnar, S., Shen, Y., Bahri, D.,\nPham, P., Rao, J., Yang, L., Ruder, S., and Metzler,\nD. Long range arena : A benchmark for efficient trans-\nformers. In 9th International Conference on Learn-\ning Representations, ICLR 2021, Virtual Event, Austria,\nMay 3-7, 2021. OpenReview.net, 2021. URL https:\n//openreview.net/forum?id=qVyeW-grC2k.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4975,
+          "y": 0.7138
+        },
+        {
+          "x": 0.8905,
+          "y": 0.7138
+        },
+        {
+          "x": 0.8905,
+          "y": 0.8204
+        },
+        {
+          "x": 0.4975,
+          "y": 0.8204
+        }
+      ],
+      "id": 18,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Tay, Y., Dehghani, M., Tran, V. Q., Garcia, X., Bahri, D.,\nSchuster, T., Zheng, H. S., Houlsby, N., and Metzler, D.\nUnifying language learning paradigms. ArXiv preprint,\nabs/2205.05131, 2022. URL https://arxiv.org/\nabs/2205.05131.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4993,
+          "y": 0.8307
+        },
+        {
+          "x": 0.8907,
+          "y": 0.8307
+        },
+        {
+          "x": 0.8907,
+          "y": 0.9067
+        },
+        {
+          "x": 0.4993,
+          "y": 0.9067
+        }
+      ],
+      "id": 19,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "12",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.478,
+          "y": 0.9236
+        },
+        {
+          "x": 0.4978,
+          "y": 0.9236
+        },
+        {
+          "x": 0.4978,
+          "y": 0.937
+        },
+        {
+          "x": 0.478,
+          "y": 0.937
+        }
+      ],
+      "id": 20,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250116",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

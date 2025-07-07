@@ -1,0 +1,548 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\nTable 4: Many-Shot GSM8K Performance Comparison.\n\n| Ratio | StreamingLLM | H2O | SnapKV | PyramidKV | ChunkKV (Ours) |\n| --- | --- | --- | --- | --- | --- |\n| DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 |\n| 10% | 63.2% | 54.2% | 54.1% | 59.2% | 68.2% |\n| LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 |\n| 10% | 74.3% | 51.2% | 68.2% | 70.3% | 79.3% |\n\n\nFor more details on the prompt settings, please refer to the\nAPPENDIX G.\n\nTable 3 presents the performance comparison. The results\ndemonstrate that ChunkKV outperforms other KV cache\ncompression methods on different models and compres-\nsion ratios. Table 4 presents the performance comparison\nof many-shot GSM8K, also ChunkKV outperforms other\nKV cache compression methods. The consistent superior\nperformance of ChunkKV in both models underscores its\neffectiveness in maintaining crucial contextual information\nfor complex arithmetic reasoning tasks.\n\nJailbreak In this section, we evaluate the performance of\nChunkKV on the JailbreakV benchmark (Luo et al., 2024).\nThe prompt settings are the same as those used by Luo et al.\n(2024).\n\nTable 5 presents the performance comparison. The results\ndemonstrate that ChunkKV outperforms other KV cache\ncompression methods on different models and compression\nratios. Which shows the effectiveness of ChunkKV in main-\ntaining crucial contextual information for safety benchmark.\n\nTable 5: JailbreakV Performance Comparison.\n\n| Ratio | StreamingLLM | H2O | SnapKV | PyramidKV | ChunkKV (Ours) |\n| --- | --- | --- | --- | --- | --- |\n| LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 |\n| 20% | 65.0% | 71.7% | 88.0% | 87.5% | 89.0% |\n| 10% | 53.1% | 65.4% | 84.3% | 85.5% | 87.9% |\n\n\n# 4.2. Long-Context Benchmark\n\nLongBench and NIAH are two widely used benchmarks for\nKV cache compression methods. Both benchmarks have a\ncontext length that exceeds 10K. NIAH requires retrieval\ncapability, while LongBench is a meticulously designed\nbenchmark suite that tests the capabilities of language mod-\nels in handling extended documents and complex informa-\ntion sequences.\n\nLongBench We use LongBench (Bai et al., 2024) to as-\nsess the performance of ChunkKV on tasks involving long-\ncontext inputs. For more details on LongBench, please\nrefer to the APPENDIX F. We evaluated multiple KV cache\neviction methods using the LongBench benchmark with\nLLaMA-3-8B-Instruct (Meta, 2024), Mistral-7B-Instruct-\n\nTable 6: KV cache compression methods on the LongBench\nbenchmark. Results show performance gap compared to Ful-\nlKV baseline (negative values indicate worse performance).\n\n| Ratio | StreamingLLM | H2O | SnapKV | PyramidKV | ChunkKV (Ours) |\n| --- | --- | --- | --- | --- | --- |\n| LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 |\n| 10% | -13.80% | -10.61% | -3.16% | -3.33% | -2.29% |\n| 20% | -6.42% | -8.85% | -2.24% | -2.00% | -1.74% |\n| 30% | -2.36% | -5.38% | -0.07% | -0.22% | +0.31% |\n| Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 |\n| 10% | -16.58% | -9.30% | -3.54% | -3.52% | -2.85% |\n| Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 |\n| 10% | -5.28% | -0.64% | -0.39% | -0.98% | +0.42% |\n\n\nv0.3 (Jiang et al., 2023a), and Qwen2-7B-Instruct (Yang\net al., 2024a), with a KV cache compression ratio of 10%.\nThe LongBench provides the Chinese subtask, and Qwen2-\n7B-Instruct also supports Chinese, so we tested Qwen2-7B-\nInstruct with different KV cache compression methods on\nthe Chinese subtasks.\n\nTables 6 show that ChunkKV is capable of achieving on-par\nperformance or even better than the full KV cache with less\nGPU memory consumption. This table presents the perfor-\nmance gap (in percentage) between each method and the Ful-\nlKV baseline, where negative values indicate performance\ndegradation compared to FullKV. The table is evaluated in\nthe LongBench English subtask, where ChunkKV outper-\nforms other compression methods overall. This suggests\nthat ChunkKV\u2019s approach of retaining semantic chunks is\nmore effective in preserving important information com-\npared to other discrete token-based compression methods.\nFor detailed results and Chinese subtask results, please refer\nto Appendix B.2 and B.5.\n\nNeedle-In-A-HayStack We use Needle-In-A-HayStack\n(NIAH) (Kamradt, 2023) to evaluate LLMs\u2019 long-context\nretrieval capability. NIAH assesses how well LLM extract\nhidden tricked information from extensive documents, and\nfollow LLM-as-a-Judge (Zheng et al., 2023) we apply GPT-\n4o-mini (OpenAI, 2023) to assess the accuracy of the re-\ntrieved information. We evaluated multiple KV cache evic-\ntion methods using NIAH with LLaMA-3-8B-Instruct and\nMistral-7B-Instruct-v0.2, setting benchmark context lengths\nto 8k and 32k tokens.\n\nTable 7 provides statistical results for different compression\nmethods. These findings clearly indicate the effectiveness\nof ChunkKV in managing varying token lengths and depth\npercentages, making it a robust choice for KV cache man-\nagement in LLMs. Figure 3 presents the NIAH benchmark\nresults for LLaMA-3-8B-Instruct. The vertical axis repre-\nsents the depth percentage, while the horizontal axis repre-\nsents the token length, with shorter lengths on the left and\nlonger lengths on the right. A cell highlighted in green indi-\n\n6",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1721,
+          "y": 0.0575
+        },
+        {
+          "x": 0.8026,
+          "y": 0.0575
+        },
+        {
+          "x": 0.8026,
+          "y": 0.0721
+        },
+        {
+          "x": 0.1721,
+          "y": 0.0721
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 4: Many-Shot GSM8K Performance Comparison.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.095,
+          "y": 0.0833
+        },
+        {
+          "x": 0.4655,
+          "y": 0.0833
+        },
+        {
+          "x": 0.4655,
+          "y": 0.0999
+        },
+        {
+          "x": 0.095,
+          "y": 0.0999
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Ratio | StreamingLLM | H2O | SnapKV | PyramidKV | ChunkKV (Ours) |\n| --- | --- | --- | --- | --- | --- |\n| DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 | DeepSeek-R1-Distill-Llama-8B FullKV: 71.2% \u2191 |\n| 10% | 63.2% | 54.2% | 54.1% | 59.2% | 68.2% |\n| LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 82.4% \u2191 |\n| 10% | 74.3% | 51.2% | 68.2% | 70.3% | 79.3% |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0923,
+          "y": 0.1118
+        },
+        {
+          "x": 0.4707,
+          "y": 0.1118
+        },
+        {
+          "x": 0.4707,
+          "y": 0.2061
+        },
+        {
+          "x": 0.0923,
+          "y": 0.2061
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "For more details on the prompt settings, please refer to the\nAPPENDIX G.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0885,
+          "y": 0.2283
+        },
+        {
+          "x": 0.4747,
+          "y": 0.2283
+        },
+        {
+          "x": 0.4747,
+          "y": 0.2571
+        },
+        {
+          "x": 0.0885,
+          "y": 0.2571
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 3 presents the performance comparison. The results\ndemonstrate that ChunkKV outperforms other KV cache\ncompression methods on different models and compres-\nsion ratios. Table 4 presents the performance comparison\nof many-shot GSM8K, also ChunkKV outperforms other\nKV cache compression methods. The consistent superior\nperformance of ChunkKV in both models underscores its\neffectiveness in maintaining crucial contextual information\nfor complex arithmetic reasoning tasks.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0886,
+          "y": 0.2653
+        },
+        {
+          "x": 0.4771,
+          "y": 0.2653
+        },
+        {
+          "x": 0.4771,
+          "y": 0.4017
+        },
+        {
+          "x": 0.0886,
+          "y": 0.4017
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Jailbreak In this section, we evaluate the performance of\nChunkKV on the JailbreakV benchmark (Luo et al., 2024).\nThe prompt settings are the same as those used by Luo et al.\n(2024).",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.088,
+          "y": 0.409
+        },
+        {
+          "x": 0.4774,
+          "y": 0.409
+        },
+        {
+          "x": 0.4774,
+          "y": 0.4672
+        },
+        {
+          "x": 0.088,
+          "y": 0.4672
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 5 presents the performance comparison. The results\ndemonstrate that ChunkKV outperforms other KV cache\ncompression methods on different models and compression\nratios. Which shows the effectiveness of ChunkKV in main-\ntaining crucial contextual information for safety benchmark.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0882,
+          "y": 0.477
+        },
+        {
+          "x": 0.4776,
+          "y": 0.477
+        },
+        {
+          "x": 0.4776,
+          "y": 0.5525
+        },
+        {
+          "x": 0.0882,
+          "y": 0.5525
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "Table 5: JailbreakV Performance Comparison.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.127,
+          "y": 0.5646
+        },
+        {
+          "x": 0.4348,
+          "y": 0.5646
+        },
+        {
+          "x": 0.4348,
+          "y": 0.581
+        },
+        {
+          "x": 0.127,
+          "y": 0.581
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Ratio | StreamingLLM | H2O | SnapKV | PyramidKV | ChunkKV (Ours) |\n| --- | --- | --- | --- | --- | --- |\n| LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 | LlaMa-3.1-8B-Instruct FullKV: 88.9% \u2191 |\n| 20% | 65.0% | 71.7% | 88.0% | 87.5% | 89.0% |\n| 10% | 53.1% | 65.4% | 84.3% | 85.5% | 87.9% |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0919,
+          "y": 0.593
+        },
+        {
+          "x": 0.471,
+          "y": 0.593
+        },
+        {
+          "x": 0.471,
+          "y": 0.6666
+        },
+        {
+          "x": 0.0919,
+          "y": 0.6666
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 4.2. Long-Context Benchmark",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.68
+        },
+        {
+          "x": 0.3038,
+          "y": 0.68
+        },
+        {
+          "x": 0.3038,
+          "y": 0.695
+        },
+        {
+          "x": 0.0871,
+          "y": 0.695
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "LongBench and NIAH are two widely used benchmarks for\nKV cache compression methods. Both benchmarks have a\ncontext length that exceeds 10K. NIAH requires retrieval\ncapability, while LongBench is a meticulously designed\nbenchmark suite that tests the capabilities of language mod-\nels in handling extended documents and complex informa-\ntion sequences.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0885,
+          "y": 0.7025
+        },
+        {
+          "x": 0.4768,
+          "y": 0.7025
+        },
+        {
+          "x": 0.4768,
+          "y": 0.8077
+        },
+        {
+          "x": 0.0885,
+          "y": 0.8077
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "LongBench We use LongBench (Bai et al., 2024) to as-\nsess the performance of ChunkKV on tasks involving long-\ncontext inputs. For more details on LongBench, please\nrefer to the APPENDIX F. We evaluated multiple KV cache\neviction methods using the LongBench benchmark with\nLLaMA-3-8B-Instruct (Meta, 2024), Mistral-7B-Instruct-",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0878,
+          "y": 0.8162
+        },
+        {
+          "x": 0.4768,
+          "y": 0.8162
+        },
+        {
+          "x": 0.4768,
+          "y": 0.9083
+        },
+        {
+          "x": 0.0878,
+          "y": 0.9083
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 6: KV cache compression methods on the LongBench\nbenchmark. Results show performance gap compared to Ful-\nlKV baseline (negative values indicate worse performance).",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5006,
+          "y": 0.0847
+        },
+        {
+          "x": 0.8902,
+          "y": 0.0847
+        },
+        {
+          "x": 0.8902,
+          "y": 0.1305
+        },
+        {
+          "x": 0.5006,
+          "y": 0.1305
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Ratio | StreamingLLM | H2O | SnapKV | PyramidKV | ChunkKV (Ours) |\n| --- | --- | --- | --- | --- | --- |\n| LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 | LlaMa-3-8B-Instruct FullKV: 41.46 \u2191 |\n| 10% | -13.80% | -10.61% | -3.16% | -3.33% | -2.29% |\n| 20% | -6.42% | -8.85% | -2.24% | -2.00% | -1.74% |\n| 30% | -2.36% | -5.38% | -0.07% | -0.22% | +0.31% |\n| Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 | Mistral-7B-Instruct-v0.3 FullKV: 48.08 \u2191 |\n| 10% | -16.58% | -9.30% | -3.54% | -3.52% | -2.85% |\n| Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 | Qwen2-7B-Instruct FullKV: 40.71 \u2191 |\n| 10% | -5.28% | -0.64% | -0.39% | -0.98% | +0.42% |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5046,
+          "y": 0.1423
+        },
+        {
+          "x": 0.885,
+          "y": 0.1423
+        },
+        {
+          "x": 0.885,
+          "y": 0.2855
+        },
+        {
+          "x": 0.5046,
+          "y": 0.2855
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "v0.3 (Jiang et al., 2023a), and Qwen2-7B-Instruct (Yang\net al., 2024a), with a KV cache compression ratio of 10%.\nThe LongBench provides the Chinese subtask, and Qwen2-\n7B-Instruct also supports Chinese, so we tested Qwen2-7B-\nInstruct with different KV cache compression methods on\nthe Chinese subtasks.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4995,
+          "y": 0.3105
+        },
+        {
+          "x": 0.8909,
+          "y": 0.3105
+        },
+        {
+          "x": 0.8909,
+          "y": 0.4006
+        },
+        {
+          "x": 0.4995,
+          "y": 0.4006
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Tables 6 show that ChunkKV is capable of achieving on-par\nperformance or even better than the full KV cache with less\nGPU memory consumption. This table presents the perfor-\nmance gap (in percentage) between each method and the Ful-\nlKV baseline, where negative values indicate performance\ndegradation compared to FullKV. The table is evaluated in\nthe LongBench English subtask, where ChunkKV outper-\nforms other compression methods overall. This suggests\nthat ChunkKV\u2019s approach of retaining semantic chunks is\nmore effective in preserving important information com-\npared to other discrete token-based compression methods.\nFor detailed results and Chinese subtask results, please refer\nto Appendix B.2 and B.5.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5005,
+          "y": 0.4091
+        },
+        {
+          "x": 0.8902,
+          "y": 0.4091
+        },
+        {
+          "x": 0.8902,
+          "y": 0.6046
+        },
+        {
+          "x": 0.5005,
+          "y": 0.6046
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Needle-In-A-HayStack We use Needle-In-A-HayStack\n(NIAH) (Kamradt, 2023) to evaluate LLMs\u2019 long-context\nretrieval capability. NIAH assesses how well LLM extract\nhidden tricked information from extensive documents, and\nfollow LLM-as-a-Judge (Zheng et al., 2023) we apply GPT-\n4o-mini (OpenAI, 2023) to assess the accuracy of the re-\ntrieved information. We evaluated multiple KV cache evic-\ntion methods using NIAH with LLaMA-3-8B-Instruct and\nMistral-7B-Instruct-v0.2, setting benchmark context lengths\nto 8k and 32k tokens.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4997,
+          "y": 0.6121
+        },
+        {
+          "x": 0.8899,
+          "y": 0.6121
+        },
+        {
+          "x": 0.8899,
+          "y": 0.7633
+        },
+        {
+          "x": 0.4997,
+          "y": 0.7633
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 7 provides statistical results for different compression\nmethods. These findings clearly indicate the effectiveness\nof ChunkKV in managing varying token lengths and depth\npercentages, making it a robust choice for KV cache man-\nagement in LLMs. Figure 3 presents the NIAH benchmark\nresults for LLaMA-3-8B-Instruct. The vertical axis repre-\nsents the depth percentage, while the horizontal axis repre-\nsents the token length, with shorter lengths on the left and\nlonger lengths on the right. A cell highlighted in green indi-",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4999,
+          "y": 0.7708
+        },
+        {
+          "x": 0.8909,
+          "y": 0.7708
+        },
+        {
+          "x": 0.8909,
+          "y": 0.9078
+        },
+        {
+          "x": 0.4999,
+          "y": 0.9078
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "6",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4808,
+          "y": 0.9245
+        },
+        {
+          "x": 0.4946,
+          "y": 0.9245
+        },
+        {
+          "x": 0.4946,
+          "y": 0.937
+        },
+        {
+          "x": 0.4808,
+          "y": 0.937
+        }
+      ],
+      "id": 18,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250116",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

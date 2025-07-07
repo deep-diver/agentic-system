@@ -1,0 +1,128 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n# B.3. Needle-In-A-Haystack\n\nFigure 17 and 18 visualizes the performance of ChunkKV on the NIAH benchmark for LLaMA-3-8B-Instruct and Mistral-\n7B-Instruct with a KV cache size of 128 under 8k and 32k context length. The performance of ChunkKV is consistently\nbetter as the context length increases.\n\n26",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1728,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8034,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8034,
+          "y": 0.0721
+        },
+        {
+          "x": 0.1728,
+          "y": 0.0721
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# B.3. Needle-In-A-Haystack",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0868,
+          "y": 0.0853
+        },
+        {
+          "x": 0.2803,
+          "y": 0.0853
+        },
+        {
+          "x": 0.2803,
+          "y": 0.1004
+        },
+        {
+          "x": 0.0868,
+          "y": 0.1004
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 17 and 18 visualizes the performance of ChunkKV on the NIAH benchmark for LLaMA-3-8B-Instruct and Mistral-\n7B-Instruct with a KV cache size of 128 under 8k and 32k context length. The performance of ChunkKV is consistently\nbetter as the context length increases.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.1093
+        },
+        {
+          "x": 0.8907,
+          "y": 0.1093
+        },
+        {
+          "x": 0.8907,
+          "y": 0.1549
+        },
+        {
+          "x": 0.0871,
+          "y": 0.1549
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "26",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4773,
+          "y": 0.9238
+        },
+        {
+          "x": 0.4983,
+          "y": 0.9238
+        },
+        {
+          "x": 0.4983,
+          "y": 0.9368
+        },
+        {
+          "x": 0.4773,
+          "y": 0.9368
+        }
+      ],
+      "id": 3,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250116",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

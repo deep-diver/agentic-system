@@ -1,0 +1,324 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n# D. Additional Related Work\n\nKV cache sharing Recent work has explored various strategies for sharing KV caches across transformer layers. Layer-\nCondensed KV Cache (LCKV) (Wu & Tu, 2024) computes KVs only for the top layer and pairs them with queries from all\nlayers, while optionally retaining standard attention for a few top and bottom layers to mitigate performance degradation.\nSimilarly, You Only Cache Once (YOCO) (Sun et al., 2024) computes KVs exclusively for the top layer but pairs them with\nqueries from only the top half of layers, employing efficient attention in the bottom layers to maintain a constant cache\nsize. In contrast, Cross-Layer Attention (CLA) (Brandon et al., 2024) divides layers into groups, pairing queries from all\nlayers in each group with KVs from that group\u2019s bottom layer. MiniCache (Liu et al., 2024a) introduces a novel method\nthat merges layer-wise KV caches while enabling recovery during compute-in-place operations, optimizing KV cache size.\nThese methods illustrate various trade-offs between computation, memory usage, and model performance when sharing KV\ncaches across transformer layers.\n\nLong-Context Benchmarks The landscape of long-context model benchmarks has evolved to encompass a wide range\nof tasks, with particular emphasis on retrieval and comprehension capabilities. Benchmarks for understanding have made\nsignificant strides, with \u221e-Bench (Zhang et al., 2024) pushing the boundaries by presenting challenges that involve more\nthan 100,000 tokens. LongBench (Bai et al., 2024) has introduced bilingual evaluations, addressing tasks such as long-\ndocument question answering, summarization, and code completion. Complementing these efforts, ZeroSCROLLS (Shaham\net al., 2023) and L-Eval (An et al., 2023) have broadened the scope to include a diverse array of practical natural language\ntasks, including query-driven summarization.\n\nIn parallel, retrieval benchmarks have largely relied on synthetic datasets, offering researchers precise control over variables\nsuch as the length of input tokens. This approach minimizes the impact of disparate parametric knowledge resulting from\nvaried training methodologies. A significant body of recent work has concentrated on the development of synthetic tasks\nspecifically for retrieval evaluation (Kamradt, 2023; Mohtashami & Jaggi, 2023; Li et al., 2023; Liu et al., 2024c; Hsieh\net al., 2024). In addition, researchers have explored the potential of extended contexts in facilitating various forms of\nreasoning (Tay et al., 2021).\n\nThis dual focus on synthetic retrieval tasks and comprehensive understanding benchmarks reflects the field\u2019s commitment to\nrigorously assessing the capabilities of long-context models across diverse linguistic challenges. Prompting Compression\nIn the field of prompt compression, various designs effectively combine semantic information to compress natural language.\nWingate et al. (2022) utilize soft prompts to encode more information with fewer tokens. Chevalier et al. (2023) present\nAutoCompressor, which uses soft prompts to compress the input sequence and extend the original length of the base\nmodel. Both Zhou et al. (2023) and Wang et al. (2023) recurrently apply LLMs to summarize input texts, maintaining long\nshort-term memory for specific purposes such as story writing and dialogue generation. The LLMLingua series (Jiang et al.,\n2023b; 2024; Fei et al., 2024) explores the potential of compressing LLM prompts in long-context, reasoning, and RAG\nscenarios. Fei et al. (2024) use pre-trained language models to chunk the long context and summarize semantic information,\ncompressing the original context.\n\n# E. Statistics of Models\n\nTable 18 provides configuration parameters for LLMs that we evaluated in our experiments.\n\n| Model Name | LLaMA-3-8B-Instruct | Mistral-7B-Instruct-v0.2 & 0.3 | Qwen2-7B-Instruct |\n| --- | --- | --- | --- |\n| L (Number of layers) | 32 | 32 | 28 |\n| N (Number of attention heads) | 32 | 32 | 28 |\n| D (Dimension of each head) | 128 | 128 | 128 |\n\n\nTable 18: Models Configuration Parameters\n\n33",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1733,
+          "y": 0.0573
+        },
+        {
+          "x": 0.8026,
+          "y": 0.0573
+        },
+        {
+          "x": 0.8026,
+          "y": 0.072
+        },
+        {
+          "x": 0.1733,
+          "y": 0.072
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# D. Additional Related Work",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0873,
+          "y": 0.0836
+        },
+        {
+          "x": 0.327,
+          "y": 0.0836
+        },
+        {
+          "x": 0.327,
+          "y": 0.101
+        },
+        {
+          "x": 0.0873,
+          "y": 0.101
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "KV cache sharing Recent work has explored various strategies for sharing KV caches across transformer layers. Layer-\nCondensed KV Cache (LCKV) (Wu & Tu, 2024) computes KVs only for the top layer and pairs them with queries from all\nlayers, while optionally retaining standard attention for a few top and bottom layers to mitigate performance degradation.\nSimilarly, You Only Cache Once (YOCO) (Sun et al., 2024) computes KVs exclusively for the top layer but pairs them with\nqueries from only the top half of layers, employing efficient attention in the bottom layers to maintain a constant cache\nsize. In contrast, Cross-Layer Attention (CLA) (Brandon et al., 2024) divides layers into groups, pairing queries from all\nlayers in each group with KVs from that group\u2019s bottom layer. MiniCache (Liu et al., 2024a) introduces a novel method\nthat merges layer-wise KV caches while enabling recovery during compute-in-place operations, optimizing KV cache size.\nThese methods illustrate various trade-offs between computation, memory usage, and model performance when sharing KV\ncaches across transformer layers.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.1113
+        },
+        {
+          "x": 0.8916,
+          "y": 0.1113
+        },
+        {
+          "x": 0.8916,
+          "y": 0.2615
+        },
+        {
+          "x": 0.0871,
+          "y": 0.2615
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Long-Context Benchmarks The landscape of long-context model benchmarks has evolved to encompass a wide range\nof tasks, with particular emphasis on retrieval and comprehension capabilities. Benchmarks for understanding have made\nsignificant strides, with \u221e-Bench (Zhang et al., 2024) pushing the boundaries by presenting challenges that involve more\nthan 100,000 tokens. LongBench (Bai et al., 2024) has introduced bilingual evaluations, addressing tasks such as long-\ndocument question answering, summarization, and code completion. Complementing these efforts, ZeroSCROLLS (Shaham\net al., 2023) and L-Eval (An et al., 2023) have broadened the scope to include a diverse array of practical natural language\ntasks, including query-driven summarization.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.087,
+          "y": 0.269
+        },
+        {
+          "x": 0.89,
+          "y": 0.269
+        },
+        {
+          "x": 0.89,
+          "y": 0.375
+        },
+        {
+          "x": 0.087,
+          "y": 0.375
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "In parallel, retrieval benchmarks have largely relied on synthetic datasets, offering researchers precise control over variables\nsuch as the length of input tokens. This approach minimizes the impact of disparate parametric knowledge resulting from\nvaried training methodologies. A significant body of recent work has concentrated on the development of synthetic tasks\nspecifically for retrieval evaluation (Kamradt, 2023; Mohtashami & Jaggi, 2023; Li et al., 2023; Liu et al., 2024c; Hsieh\net al., 2024). In addition, researchers have explored the potential of extended contexts in facilitating various forms of\nreasoning (Tay et al., 2021).",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0868,
+          "y": 0.3828
+        },
+        {
+          "x": 0.8905,
+          "y": 0.3828
+        },
+        {
+          "x": 0.8905,
+          "y": 0.4727
+        },
+        {
+          "x": 0.0868,
+          "y": 0.4727
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "This dual focus on synthetic retrieval tasks and comprehensive understanding benchmarks reflects the field\u2019s commitment to\nrigorously assessing the capabilities of long-context models across diverse linguistic challenges. Prompting Compression\nIn the field of prompt compression, various designs effectively combine semantic information to compress natural language.\nWingate et al. (2022) utilize soft prompts to encode more information with fewer tokens. Chevalier et al. (2023) present\nAutoCompressor, which uses soft prompts to compress the input sequence and extend the original length of the base\nmodel. Both Zhou et al. (2023) and Wang et al. (2023) recurrently apply LLMs to summarize input texts, maintaining long\nshort-term memory for specific purposes such as story writing and dialogue generation. The LLMLingua series (Jiang et al.,\n2023b; 2024; Fei et al., 2024) explores the potential of compressing LLM prompts in long-context, reasoning, and RAG\nscenarios. Fei et al. (2024) use pre-trained language models to chunk the long context and summarize semantic information,\ncompressing the original context.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0878,
+          "y": 0.4807
+        },
+        {
+          "x": 0.8923,
+          "y": 0.4807
+        },
+        {
+          "x": 0.8923,
+          "y": 0.6312
+        },
+        {
+          "x": 0.0878,
+          "y": 0.6312
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# E. Statistics of Models",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0877,
+          "y": 0.6505
+        },
+        {
+          "x": 0.2775,
+          "y": 0.6505
+        },
+        {
+          "x": 0.2775,
+          "y": 0.6675
+        },
+        {
+          "x": 0.0877,
+          "y": 0.6675
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 18 provides configuration parameters for LLMs that we evaluated in our experiments.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.6762
+        },
+        {
+          "x": 0.691,
+          "y": 0.6762
+        },
+        {
+          "x": 0.691,
+          "y": 0.693
+        },
+        {
+          "x": 0.0871,
+          "y": 0.693
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Model Name | LLaMA-3-8B-Instruct | Mistral-7B-Instruct-v0.2 & 0.3 | Qwen2-7B-Instruct |\n| --- | --- | --- | --- |\n| L (Number of layers) | 32 | 32 | 28 |\n| N (Number of attention heads) | 32 | 32 | 28 |\n| D (Dimension of each head) | 128 | 128 | 128 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0929,
+          "y": 0.739
+        },
+        {
+          "x": 0.8824,
+          "y": 0.739
+        },
+        {
+          "x": 0.8824,
+          "y": 0.8267
+        },
+        {
+          "x": 0.0929,
+          "y": 0.8267
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 18: Models Configuration Parameters",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.3413,
+          "y": 0.8383
+        },
+        {
+          "x": 0.6333,
+          "y": 0.8383
+        },
+        {
+          "x": 0.6333,
+          "y": 0.8541
+        },
+        {
+          "x": 0.3413,
+          "y": 0.8541
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "33",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.477,
+          "y": 0.9234
+        },
+        {
+          "x": 0.4987,
+          "y": 0.9234
+        },
+        {
+          "x": 0.4987,
+          "y": 0.9375
+        },
+        {
+          "x": 0.477,
+          "y": 0.9375
+        }
+      ],
+      "id": 10,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250116",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

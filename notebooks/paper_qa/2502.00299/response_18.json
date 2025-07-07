@@ -1,0 +1,604 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\n- 2. Semantic Coherence: ChunkKV preserves the semantic relationships within a chunk, crucial to understanding nuances\n- such as the difference between primary and occasional food sources for pandas.\n\n\n- 3. Information Density: A single chunk can contain multiple relevant tokens in their proper context, potentially retaining\n- more useful information within the same compressed cache size compared to discrete methods.\n\n\n- 4. Reduced Ambiguity: Discrete methods might retain the token \u201ceat\" from various sentences about different animals.\n- ChunkKV ensures that \u201ceat\" is preserved specifically in the context of pandas in the wild.\n\n\n- 5. Temporal and Logical Flow: ChunkKV can maintain the sequence of ideas present in the original text, preserving any\n- temporal or logical progression that may be crucial for understanding.\n\n\n# A.4. Implications for Model Performance\n\nThis analysis suggests several key implications for model performance:\n\n- \u2022 Improved Accuracy: By retaining contextually rich information, ChunkKV enables more accurate responses to\n- queries, especially those requiring nuanced understanding.\n\n\n- \u2022 Enhanced Long-context Processing: Preservation of semantic chunks allows for better handling of long-range\n- dependencies and complex reasoning tasks.\n\n\n- \u2022 Reduced Computational Overhead: Although both methods compress the KV cache, ChunkKV\u2019s approach may\n- reduce the need for extensive context reconstruction, potentially improving inference efficiency.\n\n\n- \u2022 Versatility: The chunk-based approach is likely to be more effective across a wide range of tasks and domains as it\n- preserves the natural structure of language.\n\n\nThis in-depth analysis demonstrates why ChunkKV is more effective in preserving semantic information in long contexts.\nBy retaining coherent chunks of text, it provides language models with more contextually rich and semantically complete\ninformation, leading to improved performance in tasks that require deep understanding and accurate information retrieval\nfrom extensive documents.\n\n# B. Additional Experiments\n\n# B.1. Layer-Wise Index Reuse\n\n# B.1.1. EFFICIENCY ANALYSIS\n\nThe layer-wise index reuse method significantly reduces the computational complexity of ChunkKV. Without index reuse,\nChunkKV would be applied to all Nlayers layers, resulting in a total compression time of Nlayers \u00b7 Tcompress, where Tcompress is\nNlayers\nthe time taken to compress one layer. With index reuse, ChunkKV is only applied to layers, reducing the total time to\nNreuse\nNlayers Nlayers\n\u00b7 Tcompress + (Nlayers \u2212 ) \u00b7 Tselect, where Tselect is the time taken to select indices, which is typically much smaller\nNreuse Nreuse\nthan Tcompress. This results in a theoretical speedup factor of:\n\n$$\\mathrm{Speedup}=\\frac{{\\cal N}_{\\mathrm{layers}}\\cdot{\\cal T}_{\\mathrm{compress}}}{\\frac{{\\cal N}_{\\mathrm{layers}}\\cdot{\\cal T}_{\\mathrm{compres}}}{{\\cal N}_{\\mathrm{tongrs}}\\cdot{\\cal T}_{\\mathrm{select}}}}.$$\n\nAssuming Tselect is negligible compared to Tcompress, this simplifies to approximately Nreuse. In practice, the actual speedup\nmay vary depending on the specific implementation and hardware, but it can still lead to substantial time savings, especially\nfor models with a large number of layers.\n\n# B.1.2. LAYER-WISE INDEX SIMILARITY\n\nThis section details the experiment of layer-wise index reuse similarity described in Section 3.3. The inference prompt is\nrandomly selected from the LongBench benchmark, and the preserved indices for H2O, SnapKV, and ChunkKV are saved in\n\n18",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1728,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8033,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8033,
+          "y": 0.0723
+        },
+        {
+          "x": 0.1728,
+          "y": 0.0723
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- 2. Semantic Coherence: ChunkKV preserves the semantic relationships within a chunk, crucial to understanding nuances\n- such as the difference between primary and occasional food sources for pandas.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0972,
+          "y": 0.0857
+        },
+        {
+          "x": 0.8885,
+          "y": 0.0857
+        },
+        {
+          "x": 0.8885,
+          "y": 0.1162
+        },
+        {
+          "x": 0.0972,
+          "y": 0.1162
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- 3. Information Density: A single chunk can contain multiple relevant tokens in their proper context, potentially retaining\n- more useful information within the same compressed cache size compared to discrete methods.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0977,
+          "y": 0.127
+        },
+        {
+          "x": 0.8889,
+          "y": 0.127
+        },
+        {
+          "x": 0.8889,
+          "y": 0.1574
+        },
+        {
+          "x": 0.0977,
+          "y": 0.1574
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- 4. Reduced Ambiguity: Discrete methods might retain the token \u201ceat\" from various sentences about different animals.\n- ChunkKV ensures that \u201ceat\" is preserved specifically in the context of pandas in the wild.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0981,
+          "y": 0.1679
+        },
+        {
+          "x": 0.8897,
+          "y": 0.1679
+        },
+        {
+          "x": 0.8897,
+          "y": 0.199
+        },
+        {
+          "x": 0.0981,
+          "y": 0.199
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- 5. Temporal and Logical Flow: ChunkKV can maintain the sequence of ideas present in the original text, preserving any\n- temporal or logical progression that may be crucial for understanding.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0983,
+          "y": 0.209
+        },
+        {
+          "x": 0.8878,
+          "y": 0.209
+        },
+        {
+          "x": 0.8878,
+          "y": 0.2394
+        },
+        {
+          "x": 0.0983,
+          "y": 0.2394
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# A.4. Implications for Model Performance",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.2589
+        },
+        {
+          "x": 0.3796,
+          "y": 0.2589
+        },
+        {
+          "x": 0.3796,
+          "y": 0.2742
+        },
+        {
+          "x": 0.0871,
+          "y": 0.2742
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "This analysis suggests several key implications for model performance:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0865,
+          "y": 0.2819
+        },
+        {
+          "x": 0.5571,
+          "y": 0.2819
+        },
+        {
+          "x": 0.5571,
+          "y": 0.2983
+        },
+        {
+          "x": 0.0865,
+          "y": 0.2983
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 Improved Accuracy: By retaining contextually rich information, ChunkKV enables more accurate responses to\n- queries, especially those requiring nuanced understanding.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1055,
+          "y": 0.3164
+        },
+        {
+          "x": 0.8896,
+          "y": 0.3164
+        },
+        {
+          "x": 0.8896,
+          "y": 0.3468
+        },
+        {
+          "x": 0.1055,
+          "y": 0.3468
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 Enhanced Long-context Processing: Preservation of semantic chunks allows for better handling of long-range\n- dependencies and complex reasoning tasks.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1072,
+          "y": 0.3576
+        },
+        {
+          "x": 0.8873,
+          "y": 0.3576
+        },
+        {
+          "x": 0.8873,
+          "y": 0.3875
+        },
+        {
+          "x": 0.1072,
+          "y": 0.3875
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 Reduced Computational Overhead: Although both methods compress the KV cache, ChunkKV\u2019s approach may\n- reduce the need for extensive context reconstruction, potentially improving inference efficiency.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1064,
+          "y": 0.3985
+        },
+        {
+          "x": 0.8873,
+          "y": 0.3985
+        },
+        {
+          "x": 0.8873,
+          "y": 0.4294
+        },
+        {
+          "x": 0.1064,
+          "y": 0.4294
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "list",
+      "content": {
+        "html": "",
+        "markdown": "- \u2022 Versatility: The chunk-based approach is likely to be more effective across a wide range of tasks and domains as it\n- preserves the natural structure of language.\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1073,
+          "y": 0.4393
+        },
+        {
+          "x": 0.8891,
+          "y": 0.4393
+        },
+        {
+          "x": 0.8891,
+          "y": 0.4698
+        },
+        {
+          "x": 0.1073,
+          "y": 0.4698
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "This in-depth analysis demonstrates why ChunkKV is more effective in preserving semantic information in long contexts.\nBy retaining coherent chunks of text, it provides language models with more contextually rich and semantically complete\ninformation, leading to improved performance in tasks that require deep understanding and accurate information retrieval\nfrom extensive documents.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0869,
+          "y": 0.4885
+        },
+        {
+          "x": 0.8898,
+          "y": 0.4885
+        },
+        {
+          "x": 0.8898,
+          "y": 0.5496
+        },
+        {
+          "x": 0.0869,
+          "y": 0.5496
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# B. Additional Experiments",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0872,
+          "y": 0.5679
+        },
+        {
+          "x": 0.3165,
+          "y": 0.5679
+        },
+        {
+          "x": 0.3165,
+          "y": 0.5852
+        },
+        {
+          "x": 0.0872,
+          "y": 0.5852
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# B.1. Layer-Wise Index Reuse",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0865,
+          "y": 0.5947
+        },
+        {
+          "x": 0.2949,
+          "y": 0.5947
+        },
+        {
+          "x": 0.2949,
+          "y": 0.6097
+        },
+        {
+          "x": 0.0865,
+          "y": 0.6097
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# B.1.1. EFFICIENCY ANALYSIS",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0871,
+          "y": 0.6178
+        },
+        {
+          "x": 0.3009,
+          "y": 0.6178
+        },
+        {
+          "x": 0.3009,
+          "y": 0.6329
+        },
+        {
+          "x": 0.0871,
+          "y": 0.6329
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The layer-wise index reuse method significantly reduces the computational complexity of ChunkKV. Without index reuse,\nChunkKV would be applied to all Nlayers layers, resulting in a total compression time of Nlayers \u00b7 Tcompress, where Tcompress is\nNlayers\nthe time taken to compress one layer. With index reuse, ChunkKV is only applied to layers, reducing the total time to\nNreuse\nNlayers Nlayers\n\u00b7 Tcompress + (Nlayers \u2212 ) \u00b7 Tselect, where Tselect is the time taken to select indices, which is typically much smaller\nNreuse Nreuse\nthan Tcompress. This results in a theoretical speedup factor of:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0877,
+          "y": 0.6404
+        },
+        {
+          "x": 0.8925,
+          "y": 0.6404
+        },
+        {
+          "x": 0.8925,
+          "y": 0.7236
+        },
+        {
+          "x": 0.0877,
+          "y": 0.7236
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\mathrm{Speedup}=\\frac{{\\cal N}_{\\mathrm{layers}}\\cdot{\\cal T}_{\\mathrm{compress}}}{\\frac{{\\cal N}_{\\mathrm{layers}}\\cdot{\\cal T}_{\\mathrm{compres}}}{{\\cal N}_{\\mathrm{tongrs}}\\cdot{\\cal T}_{\\mathrm{select}}}}.$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.3047,
+          "y": 0.7408
+        },
+        {
+          "x": 0.6728,
+          "y": 0.7408
+        },
+        {
+          "x": 0.6728,
+          "y": 0.7824
+        },
+        {
+          "x": 0.3047,
+          "y": 0.7824
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Assuming Tselect is negligible compared to Tcompress, this simplifies to approximately Nreuse. In practice, the actual speedup\nmay vary depending on the specific implementation and hardware, but it can still lead to substantial time savings, especially\nfor models with a large number of layers.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0868,
+          "y": 0.7926
+        },
+        {
+          "x": 0.8895,
+          "y": 0.7926
+        },
+        {
+          "x": 0.8895,
+          "y": 0.8391
+        },
+        {
+          "x": 0.0868,
+          "y": 0.8391
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# B.1.2. LAYER-WISE INDEX SIMILARITY",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0873,
+          "y": 0.8528
+        },
+        {
+          "x": 0.3726,
+          "y": 0.8528
+        },
+        {
+          "x": 0.3726,
+          "y": 0.8684
+        },
+        {
+          "x": 0.0873,
+          "y": 0.8684
+        }
+      ],
+      "id": 18,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "This section details the experiment of layer-wise index reuse similarity described in Section 3.3. The inference prompt is\nrandomly selected from the LongBench benchmark, and the preserved indices for H2O, SnapKV, and ChunkKV are saved in",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0869,
+          "y": 0.8768
+        },
+        {
+          "x": 0.8892,
+          "y": 0.8768
+        },
+        {
+          "x": 0.8892,
+          "y": 0.9082
+        },
+        {
+          "x": 0.0869,
+          "y": 0.9082
+        }
+      ],
+      "id": 19,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "18",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4773,
+          "y": 0.9238
+        },
+        {
+          "x": 0.4984,
+          "y": 0.9238
+        },
+        {
+          "x": 0.4984,
+          "y": 0.9376
+        },
+        {
+          "x": 0.4773,
+          "y": 0.9376
+        }
+      ],
+      "id": 20,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250116",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

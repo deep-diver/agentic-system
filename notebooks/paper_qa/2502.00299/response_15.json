@@ -1,0 +1,100 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference\n\nAppendix\nA In-depth Analysis of ChunkKV vs. Discrete Token Methods 16\nA.1 Quantitative Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16\nA.2 Hypothetical Scenario . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17\nA.3 Comparative Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17\nA.4 Implications for Model Performance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18\nB Additional Experiments 18\nB.1 Layer-Wise Index Reuse . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18\nB.2 LongBench . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25\nB.3 Needle-In-A-Haystack . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26\nB.4 Chunk Size . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29\nB.5 Multi-Lingual . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29\nC Theoretical Understanding 30\nD Additional Related Work 33\nE Statistics of Models 33\nF Statistics of Datasets 34\nG Prompt 34\nH Limitations 35\nI Licenses 35\n\n15",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "header",
+      "content": {
+        "html": "",
+        "markdown": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1726,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8025,
+          "y": 0.0574
+        },
+        {
+          "x": 0.8025,
+          "y": 0.0724
+        },
+        {
+          "x": 0.1726,
+          "y": 0.0724
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "index",
+      "content": {
+        "html": "",
+        "markdown": "Appendix\nA In-depth Analysis of ChunkKV vs. Discrete Token Methods 16\nA.1 Quantitative Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16\nA.2 Hypothetical Scenario . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17\nA.3 Comparative Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17\nA.4 Implications for Model Performance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18\nB Additional Experiments 18\nB.1 Layer-Wise Index Reuse . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18\nB.2 LongBench . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25\nB.3 Needle-In-A-Haystack . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26\nB.4 Chunk Size . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29\nB.5 Multi-Lingual . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29\nC Theoretical Understanding 30\nD Additional Related Work 33\nE Statistics of Models 33\nF Statistics of Datasets 34\nG Prompt 34\nH Limitations 35\nI Licenses 35",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.0761,
+          "y": 0.071
+        },
+        {
+          "x": 0.895,
+          "y": 0.071
+        },
+        {
+          "x": 0.895,
+          "y": 0.6263
+        },
+        {
+          "x": 0.0761,
+          "y": 0.6263
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "footer",
+      "content": {
+        "html": "",
+        "markdown": "15",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4772,
+          "y": 0.923
+        },
+        {
+          "x": 0.4986,
+          "y": 0.923
+        },
+        {
+          "x": 0.4986,
+          "y": 0.9378
+        },
+        {
+          "x": 0.4772,
+          "y": 0.9378
+        }
+      ],
+      "id": 2,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250116",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

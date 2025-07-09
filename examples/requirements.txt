@@ -1,0 +1,9 @@
+openai
+pydantic
+requests
+python-dotenv
+transformers
+jina2
+langchain_upstage
+langgraph
+PyPDF2

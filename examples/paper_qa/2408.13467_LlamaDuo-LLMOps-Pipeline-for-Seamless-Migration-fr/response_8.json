@@ -1,0 +1,296 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "Table 2: Monthly operational cost comparison between\nGemma 7B and GPT4o under different workloads. For\nGPT4o, input and output token counts are represented\nin the format input/output.\n\n|  | Light Workload | Light Workload | Heavy Workload | Heavy Workload |\n| --- | --- | --- | --- | --- |\n| Gemma 7B | GPT4o | Gemma 7B | GPT4o |  |\n| Fine-tuning | Cloud | - | Cloud | - |\n| Fine-tuning | $800 | - | $800 | - |\n| Serving Specs. | 1 x L4 | 300M/30M | 8 x L4 | 1500M/150M |\n| Serving Specs. | $2,539 | $1,950 | $20,312 | $9,750 |\n| Serving Elec. | 165 kWh | - | 1319 kWh | - |\n| Serving Elec. | $30 | - | $240 | - |\n| 2 Months | $3,369 | $3,900 | $21,592 | $19,500 |\n| 12 Months | $3,699 | $23,400 | $23,992 | $117,000 |\n\n\nence on the performance of the Gemma 7B model,\nsuggesting that larger local LLMs exhibit dimin-\nished sensitivity to the choice of service LLM as a\njudge. To qualitatively demonstrate the differences\nwhen using various types of service LLMs as eval-\nuators, Figure 3 presents the results as KDE plots,\ncharacterized by the dataset volume. We observe\nthat GPT4o maintains consistency in its evaluations\nacross both similarity and precision metrics. In con-\ntrast, Claude 3 Sonnet is found to be more lenient\nin scoring, while Gemini 1.5 Flash assigns higher\nprecision scores but significantly lower similarity\nscores. This underscores the importance of strate-\ngically aligning the selection of service LLMs with\nspecific task requirements.\n\n# 4.5 Cost of Long-term Deployment\n\nWe elucidate the cost-effectiveness of our proposed\nLlamaDuo pipeline, by conducting a long-term op-\nerational cost comparison between the fine-tuning\nof the small LLMs (Gemma 7B) and the token-\nbased API usage of service LLMs (GPT4o). In the\ncontext of local LLM deployment, the QLoRA fine-\ntuning process of Gemma 7B, utilizing a dataset\ncontaining 256K samples, necessitates approxi-\nmately one hour to complete a single experiment\non 8 \u00d7 A100 GPUs. This process incurs an esti-\nmated cost of $50, based on the price provided by\nGoogle Cloud Platform. Accounting for multiple\niterations of hyperparameter optimization, we esti-\nmate that the total fine-tuning cost remains below\n$800, which is deemed to be negligible. Deploying\na single instance of the Gemma 7B model with sup-\nport for a 1024 context length necessitates 24GB of\nGPU memory, making the L4 GPU an appropriate\nchoice. Depending on the projected workload, the\nGemma 7B model can be deployed either on a sin-\ngle server equipped with one L4 GPU ($2,539) or\nacross eight servers, each with one L4 GPU, with\neach server hosting a replica of the model instance\n\n![image](/image/placeholder)\n- Chart Type: bar\n|  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| item_01 | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD |\n\n\nFigure 4: Long-term operational cost comparison be-\ntween fine-tuning a local LLM and API-based token\nusage of GPT4o.\n\n($20,312). In addition, the power consumption\nfor each server is approximately $30 per month.\nFor GPT4o, as of August 2024, the pricing is $5\nand $15 per million tokens for input and output,\nrespectively. We estimate that a light workload, uti-\nlizing 10 million input tokens and 1 million output\ntokens per day, incurs a daily cost of $65. Con-\nversely, a heavy workload, consuming 50 million\ninput tokens and 10 million output tokens per day,\nis estimated to cost $325 daily. The monthly oper-\national cost comparison between Gemma 7B and\nGPT4o under different workloads is summarized\nin Table 2, demonstrating a significant advantage\nin fine-tuning and deploying a local LLM. More-\nover, as depicted in Figure 4, after the first two\nmonths, the cost of using GPT4o under both light\nand heavy workloads exceeds that of setting up and\nrunning a local model deployed on 1\u00d7L4 GPU and\n8 \u00d7 L4 GPU, respectively, as indicated by markers\nA and B. After one year, GPT4o\u2019s costs surpass\nthose of deploying a local model in all scenarios,\nas denoted by marker C. These findings highlight\nthe substantial economic benefits of investing in\nlocal LLM fine-tuning and deployment for long-\nterm use. Avoiding recurring token-based charges\nand maintaining control over model customization\nfurther enhances the appeal of the LlamaDuo for\ncost-conscious users and scenarios.\n\n5 Conclusion\n\nIn this study, we introduce LlamaDuo, the first au-\ntomatic LLMOps pipeline designed to facilitate the\nseamless migration from service-oriented LLMs to\nsmaller, locally manageable models. We conduct\nextensive experiments and analysis across a range\nof tasks with popular service and local LLMs to\nsubstantiate that LlamaDuo guarantees smaller lo-\ncal LLMs possess the potential to match or even\nexceed the performance of service LLMs in specific",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 2: Monthly operational cost comparison between\nGemma 7B and GPT4o under different workloads. For\nGPT4o, input and output token counts are represented\nin the format input/output.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1147,
+          "y": 0.0828
+        },
+        {
+          "x": 0.4886,
+          "y": 0.0828
+        },
+        {
+          "x": 0.4886,
+          "y": 0.1411
+        },
+        {
+          "x": 0.1147,
+          "y": 0.1411
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "|  | Light Workload | Light Workload | Heavy Workload | Heavy Workload |\n| --- | --- | --- | --- | --- |\n| Gemma 7B | GPT4o | Gemma 7B | GPT4o |  |\n| Fine-tuning | Cloud | - | Cloud | - |\n| Fine-tuning | $800 | - | $800 | - |\n| Serving Specs. | 1 x L4 | 300M/30M | 8 x L4 | 1500M/150M |\n| Serving Specs. | $2,539 | $1,950 | $20,312 | $9,750 |\n| Serving Elec. | 165 kWh | - | 1319 kWh | - |\n| Serving Elec. | $30 | - | $240 | - |\n| 2 Months | $3,369 | $3,900 | $21,592 | $19,500 |\n| 12 Months | $3,699 | $23,400 | $23,992 | $117,000 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1337,
+          "y": 0.1431
+        },
+        {
+          "x": 0.4651,
+          "y": 0.1431
+        },
+        {
+          "x": 0.4651,
+          "y": 0.2666
+        },
+        {
+          "x": 0.1337,
+          "y": 0.2666
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "ence on the performance of the Gemma 7B model,\nsuggesting that larger local LLMs exhibit dimin-\nished sensitivity to the choice of service LLM as a\njudge. To qualitatively demonstrate the differences\nwhen using various types of service LLMs as eval-\nuators, Figure 3 presents the results as KDE plots,\ncharacterized by the dataset volume. We observe\nthat GPT4o maintains consistency in its evaluations\nacross both similarity and precision metrics. In con-\ntrast, Claude 3 Sonnet is found to be more lenient\nin scoring, while Gemini 1.5 Flash assigns higher\nprecision scores but significantly lower similarity\nscores. This underscores the importance of strate-\ngically aligning the selection of service LLMs with\nspecific task requirements.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1158,
+          "y": 0.2769
+        },
+        {
+          "x": 0.4904,
+          "y": 0.2769
+        },
+        {
+          "x": 0.4904,
+          "y": 0.516
+        },
+        {
+          "x": 0.1158,
+          "y": 0.516
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 4.5 Cost of Long-term Deployment",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1152,
+          "y": 0.5302
+        },
+        {
+          "x": 0.4069,
+          "y": 0.5302
+        },
+        {
+          "x": 0.4069,
+          "y": 0.5464
+        },
+        {
+          "x": 0.1152,
+          "y": 0.5464
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "We elucidate the cost-effectiveness of our proposed\nLlamaDuo pipeline, by conducting a long-term op-\nerational cost comparison between the fine-tuning\nof the small LLMs (Gemma 7B) and the token-\nbased API usage of service LLMs (GPT4o). In the\ncontext of local LLM deployment, the QLoRA fine-\ntuning process of Gemma 7B, utilizing a dataset\ncontaining 256K samples, necessitates approxi-\nmately one hour to complete a single experiment\non 8 \u00d7 A100 GPUs. This process incurs an esti-\nmated cost of $50, based on the price provided by\nGoogle Cloud Platform. Accounting for multiple\niterations of hyperparameter optimization, we esti-\nmate that the total fine-tuning cost remains below\n$800, which is deemed to be negligible. Deploying\na single instance of the Gemma 7B model with sup-\nport for a 1024 context length necessitates 24GB of\nGPU memory, making the L4 GPU an appropriate\nchoice. Depending on the projected workload, the\nGemma 7B model can be deployed either on a sin-\ngle server equipped with one L4 GPU ($2,539) or\nacross eight servers, each with one L4 GPU, with\neach server hosting a replica of the model instance",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1154,
+          "y": 0.5526
+        },
+        {
+          "x": 0.4915,
+          "y": 0.5526
+        },
+        {
+          "x": 0.4915,
+          "y": 0.9238
+        },
+        {
+          "x": 0.1154,
+          "y": 0.9238
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "chart",
+      "content": {
+        "html": "",
+        "markdown": "![image](/image/placeholder)\n- Chart Type: bar\n|  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| item_01 | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD | 10.0USD |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.507,
+          "y": 0.0823
+        },
+        {
+          "x": 0.8868,
+          "y": 0.0823
+        },
+        {
+          "x": 0.8868,
+          "y": 0.2183
+        },
+        {
+          "x": 0.507,
+          "y": 0.2183
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 4: Long-term operational cost comparison be-\ntween fine-tuning a local LLM and API-based token\nusage of GPT4o.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5104,
+          "y": 0.2351
+        },
+        {
+          "x": 0.8849,
+          "y": 0.2351
+        },
+        {
+          "x": 0.8849,
+          "y": 0.278
+        },
+        {
+          "x": 0.5104,
+          "y": 0.278
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "($20,312). In addition, the power consumption\nfor each server is approximately $30 per month.\nFor GPT4o, as of August 2024, the pricing is $5\nand $15 per million tokens for input and output,\nrespectively. We estimate that a light workload, uti-\nlizing 10 million input tokens and 1 million output\ntokens per day, incurs a daily cost of $65. Con-\nversely, a heavy workload, consuming 50 million\ninput tokens and 10 million output tokens per day,\nis estimated to cost $325 daily. The monthly oper-\national cost comparison between Gemma 7B and\nGPT4o under different workloads is summarized\nin Table 2, demonstrating a significant advantage\nin fine-tuning and deploying a local LLM. More-\nover, as depicted in Figure 4, after the first two\nmonths, the cost of using GPT4o under both light\nand heavy workloads exceeds that of setting up and\nrunning a local model deployed on 1\u00d7L4 GPU and\n8 \u00d7 L4 GPU, respectively, as indicated by markers\nA and B. After one year, GPT4o\u2019s costs surpass\nthose of deploying a local model in all scenarios,\nas denoted by marker C. These findings highlight\nthe substantial economic benefits of investing in\nlocal LLM fine-tuning and deployment for long-\nterm use. Avoiding recurring token-based charges\nand maintaining control over model customization\nfurther enhances the appeal of the LlamaDuo for\ncost-conscious users and scenarios.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5118,
+          "y": 0.2847
+        },
+        {
+          "x": 0.8863,
+          "y": 0.2847
+        },
+        {
+          "x": 0.8863,
+          "y": 0.7357
+        },
+        {
+          "x": 0.5118,
+          "y": 0.7357
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "5 Conclusion",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5107,
+          "y": 0.75
+        },
+        {
+          "x": 0.6435,
+          "y": 0.75
+        },
+        {
+          "x": 0.6435,
+          "y": 0.7665
+        },
+        {
+          "x": 0.5107,
+          "y": 0.7665
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "In this study, we introduce LlamaDuo, the first au-\ntomatic LLMOps pipeline designed to facilitate the\nseamless migration from service-oriented LLMs to\nsmaller, locally manageable models. We conduct\nextensive experiments and analysis across a range\nof tasks with popular service and local LLMs to\nsubstantiate that LlamaDuo guarantees smaller lo-\ncal LLMs possess the potential to match or even\nexceed the performance of service LLMs in specific",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5114,
+          "y": 0.7773
+        },
+        {
+          "x": 0.8846,
+          "y": 0.7773
+        },
+        {
+          "x": 0.8846,
+          "y": 0.9222
+        },
+        {
+          "x": 0.5114,
+          "y": 0.9222
+        }
+      ],
+      "id": 9,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250404",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

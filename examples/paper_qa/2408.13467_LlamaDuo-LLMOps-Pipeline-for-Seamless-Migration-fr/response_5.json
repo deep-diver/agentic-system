@@ -1,0 +1,296 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "where U \u2300( ,  , .) represent a series of data post-\nprocessing operations, D(t) denotes synthetic\nsynth\ndata generated from service LLMs at t-th cyclical-\nity, SLLM and prompt(synth) are the service LLM\nand system prompt used for the data synthesis, re-\nspectively.\n\n# 4 Experiments\n\nIn this section, we present a comprehensive evalu-\nation of our LlamaDuo across a series of settings,\ndemonstrating its robust performance and adapt-\nability in real-world scenarios.\n\n# 4.1 Experimental Settings\n\nTasks and coverage dataset. We select four cat-\negories of downstream tasks-summarization, clas-\nsification, coding, and closed QA-based on their\nprevalent use and relevance to the operational scope\nof service LLMs. We utilize the open-source \"No\nRobots\" (Rajani et al., 2023) dataset as the cover-\nage dataset. This coverage dataset consists of 10K\nhigh-quality prompt and response pairs across 10\ncategories, crafted by expert annotators. Specif-\nically, we utilize four subsets of the coverage\ndataset, each corresponding to our targeted tasks.\nThese subsets serve as seeds for generating syn-\nthetic data that can closely align with user expecta-\ntions for LLM interactions.\nService and local LLMs. Considering the API\ncost effectiveness, rate limit, and model utility, we\nselect popular service LLMs including GPT4o by\nOpenAI, Claude 3 Sonnet by Anthropic, and Gem-\nini 1.5 Flash by Google to serve as synthetic data\ngenerators and judges. As for the small-scale local\nLLMs to be fine-tuned, we opt for the open-source\nGemma 2B and 7B (Gemma Team, 2024), Mistral\n7B (Jiang et al., 2023), and LLaMA3 8B (Meta,\n2024) as the base models. This selection is moti-\nvated by our aim to rigorously evaluate the efficacy\nand adaptability of our proposed pipeline across\ndiverse settings. The varying scales of base mod-\nels facilitate a nuanced comparison, allowing us to\nassess the impact of model scale on performance\nimprovements. However, as a model-agnostic LL-\nMOps pipeline, our LlamaDuo can be generalized\nto various forms of service and local LLMs beyond\nthe aforementioned models.\n\n# 4.2 Implementation Details\n\nWe implement LlamaDuo using PyTorch and con-\nduct experiments on 8 x A100 (80GB) GPUs.\n\nSynthetic dataset by service LLMs. We utilize\nthe seeds selected from the train subset of the COV-\nerage dataset to prompt service LLMs to generate\ndatasets, each comprising 300k samples. The spe-\ncific prompt for data generation is presented in\nFigure 6 of Appendix A. Subsequently, we employ\nLocality-Sensitive Hashing (LSH) with MinHash\nand Rouge scoring mechanisms for data deduplica-\ntion. Specifically, the LSH MinHash can efficiently\nidentify and remove duplicate data samples, while\nthe Rouge scoring mechanism ensures that the cu-\nrated data exhibits high-quality and meaningful\nvariations. After that, we acquire 256k samples for\nsummarization tasks and 128k for other tasks.\nFine-tuning Local LLMs. We proceed to\nfine-tune the small local LLMs with 2nk, n E\n{0, 1, \u00b7 \u00b7 \u00b7 , 8} volumes of the synthetic dataset. To\nefficiently customize local LLM for a specific\ndownstream task within constrained environments,\nwe leverage QLoRA (Dettmers et al., 2024) for\nparameter-efficient fine-tuning with superior cost-\neffectiveness. The detailed configurations, which\nare tailored according to dataset sizes and tasks,\ncan be found in Appendix B.\nBatch inference. Each fine-tuned local model is\nprompted to generate K = 4 distinct responses,\nwith each prompt sampled from the test subsets of\nthe coverage dataset. To ensure fair comparisons,\nwe maintain a consistent batch inference configu-\nration across all fine-tuned models. The detailed\nconfiguration is depicted in Appendix B.\nService LLMs as judges. Following (Zheng et al.,\n2024), we employ pairwise comparison and sin-\ngle answer grading strategies to evaluate the re-\nsponse quality of the fine-tuned local LLMs. The\ncorresponding prompts are given in Figure 5 of Ap-\npendix A. We utilize similarity and precision met-\nrics. The similarity metric assesses the degree of\ncorrespondence between the generated responses\nand the ground truth, while the precision metric\nevaluates the accuracy of the match between the\ninput prompts and their corresponding responses.\nTo ensure reliability and mitigate inherent biases\nin the results, both metrics are quantified on a 0 to\n100 scale, with each sample undergoing evaluation\nM = 10 times. The score of coverage percentage\nis set to S E {50, 70}.\n\n4.3 Experimental Results\n\nThis section delves into the effectiveness and adapt-\nability of the LlamaDuo pipeline, spanning differ-\nent tasks with varying degrees of complexity, in-",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "where U \u2300( ,  , .) represent a series of data post-\nprocessing operations, D(t) denotes synthetic\nsynth\ndata generated from service LLMs at t-th cyclical-\nity, SLLM and prompt(synth) are the service LLM\nand system prompt used for the data synthesis, re-\nspectively.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1154,
+          "y": 0.0854
+        },
+        {
+          "x": 0.4902,
+          "y": 0.0854
+        },
+        {
+          "x": 0.4902,
+          "y": 0.1845
+        },
+        {
+          "x": 0.1154,
+          "y": 0.1845
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 4 Experiments",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1155,
+          "y": 0.1979
+        },
+        {
+          "x": 0.2625,
+          "y": 0.1979
+        },
+        {
+          "x": 0.2625,
+          "y": 0.2152
+        },
+        {
+          "x": 0.1155,
+          "y": 0.2152
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "In this section, we present a comprehensive evalu-\nation of our LlamaDuo across a series of settings,\ndemonstrating its robust performance and adapt-\nability in real-world scenarios.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1158,
+          "y": 0.2256
+        },
+        {
+          "x": 0.4904,
+          "y": 0.2256
+        },
+        {
+          "x": 0.4904,
+          "y": 0.2894
+        },
+        {
+          "x": 0.1158,
+          "y": 0.2894
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 4.1 Experimental Settings",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1148,
+          "y": 0.3021
+        },
+        {
+          "x": 0.3368,
+          "y": 0.3021
+        },
+        {
+          "x": 0.3368,
+          "y": 0.318
+        },
+        {
+          "x": 0.1148,
+          "y": 0.318
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Tasks and coverage dataset. We select four cat-\negories of downstream tasks-summarization, clas-\nsification, coding, and closed QA-based on their\nprevalent use and relevance to the operational scope\nof service LLMs. We utilize the open-source \"No\nRobots\" (Rajani et al., 2023) dataset as the cover-\nage dataset. This coverage dataset consists of 10K\nhigh-quality prompt and response pairs across 10\ncategories, crafted by expert annotators. Specif-\nically, we utilize four subsets of the coverage\ndataset, each corresponding to our targeted tasks.\nThese subsets serve as seeds for generating syn-\nthetic data that can closely align with user expecta-\ntions for LLM interactions.\nService and local LLMs. Considering the API\ncost effectiveness, rate limit, and model utility, we\nselect popular service LLMs including GPT4o by\nOpenAI, Claude 3 Sonnet by Anthropic, and Gem-\nini 1.5 Flash by Google to serve as synthetic data\ngenerators and judges. As for the small-scale local\nLLMs to be fine-tuned, we opt for the open-source\nGemma 2B and 7B (Gemma Team, 2024), Mistral\n7B (Jiang et al., 2023), and LLaMA3 8B (Meta,\n2024) as the base models. This selection is moti-\nvated by our aim to rigorously evaluate the efficacy\nand adaptability of our proposed pipeline across\ndiverse settings. The varying scales of base mod-\nels facilitate a nuanced comparison, allowing us to\nassess the impact of model scale on performance\nimprovements. However, as a model-agnostic LL-\nMOps pipeline, our LlamaDuo can be generalized\nto various forms of service and local LLMs beyond\nthe aforementioned models.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.116,
+          "y": 0.3172
+        },
+        {
+          "x": 0.4907,
+          "y": 0.3172
+        },
+        {
+          "x": 0.4907,
+          "y": 0.857
+        },
+        {
+          "x": 0.116,
+          "y": 0.857
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "heading1",
+      "content": {
+        "html": "",
+        "markdown": "# 4.2 Implementation Details",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1156,
+          "y": 0.8683
+        },
+        {
+          "x": 0.3468,
+          "y": 0.8683
+        },
+        {
+          "x": 0.3468,
+          "y": 0.8835
+        },
+        {
+          "x": 0.1156,
+          "y": 0.8835
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "We implement LlamaDuo using PyTorch and con-\nduct experiments on 8 x A100 (80GB) GPUs.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1155,
+          "y": 0.8911
+        },
+        {
+          "x": 0.4892,
+          "y": 0.8911
+        },
+        {
+          "x": 0.4892,
+          "y": 0.9223
+        },
+        {
+          "x": 0.1155,
+          "y": 0.9223
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Synthetic dataset by service LLMs. We utilize\nthe seeds selected from the train subset of the COV-\nerage dataset to prompt service LLMs to generate\ndatasets, each comprising 300k samples. The spe-\ncific prompt for data generation is presented in\nFigure 6 of Appendix A. Subsequently, we employ\nLocality-Sensitive Hashing (LSH) with MinHash\nand Rouge scoring mechanisms for data deduplica-\ntion. Specifically, the LSH MinHash can efficiently\nidentify and remove duplicate data samples, while\nthe Rouge scoring mechanism ensures that the cu-\nrated data exhibits high-quality and meaningful\nvariations. After that, we acquire 256k samples for\nsummarization tasks and 128k for other tasks.\nFine-tuning Local LLMs. We proceed to\nfine-tune the small local LLMs with 2nk, n E\n{0, 1, \u00b7 \u00b7 \u00b7 , 8} volumes of the synthetic dataset. To\nefficiently customize local LLM for a specific\ndownstream task within constrained environments,\nwe leverage QLoRA (Dettmers et al., 2024) for\nparameter-efficient fine-tuning with superior cost-\neffectiveness. The detailed configurations, which\nare tailored according to dataset sizes and tasks,\ncan be found in Appendix B.\nBatch inference. Each fine-tuned local model is\nprompted to generate K = 4 distinct responses,\nwith each prompt sampled from the test subsets of\nthe coverage dataset. To ensure fair comparisons,\nwe maintain a consistent batch inference configu-\nration across all fine-tuned models. The detailed\nconfiguration is depicted in Appendix B.\nService LLMs as judges. Following (Zheng et al.,\n2024), we employ pairwise comparison and sin-\ngle answer grading strategies to evaluate the re-\nsponse quality of the fine-tuned local LLMs. The\ncorresponding prompts are given in Figure 5 of Ap-\npendix A. We utilize similarity and precision met-\nrics. The similarity metric assesses the degree of\ncorrespondence between the generated responses\nand the ground truth, while the precision metric\nevaluates the accuracy of the match between the\ninput prompts and their corresponding responses.\nTo ensure reliability and mitigate inherent biases\nin the results, both metrics are quantified on a 0 to\n100 scale, with each sample undergoing evaluation\nM = 10 times. The score of coverage percentage\nis set to S E {50, 70}.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5123,
+          "y": 0.087
+        },
+        {
+          "x": 0.8863,
+          "y": 0.087
+        },
+        {
+          "x": 0.8863,
+          "y": 0.847
+        },
+        {
+          "x": 0.5123,
+          "y": 0.847
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "4.3 Experimental Results",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5109,
+          "y": 0.8534
+        },
+        {
+          "x": 0.7262,
+          "y": 0.8534
+        },
+        {
+          "x": 0.7262,
+          "y": 0.8687
+        },
+        {
+          "x": 0.5109,
+          "y": 0.8687
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "This section delves into the effectiveness and adapt-\nability of the LlamaDuo pipeline, spanning differ-\nent tasks with varying degrees of complexity, in-",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5125,
+          "y": 0.8744
+        },
+        {
+          "x": 0.8861,
+          "y": 0.8744
+        },
+        {
+          "x": 0.8861,
+          "y": 0.9231
+        },
+        {
+          "x": 0.5125,
+          "y": 0.9231
+        }
+      ],
+      "id": 9,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250404",
+  "ocr": true,
+  "usage": {
+    "pages": 1
+  }
+}

@@ -1,0 +1,576 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "![image](/image/placeholder)\nUsers Service LLMs Local LLMs\ntrain\nset\nAligned\nMOO Final Model\n\naligned model\n\u2193\ntest\nset\nBatch Inference\ngenerated text\ntest\nPrompt Response Satisfaction\nset\nEvaluation data privacy mobile target\n\u3002 Coverage / on-premise server environment\nDataset as evaluator\nX\n2 < X \u2265\nthreshold threshold 80\nO train\nset \u2465\nO\nno internet explicit version control\nData Synthesis environment / rollback, fallback plans\nas generator\nDevelopment / PoC Alignment Deployment\n\nFigure 1: The LLMOps pipeline namely LlamaDuo for migrating from service LLMs to small-scale local LLMs\ninvolves three phases. In the Development/PoC phase, \u2460 users manually engineer prompts to interact with service\nLLMs and \u2461 collect satisfying (prompt, response) pairs into train and test datasets. In the Alignment phase,\nlocal LLMs are aligned with the train dataset, \u2463 tested on the test dataset, and \u2464 evaluated by service LLMs.\n\u2465 Synthetic data is generated iteratively until the performance of the aligned model meets a threshold. In the\nDeployment phase, \u2466 the satisfactory model is deployed in constrained environments.\n\nLLMs as evaluators, the evaluation metrics can\nbe more flexibly adapted to specific tasks, along\nwith a thorough evaluation guide. In this paper,\nwe measure the similarity between R and R(0),\nand how precise (\u5de5(0) , R) the responses generated\nby the local LLM answer the given instructions.\nThese two metrics are provided simultaneously\nthrough a prompt, as shown in Figure 5 of Ap-\npendix A. Therefore, { (\u24cf\u2300 , Ri, R(0))}(1-\u2300)-N-K\ninvokes service LLMs to perform evaluation by\n(1 - \u2300) \u00b7 N \u00b7 K \u00b7 M times. Subsequently, the eval-\nuation results can be leveraged according to the\nintention of the operator performing this LLMOps\npipeline. For example, actions can be taken to\nincrease the reliability of service LLM as an eval-\nuator by calculating the mean or median. In this\nstudy, we adopt the mean score V\ufffd(t) and coverage\npercentage C\ufffd(t) 5 score as evaluation results.\nwith\nHere, the coverage percentage C\ufffd(t) indicates the\nproportion of responses that have met or exceeded\nthe quality benchmark. Formally,\n\n$$V_{\\pi^{(t)}}=\\frac{\\d1}{(1-\\Phi)\\cdot N\\cdot K}\\,\\sum_{j=1}^{(1-\\Phi)\\cdot N\\cdot K}V_{\\pi^{(t)}}^{j},$$\n\n$$C_{\\pi^{(t)}}=\\frac{1}{(1-\\Phi)\\cdot N\\cdot K}\\sum_{j=1}^{(1-\\Phi)\\cdot N\\cdot K}\\operatorname{In}(V_{\\pi^{(t)}}^{j}\\geq\\zeta),$$\n\n(3)\n\n(4)\n\n$$V_{\\pi^{(t)}}^{j}=\\frac{1}{M}\\sum_{m=1}^{M}\\mathcal{E}_{\\mathrm{LLM}}(\\mathrm{prompt}^{(e v a l)},d_{j})$$\n\n(5)\n\n$$d_{j}\\sim\\ \\{(\\mathcal{L}_{i}^{(0)},\\hat{\\mathcal{R}}_{i},\\mathcal{N}_{i}^{(0)})\\}_{i=1}^{(1-\\Phi)\\cdot N\\cdot K},$$\n\n(6)\n\nwhere V\ufffd(t) and C\ufffd(t) denote the performance of\nlocal LLM at t-th cyclicality, 1() is an indica-\n\ntor function, 5 denotes a threshold score of C\ufffd(t),\nprompt(eval) is the system prompt used for LLM-\nas-a-Judge.\n\nIf the performance of fine-tuned local LLM V\ufffd(t)\nor C\ufffd(t) fails to reach or surpass the predetermined\nevaluation threshold E of specific tasks, it indi-\ncates that fine-tuned local LLM's capabilities are\ninsufficient for the tasks at hand. Thus, the lo-\ncal LLM cannot yet serve as a substitute for the\nservice LLM and necessitates further refinement.\nTo achieve this, we utilize service LLMs to gen-\nerate additional synthetic datasets for fine-tuning\nlocal LLM in the next cyclicality. To maintain the\nconsistency of data distribution of coverage dataset\nD(0) constructed from real-world scenarios, we em-\nploy the train subsets D (0)\nas seeds and apply the\ntrain\nsame framework (Wang et al., 2023b; Taori et al.,\n2023a) for synthetic dataset generation. During\nsynthetic dataset generation, we perform data dedu-\nplication to exclude identical samples from D' =\n{Dtrain, {Dsynth, D(2)\nsynth }} and filter\nsynth' \u00b7 \u00b7 \u00b7 , D(t-1)\nout low-quality samples based on carefully de-\nsigned rules. Finally, we conduct rigorous data\ndecontamination for the synthetic dataset to remove\nsamples that closely resemble those in the test sub-\nof the coverage dataset. Formally, the\nset D(0)\ntest\ndata synthesis stage can be formulated as\n\n3.5 Data Synthesis\n\n$$\\begin{array}{l}{{\\displaystyle{\\cal D}_{s y n t h}^{(t)}}}\\ {{\\displaystyle\\longleftrightarrow}}\\end{array}\\nonumber\\nonumber\\bigcup\\psi(\\b{\\cal D}_{s y m t h}^{(t)},\\,\\rlap/{\\cal D}^{\\prime},\\,\\rlap/D_{t e s t}^{(0)}),$$\n\n(7)\n\n$$\\mathcal{D}_{\\mathrm{synth}}^{(t)}\\sim\\mathcal{O}_{\\mathrm{LIM}}\\big(\\mathrm{prompt}\\big)^{\\mathrm{t}}\\big(s y n t h\\big)_{,}\\,s e c{d}\\big),$$\n\n(8)\n\nseed ~ D(0)\nfor V\ufffd(t) < E or C\ufffd(t) < E, (9)\ntrain'",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "figure",
+      "content": {
+        "html": "",
+        "markdown": "![image](/image/placeholder)\nUsers Service LLMs Local LLMs\ntrain\nset\nAligned\nMOO Final Model\n\naligned model\n\u2193\ntest\nset\nBatch Inference\ngenerated text\ntest\nPrompt Response Satisfaction\nset\nEvaluation data privacy mobile target\n\u3002 Coverage / on-premise server environment\nDataset as evaluator\nX\n2 < X \u2265\nthreshold threshold 80\nO train\nset \u2465\nO\nno internet explicit version control\nData Synthesis environment / rollback, fallback plans\nas generator\nDevelopment / PoC Alignment Deployment",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1726,
+          "y": 0.086
+        },
+        {
+          "x": 0.8157,
+          "y": 0.086
+        },
+        {
+          "x": 0.8157,
+          "y": 0.2653
+        },
+        {
+          "x": 0.1726,
+          "y": 0.2653
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 1: The LLMOps pipeline namely LlamaDuo for migrating from service LLMs to small-scale local LLMs\ninvolves three phases. In the Development/PoC phase, \u2460 users manually engineer prompts to interact with service\nLLMs and \u2461 collect satisfying (prompt, response) pairs into train and test datasets. In the Alignment phase,\nlocal LLMs are aligned with the train dataset, \u2463 tested on the test dataset, and \u2464 evaluated by service LLMs.\n\u2465 Synthetic data is generated iteratively until the performance of the aligned model meets a threshold. In the\nDeployment phase, \u2466 the satisfactory model is deployed in constrained environments.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1146,
+          "y": 0.2688
+        },
+        {
+          "x": 0.8854,
+          "y": 0.2688
+        },
+        {
+          "x": 0.8854,
+          "y": 0.3561
+        },
+        {
+          "x": 0.1146,
+          "y": 0.3561
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "LLMs as evaluators, the evaluation metrics can\nbe more flexibly adapted to specific tasks, along\nwith a thorough evaluation guide. In this paper,\nwe measure the similarity between R and R(0),\nand how precise (\u5de5(0) , R) the responses generated\nby the local LLM answer the given instructions.\nThese two metrics are provided simultaneously\nthrough a prompt, as shown in Figure 5 of Ap-\npendix A. Therefore, { (\u24cf\u2300 , Ri, R(0))}(1-\u2300)-N-K\ninvokes service LLMs to perform evaluation by\n(1 - \u2300) \u00b7 N \u00b7 K \u00b7 M times. Subsequently, the eval-\nuation results can be leveraged according to the\nintention of the operator performing this LLMOps\npipeline. For example, actions can be taken to\nincrease the reliability of service LLM as an eval-\nuator by calculating the mean or median. In this\nstudy, we adopt the mean score V\ufffd(t) and coverage\npercentage C\ufffd(t) 5 score as evaluation results.\nwith\nHere, the coverage percentage C\ufffd(t) indicates the\nproportion of responses that have met or exceeded\nthe quality benchmark. Formally,",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1149,
+          "y": 0.3645
+        },
+        {
+          "x": 0.491,
+          "y": 0.3645
+        },
+        {
+          "x": 0.491,
+          "y": 0.703
+        },
+        {
+          "x": 0.1149,
+          "y": 0.703
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$V_{\\pi^{(t)}}=\\frac{\\d1}{(1-\\Phi)\\cdot N\\cdot K}\\,\\sum_{j=1}^{(1-\\Phi)\\cdot N\\cdot K}V_{\\pi^{(t)}}^{j},$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1158,
+          "y": 0.7015
+        },
+        {
+          "x": 0.4287,
+          "y": 0.7015
+        },
+        {
+          "x": 0.4287,
+          "y": 0.7492
+        },
+        {
+          "x": 0.1158,
+          "y": 0.7492
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$C_{\\pi^{(t)}}=\\frac{1}{(1-\\Phi)\\cdot N\\cdot K}\\sum_{j=1}^{(1-\\Phi)\\cdot N\\cdot K}\\operatorname{In}(V_{\\pi^{(t)}}^{j}\\geq\\zeta),$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1153,
+          "y": 0.7481
+        },
+        {
+          "x": 0.4902,
+          "y": 0.7481
+        },
+        {
+          "x": 0.4902,
+          "y": 0.7988
+        },
+        {
+          "x": 0.1153,
+          "y": 0.7988
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(3)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4634,
+          "y": 0.7172
+        },
+        {
+          "x": 0.4885,
+          "y": 0.7172
+        },
+        {
+          "x": 0.4885,
+          "y": 0.7327
+        },
+        {
+          "x": 0.4634,
+          "y": 0.7327
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "(4)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4623,
+          "y": 0.7984
+        },
+        {
+          "x": 0.4896,
+          "y": 0.7984
+        },
+        {
+          "x": 0.4896,
+          "y": 0.8134
+        },
+        {
+          "x": 0.4623,
+          "y": 0.8134
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$V_{\\pi^{(t)}}^{j}=\\frac{1}{M}\\sum_{m=1}^{M}\\mathcal{E}_{\\mathrm{LLM}}(\\mathrm{prompt}^{(e v a l)},d_{j})$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1148,
+          "y": 0.8175
+        },
+        {
+          "x": 0.4193,
+          "y": 0.8175
+        },
+        {
+          "x": 0.4193,
+          "y": 0.8573
+        },
+        {
+          "x": 0.1148,
+          "y": 0.8573
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(5)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4627,
+          "y": 0.8307
+        },
+        {
+          "x": 0.4889,
+          "y": 0.8307
+        },
+        {
+          "x": 0.4889,
+          "y": 0.8463
+        },
+        {
+          "x": 0.4627,
+          "y": 0.8463
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$d_{j}\\sim\\ \\{(\\mathcal{L}_{i}^{(0)},\\hat{\\mathcal{R}}_{i},\\mathcal{N}_{i}^{(0)})\\}_{i=1}^{(1-\\Phi)\\cdot N\\cdot K},$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1163,
+          "y": 0.8613
+        },
+        {
+          "x": 0.3763,
+          "y": 0.8613
+        },
+        {
+          "x": 0.3763,
+          "y": 0.8847
+        },
+        {
+          "x": 0.1163,
+          "y": 0.8847
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(6)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.4629,
+          "y": 0.8655
+        },
+        {
+          "x": 0.4895,
+          "y": 0.8655
+        },
+        {
+          "x": 0.4895,
+          "y": 0.8821
+        },
+        {
+          "x": 0.4629,
+          "y": 0.8821
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "where V\ufffd(t) and C\ufffd(t) denote the performance of\nlocal LLM at t-th cyclicality, 1() is an indica-",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1133,
+          "y": 0.8903
+        },
+        {
+          "x": 0.4911,
+          "y": 0.8903
+        },
+        {
+          "x": 0.4911,
+          "y": 0.9235
+        },
+        {
+          "x": 0.1133,
+          "y": 0.9235
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "tor function, 5 denotes a threshold score of C\ufffd(t),\nprompt(eval) is the system prompt used for LLM-\nas-a-Judge.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5092,
+          "y": 0.364
+        },
+        {
+          "x": 0.8869,
+          "y": 0.364
+        },
+        {
+          "x": 0.8869,
+          "y": 0.412
+        },
+        {
+          "x": 0.5092,
+          "y": 0.412
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "If the performance of fine-tuned local LLM V\ufffd(t)\nor C\ufffd(t) fails to reach or surpass the predetermined\nevaluation threshold E of specific tasks, it indi-\ncates that fine-tuned local LLM's capabilities are\ninsufficient for the tasks at hand. Thus, the lo-\ncal LLM cannot yet serve as a substitute for the\nservice LLM and necessitates further refinement.\nTo achieve this, we utilize service LLMs to gen-\nerate additional synthetic datasets for fine-tuning\nlocal LLM in the next cyclicality. To maintain the\nconsistency of data distribution of coverage dataset\nD(0) constructed from real-world scenarios, we em-\nploy the train subsets D (0)\nas seeds and apply the\ntrain\nsame framework (Wang et al., 2023b; Taori et al.,\n2023a) for synthetic dataset generation. During\nsynthetic dataset generation, we perform data dedu-\nplication to exclude identical samples from D' =\n{Dtrain, {Dsynth, D(2)\nsynth }} and filter\nsynth' \u00b7 \u00b7 \u00b7 , D(t-1)\nout low-quality samples based on carefully de-\nsigned rules. Finally, we conduct rigorous data\ndecontamination for the synthetic dataset to remove\nsamples that closely resemble those in the test sub-\nof the coverage dataset. Formally, the\nset D(0)\ntest\ndata synthesis stage can be formulated as",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5097,
+          "y": 0.444
+        },
+        {
+          "x": 0.8853,
+          "y": 0.444
+        },
+        {
+          "x": 0.8853,
+          "y": 0.836
+        },
+        {
+          "x": 0.5097,
+          "y": 0.836
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "3.5 Data Synthesis",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5118,
+          "y": 0.4235
+        },
+        {
+          "x": 0.6737,
+          "y": 0.4235
+        },
+        {
+          "x": 0.6737,
+          "y": 0.4389
+        },
+        {
+          "x": 0.5118,
+          "y": 0.4389
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\begin{array}{l}{{\\displaystyle{\\cal D}_{s y n t h}^{(t)}}}\\ {{\\displaystyle\\longleftrightarrow}}\\end{array}\\nonumber\\nonumber\\bigcup\\psi(\\b{\\cal D}_{s y m t h}^{(t)},\\,\\rlap/{\\cal D}^{\\prime},\\,\\rlap/D_{t e s t}^{(0)}),$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5225,
+          "y": 0.8468
+        },
+        {
+          "x": 0.7911,
+          "y": 0.8468
+        },
+        {
+          "x": 0.7911,
+          "y": 0.8694
+        },
+        {
+          "x": 0.5225,
+          "y": 0.8694
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(7)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.8568,
+          "y": 0.8509
+        },
+        {
+          "x": 0.885,
+          "y": 0.8509
+        },
+        {
+          "x": 0.885,
+          "y": 0.867
+        },
+        {
+          "x": 0.8568,
+          "y": 0.867
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "equation",
+      "content": {
+        "html": "",
+        "markdown": "$$\\mathcal{D}_{\\mathrm{synth}}^{(t)}\\sim\\mathcal{O}_{\\mathrm{LIM}}\\big(\\mathrm{prompt}\\big)^{\\mathrm{t}}\\big(s y n t h\\big)_{,}\\,s e c{d}\\big),$$",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5246,
+          "y": 0.8744
+        },
+        {
+          "x": 0.8233,
+          "y": 0.8744
+        },
+        {
+          "x": 0.8233,
+          "y": 0.8947
+        },
+        {
+          "x": 0.5246,
+          "y": 0.8947
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "caption",
+      "content": {
+        "html": "",
+        "markdown": "(8)",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.8581,
+          "y": 0.8769
+        },
+        {
+          "x": 0.8842,
+          "y": 0.8769
+        },
+        {
+          "x": 0.8842,
+          "y": 0.8927
+        },
+        {
+          "x": 0.8581,
+          "y": 0.8927
+        }
+      ],
+      "id": 18,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "seed ~ D(0)\nfor V\ufffd(t) < E or C\ufffd(t) < E, (9)\ntrain'",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5223,
+          "y": 0.9003
+        },
+        {
+          "x": 0.8822,
+          "y": 0.9003
+        },
+        {
+          "x": 0.8822,
+          "y": 0.9193
+        },
+        {
+          "x": 0.5223,
+          "y": 0.9193
+        }
+      ],
+      "id": 19,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250404",
+  "ocr": true,
+  "usage": {
+    "pages": 1
+  }
+}

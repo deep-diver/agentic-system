@@ -1,0 +1,632 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "Shayne Longpre, Le Hou, Tu Vu, Albert Webson,\nHyung Won Chung, Yi Tay, Denny Zhou, Quoc V\nLe, Barret Zoph, Jason Wei, et al. 2023. The flan\ncollection: Designing data and methods for effective\ninstruction tuning. In International Conference on\nMachine Learning, pages 22631\u201322648. PMLR.\n\nZiyang Luo, Can Xu, Pu Zhao, Qingfeng Sun, Xi-\nubo Geng, Wenxiang Hu, Chongyang Tao, Jing Ma,\nQingwei Lin, and Daxin Jiang. 2023. Wizardcoder:\nEmpowering code large language models with evol-\ninstruct. In The Twelfth International Conference on\nLearning Representations.\n\nKaifeng Lyu, Haoyu Zhao, Xinran Gu, Dingli Yu,\nAnirudh Goyal, and Sanjeev Arora. 2024. Keep-\ning llms aligned after fine-tuning: The crucial role of\nprompt templates. arXiv preprint arXiv:2402.18540.\n\nAI Meta. 2024. Introducing meta llama 3: The most\ncapable openly available llm to date. Meta AI.\n\nNiklas Muennighoff, Thomas Wang, Lintang Sutawika,\nAdam Roberts, Stella Biderman, Teven Le Scao,\nM Saiful Bari, Sheng Shen, Zheng Xin Yong, Hailey\nSchoelkopf, et al. 2023. Crosslingual generalization\nthrough multitask finetuning. In Proceedings of the\n61st Annual Meeting of the Association for Compu-\ntational Linguistics (Volume 1: Long Papers), pages\n15991\u201316111.\n\nHumza Naveed, Asad Ullah Khan, Shi Qiu, Muham-\nmad Saqib, Saeed Anwar, Muhammad Usman, Nick\nBarnes, and Ajmal Mian. 2023. A comprehensive\noverview of large language models. arXiv preprint\narXiv:2307.06435.\n\nLong Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida,\nCarroll Wainwright, Pamela Mishkin, Chong Zhang,\nSandhini Agarwal, Katarina Slama, Alex Ray, et al.\n2022. Training language models to follow instruc-\ntions with human feedback. Advances in neural in-\nformation processing systems, 35:27730\u201327744.\n\nRaul Puri, Ryan Spring, Mostofa Patwary, Mohammad\nShoeybi, and Bryan Catanzaro. 2020. Training ques-\ntion answering models from synthetic data. arXiv\npreprint arXiv:2002.09599.\n\nRafael Rafailov, Archit Sharma, Eric Mitchell, Christo-\npher D Manning, Stefano Ermon, and Chelsea Finn.\n2023. Direct preference optimization: Your lan-\nguage model is secretly a reward model. Advances in\nNeural Information Processing Systems, 36:53728\u2013\n53741.\n\nNazneen Rajani, Lewis Tunstall, Edward Beeching,\nNathan Lambert, Alexander M. Rush, and Thomas\nWolf. 2023. No robots. https://huggingface.co/\ndatasets/HuggingFaceH4/no_robots.\n\nPartha Pratim Ray. 2023. Chatgpt: A comprehensive\nreview on background, applications, key challenges,\nbias, ethics, limitations and future scope. Internet of\nThings and Cyber-Physical Systems, 3:121\u2013154.\n\nYasaman Razeghi, Robert L Logan IV, Matt Gardner,\nand Sameer Singh. 2022. Impact of pretraining term\nfrequencies on few-shot reasoning. arXiv preprint\narXiv:2202.07206.\n\nVinay Samuel, Houda Aynaou, Arijit Ghosh Chowd-\nhury, Karthik Venkat Ramanan, and Aman Chadha.\n2023. Can llms augment low-resource reading com-\nprehension datasets? opportunities and challenges.\narXiv preprint arXiv:2309.12426.\n\nViktor Schlegel, Hao Li, Yuping Wu, Anand Sub-\nramanian, Thanh-Tung Nguyen, Abhinav Ramesh\nKashyap, Daniel Beck, Xiaojun Zeng, Riza Theresa\nBatista-Navarro, Stefan Winkler, et al. 2023. Pul-\nsar at mediqa-sum 2023: Large language mod-\nels augmented by synthetic dialogue convert pa-\ntient dialogues to medical records. arXiv preprint\narXiv:2307.02006.\n\nRohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann\nDubois, Xuechen Li, Carlos Guestrin, Percy Liang,\nand Tatsunori B. Hashimoto. 2023a. Stanford alpaca:\nAn instruction-following llama model. https://\ngithub.com/tatsu-lab/stanford_alpaca.\n\nRohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann\nDubois, Xuechen Li, Carlos Guestrin, Percy Liang,\nand Tatsunori B Hashimoto. 2023b. Stanford alpaca:\nAn instruction-following llama model.\n\nHugo Touvron, Louis Martin, Kevin Stone, Peter Al-\nbert, Amjad Almahairi, Yasmine Babaei, Nikolay\nBashlykov, Soumya Batra, Prajjwal Bhargava, Shruti\nBhosale, et al. 2023. Llama 2: Open founda-\ntion and fine-tuned chat models. arXiv preprint\narXiv:2307.09288.\n\nLewis Tunstall, Edward Beeching, Nathan Lambert,\nNazneen Rajani, Shengyi Huang, Kashif Rasul,\nAlexander M. Rush, and Thomas Wolf. 2023.\nThe alignment handbook. https://github.com/\nhuggingface/alignment-handbook. NA.\n\nFan Wang, Juyong Jiang, Chansung Park, Sunghun\nKim, and Jing Tang. 2024a. Kasa: Knowledge-aware\nsingular-value adaptation of large language models.\narXiv preprint arXiv:2412.06071.\n\nJiahao Wang, Bolin Zhang, Qianlong Du, Jiajun Zhang,\nand Dianhui Chu. 2024b. A survey on data se-\nlection for llm instruction tuning. arXiv preprint\narXiv:2402.05123.\n\nRuida Wang, Wangchunshu Zhou, and Mrinmaya\nSachan. 2023a. Let\u2019s synthesize step by step: It-\nerative dataset synthesis with large language models\nby extrapolating errors from small models. arXiv\npreprint arXiv:2310.13671.\n\nSarah Wang and Shangda Xu. 2024. 16 changes\nto the way enterprises are building and buy-\ning generative ai. URL: https://a16z.com/\ngenerative-ai-enterprise-2024/.",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Shayne Longpre, Le Hou, Tu Vu, Albert Webson,\nHyung Won Chung, Yi Tay, Denny Zhou, Quoc V\nLe, Barret Zoph, Jason Wei, et al. 2023. The flan\ncollection: Designing data and methods for effective\ninstruction tuning. In International Conference on\nMachine Learning, pages 22631\u201322648. PMLR.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1163,
+          "y": 0.087
+        },
+        {
+          "x": 0.4893,
+          "y": 0.087
+        },
+        {
+          "x": 0.4893,
+          "y": 0.1666
+        },
+        {
+          "x": 0.1163,
+          "y": 0.1666
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Ziyang Luo, Can Xu, Pu Zhao, Qingfeng Sun, Xi-\nubo Geng, Wenxiang Hu, Chongyang Tao, Jing Ma,\nQingwei Lin, and Daxin Jiang. 2023. Wizardcoder:\nEmpowering code large language models with evol-\ninstruct. In The Twelfth International Conference on\nLearning Representations.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1148,
+          "y": 0.1766
+        },
+        {
+          "x": 0.4886,
+          "y": 0.1766
+        },
+        {
+          "x": 0.4886,
+          "y": 0.2559
+        },
+        {
+          "x": 0.1148,
+          "y": 0.2559
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Kaifeng Lyu, Haoyu Zhao, Xinran Gu, Dingli Yu,\nAnirudh Goyal, and Sanjeev Arora. 2024. Keep-\ning llms aligned after fine-tuning: The crucial role of\nprompt templates. arXiv preprint arXiv:2402.18540.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1166,
+          "y": 0.2664
+        },
+        {
+          "x": 0.4891,
+          "y": 0.2664
+        },
+        {
+          "x": 0.4891,
+          "y": 0.3209
+        },
+        {
+          "x": 0.1166,
+          "y": 0.3209
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "AI Meta. 2024. Introducing meta llama 3: The most\ncapable openly available llm to date. Meta AI.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1149,
+          "y": 0.3301
+        },
+        {
+          "x": 0.4886,
+          "y": 0.3301
+        },
+        {
+          "x": 0.4886,
+          "y": 0.3584
+        },
+        {
+          "x": 0.1149,
+          "y": 0.3584
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Niklas Muennighoff, Thomas Wang, Lintang Sutawika,\nAdam Roberts, Stella Biderman, Teven Le Scao,\nM Saiful Bari, Sheng Shen, Zheng Xin Yong, Hailey\nSchoelkopf, et al. 2023. Crosslingual generalization\nthrough multitask finetuning. In Proceedings of the\n61st Annual Meeting of the Association for Compu-\ntational Linguistics (Volume 1: Long Papers), pages\n15991\u201316111.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1138,
+          "y": 0.3678
+        },
+        {
+          "x": 0.4897,
+          "y": 0.3678
+        },
+        {
+          "x": 0.4897,
+          "y": 0.4725
+        },
+        {
+          "x": 0.1138,
+          "y": 0.4725
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Humza Naveed, Asad Ullah Khan, Shi Qiu, Muham-\nmad Saqib, Saeed Anwar, Muhammad Usman, Nick\nBarnes, and Ajmal Mian. 2023. A comprehensive\noverview of large language models. arXiv preprint\narXiv:2307.06435.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1165,
+          "y": 0.4832
+        },
+        {
+          "x": 0.4888,
+          "y": 0.4832
+        },
+        {
+          "x": 0.4888,
+          "y": 0.5498
+        },
+        {
+          "x": 0.1165,
+          "y": 0.5498
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida,\nCarroll Wainwright, Pamela Mishkin, Chong Zhang,\nSandhini Agarwal, Katarina Slama, Alex Ray, et al.\n2022. Training language models to follow instruc-\ntions with human feedback. Advances in neural in-\nformation processing systems, 35:27730\u201327744.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1153,
+          "y": 0.5606
+        },
+        {
+          "x": 0.4888,
+          "y": 0.5606
+        },
+        {
+          "x": 0.4888,
+          "y": 0.6396
+        },
+        {
+          "x": 0.1153,
+          "y": 0.6396
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Raul Puri, Ryan Spring, Mostofa Patwary, Mohammad\nShoeybi, and Bryan Catanzaro. 2020. Training ques-\ntion answering models from synthetic data. arXiv\npreprint arXiv:2002.09599.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1152,
+          "y": 0.6504
+        },
+        {
+          "x": 0.4887,
+          "y": 0.6504
+        },
+        {
+          "x": 0.4887,
+          "y": 0.7041
+        },
+        {
+          "x": 0.1152,
+          "y": 0.7041
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Rafael Rafailov, Archit Sharma, Eric Mitchell, Christo-\npher D Manning, Stefano Ermon, and Chelsea Finn.\n2023. Direct preference optimization: Your lan-\nguage model is secretly a reward model. Advances in\nNeural Information Processing Systems, 36:53728\u2013\n53741.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1157,
+          "y": 0.7143
+        },
+        {
+          "x": 0.489,
+          "y": 0.7143
+        },
+        {
+          "x": 0.489,
+          "y": 0.7936
+        },
+        {
+          "x": 0.1157,
+          "y": 0.7936
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Nazneen Rajani, Lewis Tunstall, Edward Beeching,\nNathan Lambert, Alexander M. Rush, and Thomas\nWolf. 2023. No robots. https://huggingface.co/\ndatasets/HuggingFaceH4/no_robots.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1153,
+          "y": 0.8046
+        },
+        {
+          "x": 0.488,
+          "y": 0.8046
+        },
+        {
+          "x": 0.488,
+          "y": 0.8582
+        },
+        {
+          "x": 0.1153,
+          "y": 0.8582
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "footnote",
+      "content": {
+        "html": "",
+        "markdown": "Partha Pratim Ray. 2023. Chatgpt: A comprehensive\nreview on background, applications, key challenges,\nbias, ethics, limitations and future scope. Internet of\nThings and Cyber-Physical Systems, 3:121\u2013154.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1157,
+          "y": 0.8685
+        },
+        {
+          "x": 0.4897,
+          "y": 0.8685
+        },
+        {
+          "x": 0.4897,
+          "y": 0.923
+        },
+        {
+          "x": 0.1157,
+          "y": 0.923
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Yasaman Razeghi, Robert L Logan IV, Matt Gardner,\nand Sameer Singh. 2022. Impact of pretraining term\nfrequencies on few-shot reasoning. arXiv preprint\narXiv:2202.07206.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5108,
+          "y": 0.0866
+        },
+        {
+          "x": 0.8854,
+          "y": 0.0866
+        },
+        {
+          "x": 0.8854,
+          "y": 0.139
+        },
+        {
+          "x": 0.5108,
+          "y": 0.139
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Vinay Samuel, Houda Aynaou, Arijit Ghosh Chowd-\nhury, Karthik Venkat Ramanan, and Aman Chadha.\n2023. Can llms augment low-resource reading com-\nprehension datasets? opportunities and challenges.\narXiv preprint arXiv:2309.12426.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5133,
+          "y": 0.1521
+        },
+        {
+          "x": 0.8841,
+          "y": 0.1521
+        },
+        {
+          "x": 0.8841,
+          "y": 0.2178
+        },
+        {
+          "x": 0.5133,
+          "y": 0.2178
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Viktor Schlegel, Hao Li, Yuping Wu, Anand Sub-\nramanian, Thanh-Tung Nguyen, Abhinav Ramesh\nKashyap, Daniel Beck, Xiaojun Zeng, Riza Theresa\nBatista-Navarro, Stefan Winkler, et al. 2023. Pul-\nsar at mediqa-sum 2023: Large language mod-\nels augmented by synthetic dialogue convert pa-\ntient dialogues to medical records. arXiv preprint\narXiv:2307.02006.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5132,
+          "y": 0.23
+        },
+        {
+          "x": 0.8852,
+          "y": 0.23
+        },
+        {
+          "x": 0.8852,
+          "y": 0.335
+        },
+        {
+          "x": 0.5132,
+          "y": 0.335
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Rohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann\nDubois, Xuechen Li, Carlos Guestrin, Percy Liang,\nand Tatsunori B. Hashimoto. 2023a. Stanford alpaca:\nAn instruction-following llama model. https://\ngithub.com/tatsu-lab/stanford_alpaca.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5125,
+          "y": 0.3475
+        },
+        {
+          "x": 0.8846,
+          "y": 0.3475
+        },
+        {
+          "x": 0.8846,
+          "y": 0.4142
+        },
+        {
+          "x": 0.5125,
+          "y": 0.4142
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Rohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann\nDubois, Xuechen Li, Carlos Guestrin, Percy Liang,\nand Tatsunori B Hashimoto. 2023b. Stanford alpaca:\nAn instruction-following llama model.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5117,
+          "y": 0.4257
+        },
+        {
+          "x": 0.8841,
+          "y": 0.4257
+        },
+        {
+          "x": 0.8841,
+          "y": 0.4791
+        },
+        {
+          "x": 0.5117,
+          "y": 0.4791
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Hugo Touvron, Louis Martin, Kevin Stone, Peter Al-\nbert, Amjad Almahairi, Yasmine Babaei, Nikolay\nBashlykov, Soumya Batra, Prajjwal Bhargava, Shruti\nBhosale, et al. 2023. Llama 2: Open founda-\ntion and fine-tuned chat models. arXiv preprint\narXiv:2307.09288.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5134,
+          "y": 0.491
+        },
+        {
+          "x": 0.8849,
+          "y": 0.491
+        },
+        {
+          "x": 0.8849,
+          "y": 0.5689
+        },
+        {
+          "x": 0.5134,
+          "y": 0.5689
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Lewis Tunstall, Edward Beeching, Nathan Lambert,\nNazneen Rajani, Shengyi Huang, Kashif Rasul,\nAlexander M. Rush, and Thomas Wolf. 2023.\nThe alignment handbook. https://github.com/\nhuggingface/alignment-handbook. NA.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5122,
+          "y": 0.5819
+        },
+        {
+          "x": 0.8838,
+          "y": 0.5819
+        },
+        {
+          "x": 0.8838,
+          "y": 0.648
+        },
+        {
+          "x": 0.5122,
+          "y": 0.648
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Fan Wang, Juyong Jiang, Chansung Park, Sunghun\nKim, and Jing Tang. 2024a. Kasa: Knowledge-aware\nsingular-value adaptation of large language models.\narXiv preprint arXiv:2412.06071.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5134,
+          "y": 0.6596
+        },
+        {
+          "x": 0.8846,
+          "y": 0.6596
+        },
+        {
+          "x": 0.8846,
+          "y": 0.7129
+        },
+        {
+          "x": 0.5134,
+          "y": 0.7129
+        }
+      ],
+      "id": 18,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Jiahao Wang, Bolin Zhang, Qianlong Du, Jiajun Zhang,\nand Dianhui Chu. 2024b. A survey on data se-\nlection for llm instruction tuning. arXiv preprint\narXiv:2402.05123.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5128,
+          "y": 0.7248
+        },
+        {
+          "x": 0.8851,
+          "y": 0.7248
+        },
+        {
+          "x": 0.8851,
+          "y": 0.7777
+        },
+        {
+          "x": 0.5128,
+          "y": 0.7777
+        }
+      ],
+      "id": 19,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Ruida Wang, Wangchunshu Zhou, and Mrinmaya\nSachan. 2023a. Let\u2019s synthesize step by step: It-\nerative dataset synthesis with large language models\nby extrapolating errors from small models. arXiv\npreprint arXiv:2310.13671.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5126,
+          "y": 0.7909
+        },
+        {
+          "x": 0.8848,
+          "y": 0.7909
+        },
+        {
+          "x": 0.8848,
+          "y": 0.8567
+        },
+        {
+          "x": 0.5126,
+          "y": 0.8567
+        }
+      ],
+      "id": 20,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Sarah Wang and Shangda Xu. 2024. 16 changes\nto the way enterprises are building and buy-\ning generative ai. URL: https://a16z.com/\ngenerative-ai-enterprise-2024/.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5105,
+          "y": 0.8691
+        },
+        {
+          "x": 0.8846,
+          "y": 0.8691
+        },
+        {
+          "x": 0.8846,
+          "y": 0.9215
+        },
+        {
+          "x": 0.5105,
+          "y": 0.9215
+        }
+      ],
+      "id": 21,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250404",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

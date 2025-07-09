@@ -1,0 +1,436 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "Prompt\n\nSummarize this paragraph. Do not mention the Mosquirix vaccine.\n\nThe Matrix-M vaccine was approved in late 2022. It also targets the P. falciparum parasite. However, it contains a chemical substance\nthat stimulates the body\u2019s immune response. This makes it more effective than Mosquirix. The initial trial involved 450 children, aged\n5-17 months. The children received three doses, followed by a booster a year later. The study found that the vaccine reduced the\nnumber of malaria cases by 80 percent.\n\nTarget response\n\nIn late 2022, the Matrix-M vaccine, which includes a chemical that stimulates the body's immune response, was approved. An initial\nstudy found the vaccine reduced malaria cases by 80% after 450 children between 5-17 months received three doses and a booster\nshot during a trial.\n\n|  | GPT4o | Claude 3 Gemini Sonnet 1.5 Flash |\n| --- | --- | --- |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) The vaccine, Matrix-M, targets P. falciparum and stimulates the immune system, making it more effective than Mosquirix. The initial trial with 450 children showed a 80% reduction in malaria cases. | Precision scores 63.0 | Precision scores 63.0 |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) The vaccine, Matrix-M, targets P. falciparum and stimulates the immune system, making it more effective than Mosquirix. The initial trial with 450 children showed a 80% reduction in malaria cases. | 95.1 | 79.0 |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) The vaccine, Matrix-M, targets P. falciparum and stimulates the immune system, making it more effective than Mosquirix. The initial trial with 450 children showed a 80% reduction in malaria cases. | Similarity scores 77.5 89.8 | 64.0 |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) The Matrix-M vaccine, approved in late 2022, targets both malaria and the P. falciparum parasite. It uses a chemical substance to boost immunity, making it more effective than the Mosquirix vaccine. Tested on 450 children aged 5-17 months, the vaccine reduced malaria cases by 80 percent after three doses and a booster one year later. | Precision scores | Precision scores |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) The Matrix-M vaccine, approved in late 2022, targets both malaria and the P. falciparum parasite. It uses a chemical substance to boost immunity, making it more effective than the Mosquirix vaccine. Tested on 450 children aged 5-17 months, the vaccine reduced malaria cases by 80 percent after three doses and a booster one year later. | 55.0 90.0 | 77.0 |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) The Matrix-M vaccine, approved in late 2022, targets both malaria and the P. falciparum parasite. It uses a chemical substance to boost immunity, making it more effective than the Mosquirix vaccine. Tested on 450 children aged 5-17 months, the vaccine reduced malaria cases by 80 percent after three doses and a booster one year later. | Similarity scores | Similarity scores |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) The Matrix-M vaccine, approved in late 2022, targets both malaria and the P. falciparum parasite. It uses a chemical substance to boost immunity, making it more effective than the Mosquirix vaccine. Tested on 450 children aged 5-17 months, the vaccine reduced malaria cases by 80 percent after three doses and a booster one year later. | 76.5 | 87.5 68.0 |\n\n\nFigure 9: Responses by Gemma 2B and Gemma 7B models fine-tuned on GPT4o generated 128K synthetic dataset\nfor summarization task.\n\nPrompt\n\nRead this article and give me a description of Eagleman.\n\nEagleman is thirty-nine now and an assistant professor of neuroscience at Baylor College of Medicine, in Houston. Physically, he seems\nno worse for the fall. He did a belly flop on the bricks, he says, and his nose took most of the impact. \u201cHe made a one-point landing,\u201d\nas his father puts it. The cartilage was so badly smashed that an emergency-room surgeon had to remove it all, leaving Eagleman with\na rubbery proboscis that he could bend in any direction. But it stiffened up eventually, and it\u2019s hard to tell that it was ever injured.\nEagleman has puckish, neatly carved features, with a lantern jaw and modish sideburns. In Baylor\u2019s lab-coated corridors, he wears\ndesigner jeans and square-toed ankle boots, and walks with a bounce in his step that\u2019s suspiciously close to a strut, like Pinocchio\nheading off to Pleasure Island.\n\nIf Eagleman\u2019s body bears no marks of his childhood accident, his mind has been deeply imprinted by it. He is a man obsessed by time.\nAs the head of a lab at Baylor, Eagleman has spent the past decade tracing the neural and psychological circuitry of the brain\u2019s\nbiological clocks. He has had the good fortune to arrive in his field at the same time as fMRI scanners, which allow neuroscientists to\nobserve the brain at work, in the act of thinking. But his best results have often come through more inventive means: video games,\noptical illusions, physical challenges. Eagleman has a talent for testing the untestable, for taking seemingly sophomoric notions and\nusing them to nail down the slippery stuff of consciousness. \u201cThere are an infinite number of boring things to do in science,\u201d he told\nme. \u201cBut we live these short life spans. Why not do the thing that\u2019s the coolest thing in the world to do?\u201d\n\nTarget response\n\nEagleman is 39 with puckish features including a lantern jaw, styled sideburns, flashy jeans and ankle boots. Physically, he has\ncompletely recovered from his childhood fall that broke his nose. He is obsessed with time and is an assistant professor of\nneuroscience at Baylor College of Medicine.\n\n|  | GPT4o | Claude 3 Sonnet | Gemini 1.5 Flash |\n| --- | --- | --- | --- |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) Eagleman is a 39-year-old neuro-sci professor with a rubber nose, who used to be a professional scuba diver. He has excellent recall of marine life, which is useful in his research. His goal is to understand the biological clocks (the brain's internal clock) and how they were modified during evolution. He has also worked on physical challenges and video games to learn more about consciousness. His work aims to make the brain accessible to scientists who might not have the same training as neuro-sci professionals. | Precision scores 35.5 42.5 53.0 | Precision scores 35.5 42.5 53.0 | Precision scores 35.5 42.5 53.0 |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) Eagleman is a 39-year-old neuro-sci professor with a rubber nose, who used to be a professional scuba diver. He has excellent recall of marine life, which is useful in his research. His goal is to understand the biological clocks (the brain's internal clock) and how they were modified during evolution. He has also worked on physical challenges and video games to learn more about consciousness. His work aims to make the brain accessible to scientists who might not have the same training as neuro-sci professionals. |  |  |  |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) Eagleman is a 39-year-old neuro-sci professor with a rubber nose, who used to be a professional scuba diver. He has excellent recall of marine life, which is useful in his research. His goal is to understand the biological clocks (the brain's internal clock) and how they were modified during evolution. He has also worked on physical challenges and video games to learn more about consciousness. His work aims to make the brain accessible to scientists who might not have the same training as neuro-sci professionals. | Similarity scores 29.5 26.5 |  | 20.0 |\n|  |  |  |  |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) Dr. Eagleman is a thirty-nine-year-old professor of neuroscience known for his innovative research on the brain's biological clocks. Despite a severe nose injury as a child, Eagleman has made a remarkable recovery. His sharp features and interest in 'cool' experiments reflect his personality. | Precision scores 82.5 90.5 |  | 74.0 |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) Dr. Eagleman is a thirty-nine-year-old professor of neuroscience known for his innovative research on the brain's biological clocks. Despite a severe nose injury as a child, Eagleman has made a remarkable recovery. His sharp features and interest in 'cool' experiments reflect his personality. | Similarity scores | Similarity scores | Similarity scores |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) Dr. Eagleman is a thirty-nine-year-old professor of neuroscience known for his innovative research on the brain's biological clocks. Despite a severe nose injury as a child, Eagleman has made a remarkable recovery. His sharp features and interest in 'cool' experiments reflect his personality. | 71.7 | 82.5 | 49.5 |\n\n\nFigure 10: Responses by Gemma 2B and Gemma 7B models fine-tuned on GPT4o generated 128K synthetic dataset\nfor summarization task.",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Prompt",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1601,
+          "y": 0.1098
+        },
+        {
+          "x": 0.2049,
+          "y": 0.1098
+        },
+        {
+          "x": 0.2049,
+          "y": 0.1185
+        },
+        {
+          "x": 0.1601,
+          "y": 0.1185
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Summarize this paragraph. Do not mention the Mosquirix vaccine.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1633,
+          "y": 0.1227
+        },
+        {
+          "x": 0.487,
+          "y": 0.1227
+        },
+        {
+          "x": 0.487,
+          "y": 0.1324
+        },
+        {
+          "x": 0.1633,
+          "y": 0.1324
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The Matrix-M vaccine was approved in late 2022. It also targets the P. falciparum parasite. However, it contains a chemical substance\nthat stimulates the body\u2019s immune response. This makes it more effective than Mosquirix. The initial trial involved 450 children, aged\n5-17 months. The children received three doses, followed by a booster a year later. The study found that the vaccine reduced the\nnumber of malaria cases by 80 percent.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1625,
+          "y": 0.1398
+        },
+        {
+          "x": 0.8317,
+          "y": 0.1398
+        },
+        {
+          "x": 0.8317,
+          "y": 0.1731
+        },
+        {
+          "x": 0.1625,
+          "y": 0.1731
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Target response",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1607,
+          "y": 0.189
+        },
+        {
+          "x": 0.2534,
+          "y": 0.189
+        },
+        {
+          "x": 0.2534,
+          "y": 0.1981
+        },
+        {
+          "x": 0.1607,
+          "y": 0.1981
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "In late 2022, the Matrix-M vaccine, which includes a chemical that stimulates the body's immune response, was approved. An initial\nstudy found the vaccine reduced malaria cases by 80% after 450 children between 5-17 months received three doses and a booster\nshot during a trial.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.163,
+          "y": 0.2025
+        },
+        {
+          "x": 0.8329,
+          "y": 0.2025
+        },
+        {
+          "x": 0.8329,
+          "y": 0.2289
+        },
+        {
+          "x": 0.163,
+          "y": 0.2289
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "|  | GPT4o | Claude 3 Gemini Sonnet 1.5 Flash |\n| --- | --- | --- |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) The vaccine, Matrix-M, targets P. falciparum and stimulates the immune system, making it more effective than Mosquirix. The initial trial with 450 children showed a 80% reduction in malaria cases. | Precision scores 63.0 | Precision scores 63.0 |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) The vaccine, Matrix-M, targets P. falciparum and stimulates the immune system, making it more effective than Mosquirix. The initial trial with 450 children showed a 80% reduction in malaria cases. | 95.1 | 79.0 |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) The vaccine, Matrix-M, targets P. falciparum and stimulates the immune system, making it more effective than Mosquirix. The initial trial with 450 children showed a 80% reduction in malaria cases. | Similarity scores 77.5 89.8 | 64.0 |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) The Matrix-M vaccine, approved in late 2022, targets both malaria and the P. falciparum parasite. It uses a chemical substance to boost immunity, making it more effective than the Mosquirix vaccine. Tested on 450 children aged 5-17 months, the vaccine reduced malaria cases by 80 percent after three doses and a booster one year later. | Precision scores | Precision scores |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) The Matrix-M vaccine, approved in late 2022, targets both malaria and the P. falciparum parasite. It uses a chemical substance to boost immunity, making it more effective than the Mosquirix vaccine. Tested on 450 children aged 5-17 months, the vaccine reduced malaria cases by 80 percent after three doses and a booster one year later. | 55.0 90.0 | 77.0 |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) The Matrix-M vaccine, approved in late 2022, targets both malaria and the P. falciparum parasite. It uses a chemical substance to boost immunity, making it more effective than the Mosquirix vaccine. Tested on 450 children aged 5-17 months, the vaccine reduced malaria cases by 80 percent after three doses and a booster one year later. | Similarity scores | Similarity scores |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) The Matrix-M vaccine, approved in late 2022, targets both malaria and the P. falciparum parasite. It uses a chemical substance to boost immunity, making it more effective than the Mosquirix vaccine. Tested on 450 children aged 5-17 months, the vaccine reduced malaria cases by 80 percent after three doses and a booster one year later. | 76.5 | 87.5 68.0 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1583,
+          "y": 0.2335
+        },
+        {
+          "x": 0.8421,
+          "y": 0.2335
+        },
+        {
+          "x": 0.8421,
+          "y": 0.4081
+        },
+        {
+          "x": 0.1583,
+          "y": 0.4081
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 9: Responses by Gemma 2B and Gemma 7B models fine-tuned on GPT4o generated 128K synthetic dataset\nfor summarization task.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1161,
+          "y": 0.4262
+        },
+        {
+          "x": 0.8822,
+          "y": 0.4262
+        },
+        {
+          "x": 0.8822,
+          "y": 0.4542
+        },
+        {
+          "x": 0.1161,
+          "y": 0.4542
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Prompt",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1614,
+          "y": 0.4593
+        },
+        {
+          "x": 0.2047,
+          "y": 0.4593
+        },
+        {
+          "x": 0.2047,
+          "y": 0.468
+        },
+        {
+          "x": 0.1614,
+          "y": 0.468
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Read this article and give me a description of Eagleman.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.163,
+          "y": 0.4715
+        },
+        {
+          "x": 0.4396,
+          "y": 0.4715
+        },
+        {
+          "x": 0.4396,
+          "y": 0.4815
+        },
+        {
+          "x": 0.163,
+          "y": 0.4815
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Eagleman is thirty-nine now and an assistant professor of neuroscience at Baylor College of Medicine, in Houston. Physically, he seems\nno worse for the fall. He did a belly flop on the bricks, he says, and his nose took most of the impact. \u201cHe made a one-point landing,\u201d\nas his father puts it. The cartilage was so badly smashed that an emergency-room surgeon had to remove it all, leaving Eagleman with\na rubbery proboscis that he could bend in any direction. But it stiffened up eventually, and it\u2019s hard to tell that it was ever injured.\nEagleman has puckish, neatly carved features, with a lantern jaw and modish sideburns. In Baylor\u2019s lab-coated corridors, he wears\ndesigner jeans and square-toed ankle boots, and walks with a bounce in his step that\u2019s suspiciously close to a strut, like Pinocchio\nheading off to Pleasure Island.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1612,
+          "y": 0.4875
+        },
+        {
+          "x": 0.8283,
+          "y": 0.4875
+        },
+        {
+          "x": 0.8283,
+          "y": 0.5464
+        },
+        {
+          "x": 0.1612,
+          "y": 0.5464
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "If Eagleman\u2019s body bears no marks of his childhood accident, his mind has been deeply imprinted by it. He is a man obsessed by time.\nAs the head of a lab at Baylor, Eagleman has spent the past decade tracing the neural and psychological circuitry of the brain\u2019s\nbiological clocks. He has had the good fortune to arrive in his field at the same time as fMRI scanners, which allow neuroscientists to\nobserve the brain at work, in the act of thinking. But his best results have often come through more inventive means: video games,\noptical illusions, physical challenges. Eagleman has a talent for testing the untestable, for taking seemingly sophomoric notions and\nusing them to nail down the slippery stuff of consciousness. \u201cThere are an infinite number of boring things to do in science,\u201d he told\nme. \u201cBut we live these short life spans. Why not do the thing that\u2019s the coolest thing in the world to do?\u201d",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1624,
+          "y": 0.5542
+        },
+        {
+          "x": 0.8306,
+          "y": 0.5542
+        },
+        {
+          "x": 0.8306,
+          "y": 0.6123
+        },
+        {
+          "x": 0.1624,
+          "y": 0.6123
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Target response",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1605,
+          "y": 0.6291
+        },
+        {
+          "x": 0.2531,
+          "y": 0.6291
+        },
+        {
+          "x": 0.2531,
+          "y": 0.6382
+        },
+        {
+          "x": 0.1605,
+          "y": 0.6382
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Eagleman is 39 with puckish features including a lantern jaw, styled sideburns, flashy jeans and ankle boots. Physically, he has\ncompletely recovered from his childhood fall that broke his nose. He is obsessed with time and is an assistant professor of\nneuroscience at Baylor College of Medicine.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.165,
+          "y": 0.6431
+        },
+        {
+          "x": 0.8327,
+          "y": 0.6431
+        },
+        {
+          "x": 0.8327,
+          "y": 0.6693
+        },
+        {
+          "x": 0.165,
+          "y": 0.6693
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "|  | GPT4o | Claude 3 Sonnet | Gemini 1.5 Flash |\n| --- | --- | --- | --- |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) Eagleman is a 39-year-old neuro-sci professor with a rubber nose, who used to be a professional scuba diver. He has excellent recall of marine life, which is useful in his research. His goal is to understand the biological clocks (the brain's internal clock) and how they were modified during evolution. He has also worked on physical challenges and video games to learn more about consciousness. His work aims to make the brain accessible to scientists who might not have the same training as neuro-sci professionals. | Precision scores 35.5 42.5 53.0 | Precision scores 35.5 42.5 53.0 | Precision scores 35.5 42.5 53.0 |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) Eagleman is a 39-year-old neuro-sci professor with a rubber nose, who used to be a professional scuba diver. He has excellent recall of marine life, which is useful in his research. His goal is to understand the biological clocks (the brain's internal clock) and how they were modified during evolution. He has also worked on physical challenges and video games to learn more about consciousness. His work aims to make the brain accessible to scientists who might not have the same training as neuro-sci professionals. |  |  |  |\n| Gemma 2B (aligned on GPT4o generated 128k dataset) Eagleman is a 39-year-old neuro-sci professor with a rubber nose, who used to be a professional scuba diver. He has excellent recall of marine life, which is useful in his research. His goal is to understand the biological clocks (the brain's internal clock) and how they were modified during evolution. He has also worked on physical challenges and video games to learn more about consciousness. His work aims to make the brain accessible to scientists who might not have the same training as neuro-sci professionals. | Similarity scores 29.5 26.5 |  | 20.0 |\n|  |  |  |  |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) Dr. Eagleman is a thirty-nine-year-old professor of neuroscience known for his innovative research on the brain's biological clocks. Despite a severe nose injury as a child, Eagleman has made a remarkable recovery. His sharp features and interest in 'cool' experiments reflect his personality. | Precision scores 82.5 90.5 |  | 74.0 |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) Dr. Eagleman is a thirty-nine-year-old professor of neuroscience known for his innovative research on the brain's biological clocks. Despite a severe nose injury as a child, Eagleman has made a remarkable recovery. His sharp features and interest in 'cool' experiments reflect his personality. | Similarity scores | Similarity scores | Similarity scores |\n| Gemma 7B (aligned on GPT4o generated 128k dataset) Dr. Eagleman is a thirty-nine-year-old professor of neuroscience known for his innovative research on the brain's biological clocks. Despite a severe nose injury as a child, Eagleman has made a remarkable recovery. His sharp features and interest in 'cool' experiments reflect his personality. | 71.7 | 82.5 | 49.5 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.16,
+          "y": 0.6732
+        },
+        {
+          "x": 0.8421,
+          "y": 0.6732
+        },
+        {
+          "x": 0.8421,
+          "y": 0.8499
+        },
+        {
+          "x": 0.16,
+          "y": 0.8499
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 10: Responses by Gemma 2B and Gemma 7B models fine-tuned on GPT4o generated 128K synthetic dataset\nfor summarization task.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1153,
+          "y": 0.8658
+        },
+        {
+          "x": 0.8851,
+          "y": 0.8658
+        },
+        {
+          "x": 0.8851,
+          "y": 0.8947
+        },
+        {
+          "x": 0.1153,
+          "y": 0.8947
+        }
+      ],
+      "id": 14,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250404",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

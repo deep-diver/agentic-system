@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+        #pdfEmbed {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #666;
+        }
+        .error {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .error h2 {
+            color: #e74c3c;
+            margin-bottom: 16px;
+        }
+        .error p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .error button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">Loading PDF...</div>
+    <div class="error" id="error" style="display: none;">
+        <h2>PDF Loading Error</h2>
+        <p>Unable to load the PDF file. This might be due to browser limitations.</p>
+        <button onclick="openInNewTab()">Open PDF in New Tab</button>
+    </div>
+    <embed id="pdfEmbed" style="display: none;" type="application/pdf">
+
+    <script>
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function openInNewTab() {
+            const pdfUrl = getUrlParameter('pdf');
+            if (pdfUrl) {
+                window.open(pdfUrl, '_blank');
+            }
+        }
+
+        async function loadPdf() {
+            const pdfUrl = getUrlParameter('pdf');
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const pdfEmbed = document.getElementById('pdfEmbed');
+
+            if (!pdfUrl) {
+                loading.style.display = 'none';
+                error.style.display = 'flex';
+                return;
+            }
+
+            try {
+                // Test if PDF is accessible
+                const response = await fetch(pdfUrl, { method: 'HEAD' });
+                if (!response.ok) {
+                    throw new Error('PDF not found');
+                }
+
+                // Load PDF in embed element
+                pdfEmbed.src = pdfUrl;
+                
+                // Show PDF after a delay
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                    pdfEmbed.style.display = 'block';
+                }, 1000);
+
+                // Fallback to error if embed fails
+                setTimeout(() => {
+                    if (pdfEmbed.style.display === 'none') {
+                        loading.style.display = 'none';
+                        error.style.display = 'flex';
+                    }
+                }, 5000);
+
+            } catch (err) {
+                loading.style.display = 'none';
+                error.style.display = 'flex';
+            }
+        }
+
+        // Load PDF when page loads
+        document.addEventListener('DOMContentLoaded', loadPdf);
+    </script>
+</body>
+</html>

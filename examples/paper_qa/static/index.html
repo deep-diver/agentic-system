@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper QA Bot</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">📚</div>
+                    <h2>Paper QA</h2>
+                </div>
+                <button class="new-chat-btn" id="newChatBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                    New Chat
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <div class="section-header">
+                    <h3>Recent Chats</h3>
+                </div>
+                <div class="chat-history" id="chatHistory">
+                    <div class="chat-item active" data-session="current">
+                        <div class="chat-item-content">
+                            <div class="chat-title">Current Session</div>
+                            <div class="chat-preview">Ready to help with papers</div>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="delete-btn" title="Delete chat">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c0 1 1 2 2 2v2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-header">
+                    <h3>Cached Papers</h3>
+                    <button class="refresh-btn" id="refreshPapers" title="Refresh papers">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                            <path d="M21 3v5h-5"/>
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+                            <path d="M3 21v-5h5"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="cached-papers" id="cachedPapers">
+                    <div class="loading-item">Loading papers...</div>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="server-status" id="serverStatus">
+                    <div class="status-indicator connecting"></div>
+                    <span>Connecting...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="main-container">
+            <!-- Header -->
+            <div class="chat-header">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <div class="chat-title-section">
+                    <div class="bot-avatar">
+                        <div class="avatar-icon">🤖</div>
+                        <div class="status-dot online"></div>
+                    </div>
+                    <div class="chat-info">
+                        <h3>Paper QA Assistant</h3>
+                        <p class="chat-status">Online • Ready to analyze papers</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="action-btn" title="Clear Chat">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c0 1 1 2 2 2v2"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="messages-container" id="messagesContainer">
+                <div class="welcome-section">
+                    <div class="welcome-avatar">
+                        <div class="avatar-large">🤖</div>
+                    </div>
+                    <h2>Welcome to Paper QA Assistant</h2>
+                    <p>I can help you find, analyze, and understand academic papers. Just ask me about any paper and I'll handle the rest!</p>
+                    
+                    <div class="quick-actions">
+                        <div class="quick-action" onclick="setExample('What is the main contribution of the Attention is All You Need paper?')">
+                            <div class="action-icon">🎯</div>
+                            <div class="action-text">
+                                <div class="action-title">Analyze Paper</div>
+                                <div class="action-desc">Find and analyze "Attention is All You Need"</div>
+                            </div>
+                        </div>
+                        <div class="quick-action" onclick="setExample('Compare BERT and GPT architectures')">
+                            <div class="action-icon">⚖️</div>
+                            <div class="action-text">
+                                <div class="action-title">Compare Papers</div>
+                                <div class="action-desc">Compare different paper architectures</div>
+                            </div>
+                        </div>
+                        <div class="quick-action" onclick="setExample('Explain the ResNet paper methodology')">
+                            <div class="action-icon">🔬</div>
+                            <div class="action-text">
+                                <div class="action-title">Methodology</div>
+                                <div class="action-desc">Understand paper methodologies</div>
+                            </div>
+                        </div>
+                        <div class="quick-action" onclick="setExample('What are the limitations of the Transformer model?')">
+                            <div class="action-icon">🎓</div>
+                            <div class="action-text">
+                                <div class="action-title">Critical Analysis</div>
+                                <div class="action-desc">Analyze limitations and critiques</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="messages" id="messages">
+                    <!-- Messages will be added here -->
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                    <div class="message bot-message typing">
+                        <div class="avatar">
+                            <div class="avatar-icon">🤖</div>
+                        </div>
+                        <div class="message-content">
+                            <div class="typing-animation">
+                                <div class="typing-dot"></div>
+                                <div class="typing-dot"></div>
+                                <div class="typing-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="messageInput" 
+                            placeholder="Ask me about any academic paper..."
+                            rows="1"
+                            maxlength="1000"></textarea>
+                        <button id="sendButton" class="send-button" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="input-footer">
+                        <div class="input-info">
+                            <span class="char-count">0/1000</span>
+                            <span class="separator">•</span>
+                            <span>Press <kbd>Enter</kbd> to send, <kbd>Shift+Enter</kbd> for new line</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Modal -->
+    <div class="pdf-modal" id="pdfModal" style="display: none;">
+        <div class="pdf-modal-overlay" id="pdfModalOverlay"></div>
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <div class="pdf-modal-title">
+                    <span class="pdf-icon">📄</span>
+                    <span class="pdf-title" id="pdfTitle">Paper PDF</span>
+                </div>
+                <div class="pdf-modal-actions">
+                    <button class="pdf-action-btn" id="downloadPdf" title="Download PDF">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </button>
+                    <button class="pdf-action-btn" id="openNewTab" title="Open in new tab">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15,3 21,3 21,9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </button>
+                    <button class="pdf-action-btn close-btn" id="closePdfModal" title="Close">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="pdf-modal-body">
+                <div class="pdf-loading" id="pdfLoading">
+                    <div class="pdf-spinner"></div>
+                    <span>Loading PDF...</span>
+                </div>
+                <iframe 
+                    id="pdfViewer" 
+                    class="pdf-iframe"
+                    style="display: none;"
+                    frameborder="0">
+                </iframe>
+                <div class="pdf-error" id="pdfError" style="display: none;">
+                    <div class="error-icon">⚠️</div>
+                    <div class="error-message">
+                        <h3>PDF Viewer Issue</h3>
+                        <p>The PDF could not be displayed in the viewer. This might be due to browser limitations.</p>
+                        <div class="error-actions">
+                            <button class="retry-btn" id="retryPdf">Try Again</button>
+                            <button class="open-tab-btn" onclick="window.chatbot?.openPdfInNewTab()">Open in New Tab</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

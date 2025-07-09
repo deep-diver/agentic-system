@@ -1,0 +1,660 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "ECML PKDD 2018, Dublin, Ireland, September 10\u2013\n14, 2018, Proceedings, Part I 18, pages 510\u2013526.\nSpringer.\n\nMarah Abdin, Sam Ade Jacobs, Ammar Ahmad Awan,\nJyoti Aneja, Ahmed Awadallah, Hany Awadalla,\nNguyen Bach, Amit Bahree, Arash Bakhtiari, Harki-\nrat Behl, et al. 2024. Phi-3 technical report: A highly\ncapable language model locally on your phone. arXiv\npreprint arXiv:2404.14219.\n\nJosh Achiam, Steven Adler, Sandhini Agarwal, Lama\nAhmad, Ilge Akkaya, Florencia Leoni Aleman,\nDiogo Almeida, Janko Altenschmidt, Sam Altman,\nShyamal Anadkat, et al. 2023. Gpt-4 technical report.\narXiv preprint arXiv:2303.08774.\n\nAnthropic. 2024. The Claude 3\nModel Family: Opus, Sonnet, Haiku.\nhttps://www-cdn.anthropic.com/\nde8ba9b01c9ab7cbabf5c33b80b7bbc618857627/\nModel_Card_Claude_3.pdf.\n\nWeilin Cai, Juyong Jiang, Fan Wang, Jing Tang,\nSunghun Kim, and Jiayi Huang. 2024. A survey on\nmixture of experts. arXiv preprint arXiv:2407.06204.\n\nYupeng Chang, Xu Wang, Jindong Wang, Yuan Wu,\nLinyi Yang, Kaijie Zhu, Hao Chen, Xiaoyuan Yi,\nCunxiang Wang, Yidong Wang, et al. 2024. A sur-\nvey on evaluation of large language models. ACM\nTransactions on Intelligent Systems and Technology,\n15(3):1\u201345.\n\nWei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng,\nZhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan\nZhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion\nStoica, and Eric P. Xing. 2023. Vicuna: An open-\nsource chatbot impressing gpt-4 with 90%* chatgpt\nquality.\n\nAakanksha Chowdhery, Sharan Narang, Jacob Devlin,\nMaarten Bosma, Gaurav Mishra, Adam Roberts, Paul\nBarham, Hyung Won Chung, Charles Sutton, Sebas-\ntian Gehrmann, et al. 2023. Palm: Scaling language\nmodeling with pathways. Journal of Machine Learn-\ning Research, 24(240):1\u2013113.\n\nHyung Won Chung, Le Hou, Shayne Longpre, Barret\nZoph, Yi Tay, William Fedus, Yunxuan Li, Xuezhi\nWang, Mostafa Dehghani, Siddhartha Brahma, et al.\n2024. Scaling instruction-finetuned language models.\nJournal of Machine Learning Research, 25(70):1\u201353.\n\nHaixing Dai, Zhengliang Liu, Wenxiong Liao, Xiaoke\nHuang, Yihan Cao, Zihao Wu, Lin Zhao, Shaochen\nXu, Wei Liu, Ninghao Liu, Sheng Li, Dajiang Zhu,\nHongmin Cai, Lichao Sun, Quanzheng Li, Dinggang\nShen, Tianming Liu, and Xiang Li. 2023. Aug-\ngpt: Leveraging chatgpt for text data augmentation.\nPreprint, arXiv:2302.13007.\n\nBadhan Chandra Das, M Hadi Amini, and Yanzhao Wu.\n2025. Security and privacy challenges of large lan-\nguage models: A survey. ACM Computing Surveys,\n57(6):1\u201339.\n\nTim Dettmers, Artidoro Pagnoni, Ari Holtzman, and\nLuke Zettlemoyer. 2024. Qlora: Efficient finetuning\nof quantized llms. Advances in Neural Information\nProcessing Systems, 36.\n\nGemini Team. 2023. Gemini: a family of highly\ncapable multimodal models. arXiv preprint\narXiv:2312.11805.\n\nGemma Team. 2024. Gemma: Open models based\non gemini research and technology. arXiv preprint\narXiv:2403.08295.\n\nZ Guo, P Wang, Y Wang, and S Yu. 2023. Improving\nsmall language models on pubmedqa via generative\ndata augmentation. arXiv, Jul, 12.\n\nMuhammad Usman Hadi, Rizwan Qureshi, Abbas Shah,\nMuhammad Irfan, Anas Zafar, Muhammad Bilal\nShaikh, Naveed Akhtar, Jia Wu, Seyedali Mirjalili,\net al. 2023. A survey on large language models:\nApplications, challenges, limitations, and practical\nusage. Authorea Preprints.\n\nJordan Hoffmann, Sebastian Borgeaud, Arthur Men-\nsch, Elena Buchatskaya, Trevor Cai, Eliza Ruther-\nford, Diego de Las Casas, Lisa Anne Hendricks,\nJohannes Welbl, Aidan Clark, et al. 2022. Train-\ning compute-optimal large language models. arXiv\npreprint arXiv:2203.15556.\n\nAlbert Q Jiang, Alexandre Sablayrolles, Arthur Men-\nsch, Chris Bamford, Devendra Singh Chaplot, Diego\nde las Casas, Florian Bressand, Gianna Lengyel, Guil-\nlaume Lample, Lucile Saulnier, et al. 2023. Mistral\n7b. arXiv preprint arXiv:2310.06825.\n\nAlbert Q Jiang, Alexandre Sablayrolles, Antoine\nRoux, Arthur Mensch, Blanche Savary, Chris Bam-\nford, Devendra Singh Chaplot, Diego de las Casas,\nEmma Bou Hanna, Florian Bressand, et al. 2024a.\nMixtral of experts. arXiv preprint arXiv:2401.04088.\n\nJuyong Jiang, Fan Wang, Jiasi Shen, Sungju Kim,\nand Sunghun Kim. 2024b. A survey on large lan-\nguage models for code generation. arXiv preprint\narXiv:2406.00515.\n\nNikhil Kandpal, Haikang Deng, Adam Roberts, Eric\nWallace, and Colin Raffel. 2023. Large language\nmodels struggle to learn long-tail knowledge. In In-\nternational Conference on Machine Learning, pages\n15696\u201315707. PMLR.\n\nJared Kaplan, Sam McCandlish, Tom Henighan, Tom B\nBrown, Benjamin Chess, Rewon Child, Scott Gray,\nAlec Radford, Jeffrey Wu, and Dario Amodei. 2020.\nScaling laws for neural language models. arXiv\npreprint arXiv:2001.08361.\n\nRuibo Liu, Jerry Wei, Fangyu Liu, Chenglei Si, Yanzhe\nZhang, Jinmeng Rao, Steven Zheng, Daiyi Peng, Diyi\nYang, Denny Zhou, et al. 2024. Best practices and\nlessons learned on synthetic data for language models.\narXiv preprint arXiv:2404.07503.",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "ECML PKDD 2018, Dublin, Ireland, September 10\u2013\n14, 2018, Proceedings, Part I 18, pages 510\u2013526.\nSpringer.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1312,
+          "y": 0.0857
+        },
+        {
+          "x": 0.4898,
+          "y": 0.0857
+        },
+        {
+          "x": 0.4898,
+          "y": 0.1274
+        },
+        {
+          "x": 0.1312,
+          "y": 0.1274
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Marah Abdin, Sam Ade Jacobs, Ammar Ahmad Awan,\nJyoti Aneja, Ahmed Awadallah, Hany Awadalla,\nNguyen Bach, Amit Bahree, Arash Bakhtiari, Harki-\nrat Behl, et al. 2024. Phi-3 technical report: A highly\ncapable language model locally on your phone. arXiv\npreprint arXiv:2404.14219.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1147,
+          "y": 0.1358
+        },
+        {
+          "x": 0.4892,
+          "y": 0.1358
+        },
+        {
+          "x": 0.4892,
+          "y": 0.2157
+        },
+        {
+          "x": 0.1147,
+          "y": 0.2157
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Josh Achiam, Steven Adler, Sandhini Agarwal, Lama\nAhmad, Ilge Akkaya, Florencia Leoni Aleman,\nDiogo Almeida, Janko Altenschmidt, Sam Altman,\nShyamal Anadkat, et al. 2023. Gpt-4 technical report.\narXiv preprint arXiv:2303.08774.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1154,
+          "y": 0.2253
+        },
+        {
+          "x": 0.4901,
+          "y": 0.2253
+        },
+        {
+          "x": 0.4901,
+          "y": 0.2902
+        },
+        {
+          "x": 0.1154,
+          "y": 0.2902
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Anthropic. 2024. The Claude 3\nModel Family: Opus, Sonnet, Haiku.\nhttps://www-cdn.anthropic.com/\nde8ba9b01c9ab7cbabf5c33b80b7bbc618857627/\nModel_Card_Claude_3.pdf.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1156,
+          "y": 0.3003
+        },
+        {
+          "x": 0.4898,
+          "y": 0.3003
+        },
+        {
+          "x": 0.4898,
+          "y": 0.3667
+        },
+        {
+          "x": 0.1156,
+          "y": 0.3667
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Weilin Cai, Juyong Jiang, Fan Wang, Jing Tang,\nSunghun Kim, and Jiayi Huang. 2024. A survey on\nmixture of experts. arXiv preprint arXiv:2407.06204.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1147,
+          "y": 0.3756
+        },
+        {
+          "x": 0.489,
+          "y": 0.3756
+        },
+        {
+          "x": 0.489,
+          "y": 0.4167
+        },
+        {
+          "x": 0.1147,
+          "y": 0.4167
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Yupeng Chang, Xu Wang, Jindong Wang, Yuan Wu,\nLinyi Yang, Kaijie Zhu, Hao Chen, Xiaoyuan Yi,\nCunxiang Wang, Yidong Wang, et al. 2024. A sur-\nvey on evaluation of large language models. ACM\nTransactions on Intelligent Systems and Technology,\n15(3):1\u201345.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1169,
+          "y": 0.4252
+        },
+        {
+          "x": 0.4899,
+          "y": 0.4252
+        },
+        {
+          "x": 0.4899,
+          "y": 0.5043
+        },
+        {
+          "x": 0.1169,
+          "y": 0.5043
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng,\nZhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan\nZhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion\nStoica, and Eric P. Xing. 2023. Vicuna: An open-\nsource chatbot impressing gpt-4 with 90%* chatgpt\nquality.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1158,
+          "y": 0.5137
+        },
+        {
+          "x": 0.489,
+          "y": 0.5137
+        },
+        {
+          "x": 0.489,
+          "y": 0.5929
+        },
+        {
+          "x": 0.1158,
+          "y": 0.5929
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Aakanksha Chowdhery, Sharan Narang, Jacob Devlin,\nMaarten Bosma, Gaurav Mishra, Adam Roberts, Paul\nBarham, Hyung Won Chung, Charles Sutton, Sebas-\ntian Gehrmann, et al. 2023. Palm: Scaling language\nmodeling with pathways. Journal of Machine Learn-\ning Research, 24(240):1\u2013113.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1179,
+          "y": 0.6025
+        },
+        {
+          "x": 0.489,
+          "y": 0.6025
+        },
+        {
+          "x": 0.489,
+          "y": 0.6821
+        },
+        {
+          "x": 0.1179,
+          "y": 0.6821
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Hyung Won Chung, Le Hou, Shayne Longpre, Barret\nZoph, Yi Tay, William Fedus, Yunxuan Li, Xuezhi\nWang, Mostafa Dehghani, Siddhartha Brahma, et al.\n2024. Scaling instruction-finetuned language models.\nJournal of Machine Learning Research, 25(70):1\u201353.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1159,
+          "y": 0.6913
+        },
+        {
+          "x": 0.4885,
+          "y": 0.6913
+        },
+        {
+          "x": 0.4885,
+          "y": 0.7571
+        },
+        {
+          "x": 0.1159,
+          "y": 0.7571
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Haixing Dai, Zhengliang Liu, Wenxiong Liao, Xiaoke\nHuang, Yihan Cao, Zihao Wu, Lin Zhao, Shaochen\nXu, Wei Liu, Ninghao Liu, Sheng Li, Dajiang Zhu,\nHongmin Cai, Lichao Sun, Quanzheng Li, Dinggang\nShen, Tianming Liu, and Xiang Li. 2023. Aug-\ngpt: Leveraging chatgpt for text data augmentation.\nPreprint, arXiv:2302.13007.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1169,
+          "y": 0.7664
+        },
+        {
+          "x": 0.4888,
+          "y": 0.7664
+        },
+        {
+          "x": 0.4888,
+          "y": 0.8578
+        },
+        {
+          "x": 0.1169,
+          "y": 0.8578
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Badhan Chandra Das, M Hadi Amini, and Yanzhao Wu.\n2025. Security and privacy challenges of large lan-\nguage models: A survey. ACM Computing Surveys,\n57(6):1\u201339.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1149,
+          "y": 0.8681
+        },
+        {
+          "x": 0.4898,
+          "y": 0.8681
+        },
+        {
+          "x": 0.4898,
+          "y": 0.9214
+        },
+        {
+          "x": 0.1149,
+          "y": 0.9214
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and\nLuke Zettlemoyer. 2024. Qlora: Efficient finetuning\nof quantized llms. Advances in Neural Information\nProcessing Systems, 36.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5105,
+          "y": 0.0867
+        },
+        {
+          "x": 0.8841,
+          "y": 0.0867
+        },
+        {
+          "x": 0.8841,
+          "y": 0.1394
+        },
+        {
+          "x": 0.5105,
+          "y": 0.1394
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Gemini Team. 2023. Gemini: a family of highly\ncapable multimodal models. arXiv preprint\narXiv:2312.11805.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5112,
+          "y": 0.1504
+        },
+        {
+          "x": 0.8841,
+          "y": 0.1504
+        },
+        {
+          "x": 0.8841,
+          "y": 0.1892
+        },
+        {
+          "x": 0.5112,
+          "y": 0.1892
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Gemma Team. 2024. Gemma: Open models based\non gemini research and technology. arXiv preprint\narXiv:2403.08295.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5112,
+          "y": 0.2005
+        },
+        {
+          "x": 0.8845,
+          "y": 0.2005
+        },
+        {
+          "x": 0.8845,
+          "y": 0.2409
+        },
+        {
+          "x": 0.5112,
+          "y": 0.2409
+        }
+      ],
+      "id": 13,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Z Guo, P Wang, Y Wang, and S Yu. 2023. Improving\nsmall language models on pubmedqa via generative\ndata augmentation. arXiv, Jul, 12.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5097,
+          "y": 0.2523
+        },
+        {
+          "x": 0.8832,
+          "y": 0.2523
+        },
+        {
+          "x": 0.8832,
+          "y": 0.2932
+        },
+        {
+          "x": 0.5097,
+          "y": 0.2932
+        }
+      ],
+      "id": 14,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Muhammad Usman Hadi, Rizwan Qureshi, Abbas Shah,\nMuhammad Irfan, Anas Zafar, Muhammad Bilal\nShaikh, Naveed Akhtar, Jia Wu, Seyedali Mirjalili,\net al. 2023. A survey on large language models:\nApplications, challenges, limitations, and practical\nusage. Authorea Preprints.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.511,
+          "y": 0.3034
+        },
+        {
+          "x": 0.8853,
+          "y": 0.3034
+        },
+        {
+          "x": 0.8853,
+          "y": 0.383
+        },
+        {
+          "x": 0.511,
+          "y": 0.383
+        }
+      ],
+      "id": 15,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Men-\nsch, Elena Buchatskaya, Trevor Cai, Eliza Ruther-\nford, Diego de Las Casas, Lisa Anne Hendricks,\nJohannes Welbl, Aidan Clark, et al. 2022. Train-\ning compute-optimal large language models. arXiv\npreprint arXiv:2203.15556.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.512,
+          "y": 0.394
+        },
+        {
+          "x": 0.8845,
+          "y": 0.394
+        },
+        {
+          "x": 0.8845,
+          "y": 0.4728
+        },
+        {
+          "x": 0.512,
+          "y": 0.4728
+        }
+      ],
+      "id": 16,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Albert Q Jiang, Alexandre Sablayrolles, Arthur Men-\nsch, Chris Bamford, Devendra Singh Chaplot, Diego\nde las Casas, Florian Bressand, Gianna Lengyel, Guil-\nlaume Lample, Lucile Saulnier, et al. 2023. Mistral\n7b. arXiv preprint arXiv:2310.06825.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5144,
+          "y": 0.4837
+        },
+        {
+          "x": 0.8839,
+          "y": 0.4837
+        },
+        {
+          "x": 0.8839,
+          "y": 0.5497
+        },
+        {
+          "x": 0.5144,
+          "y": 0.5497
+        }
+      ],
+      "id": 17,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Albert Q Jiang, Alexandre Sablayrolles, Antoine\nRoux, Arthur Mensch, Blanche Savary, Chris Bam-\nford, Devendra Singh Chaplot, Diego de las Casas,\nEmma Bou Hanna, Florian Bressand, et al. 2024a.\nMixtral of experts. arXiv preprint arXiv:2401.04088.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5141,
+          "y": 0.5605
+        },
+        {
+          "x": 0.8833,
+          "y": 0.5605
+        },
+        {
+          "x": 0.8833,
+          "y": 0.6273
+        },
+        {
+          "x": 0.5141,
+          "y": 0.6273
+        }
+      ],
+      "id": 18,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Juyong Jiang, Fan Wang, Jiasi Shen, Sungju Kim,\nand Sunghun Kim. 2024b. A survey on large lan-\nguage models for code generation. arXiv preprint\narXiv:2406.00515.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5108,
+          "y": 0.6383
+        },
+        {
+          "x": 0.885,
+          "y": 0.6383
+        },
+        {
+          "x": 0.885,
+          "y": 0.6892
+        },
+        {
+          "x": 0.5108,
+          "y": 0.6892
+        }
+      ],
+      "id": 19,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Nikhil Kandpal, Haikang Deng, Adam Roberts, Eric\nWallace, and Colin Raffel. 2023. Large language\nmodels struggle to learn long-tail knowledge. In In-\nternational Conference on Machine Learning, pages\n15696\u201315707. PMLR.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5118,
+          "y": 0.7013
+        },
+        {
+          "x": 0.8835,
+          "y": 0.7013
+        },
+        {
+          "x": 0.8835,
+          "y": 0.7672
+        },
+        {
+          "x": 0.5118,
+          "y": 0.7672
+        }
+      ],
+      "id": 20,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B\nBrown, Benjamin Chess, Rewon Child, Scott Gray,\nAlec Radford, Jeffrey Wu, and Dario Amodei. 2020.\nScaling laws for neural language models. arXiv\npreprint arXiv:2001.08361.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5107,
+          "y": 0.7789
+        },
+        {
+          "x": 0.8846,
+          "y": 0.7789
+        },
+        {
+          "x": 0.8846,
+          "y": 0.8447
+        },
+        {
+          "x": 0.5107,
+          "y": 0.8447
+        }
+      ],
+      "id": 21,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Ruibo Liu, Jerry Wei, Fangyu Liu, Chenglei Si, Yanzhe\nZhang, Jinmeng Rao, Steven Zheng, Daiyi Peng, Diyi\nYang, Denny Zhou, et al. 2024. Best practices and\nlessons learned on synthetic data for language models.\narXiv preprint arXiv:2404.07503.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5097,
+          "y": 0.8559
+        },
+        {
+          "x": 0.8847,
+          "y": 0.8559
+        },
+        {
+          "x": 0.8847,
+          "y": 0.9213
+        },
+        {
+          "x": 0.5097,
+          "y": 0.9213
+        }
+      ],
+      "id": 22,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250404",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

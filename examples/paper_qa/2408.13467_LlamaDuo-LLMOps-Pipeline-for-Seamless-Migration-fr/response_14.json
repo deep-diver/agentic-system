@@ -1,0 +1,380 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "Table 3: Volume of coverage dataset before and after\nLlamaDuo pipeline.\n\n| Task | Split | Before | After |\n| --- | --- | --- | --- |\n| Summarization(GPT4o) | train | 395 | 256K |\n| Summarization(GPT4o) | test | 25 | 100 |\n| Summarization(Claude 3 Sonnet) | train | 395 | 256K |\n| Summarization(Claude 3 Sonnet) | test | 25 | 100 |\n| Summarization(Gemini 1.5 Flash) | train | 395 | 256K |\n| Summarization(Gemini 1.5 Flash) | test | 25 | 100 |\n| Classification(GPT4o) | train | 334 | 128K |\n| Classification(GPT4o) | test | 16 | 64 |\n| Coding(GPT4o) | train | 334 | 128K |\n| Coding(GPT4o) | test | 16 | 64 |\n| Closed QA(GPT4o) | train | 245 | 128K |\n| Closed QA(GPT4o) | test | 15 | 60 |\n\n\nTable 4: Token-level statistics of the coverage and syn-\nthetic datasets.\n\n| Task | Min | Max | Avg. | Std. |\n| --- | --- | --- | --- | --- |\n| Summarization (Coverage-Train) | 85 | 2386 | 389 | 256 |\n| Summarization (Coverage-Test) | 148 | 1150 | 426 | 245 |\n| Summarization (GPT4o) | 10 | 2386 | 95 | 53 |\n| Summarization (Claude 3 Sonnet) | 10 | 2386 | 118 | 64 |\n| Summarization (Gemini 1.5 Flash) | 10 | 2386 | 108 | 62 |\n| Classification (Coverage-Train) | 18 | 2159 | 207 | 244 |\n| Classification (Coverage-Test) | 46 | 520 | 119 | 109 |\n| Classification (GPT4o) | 6 | 2159 | 67 | 37 |\n| Coding (Coverage-Train) | 38 | 6518 | 350 | 502 |\n| Coding (Coverage-Test) | 49 | 821 | 317 | 189 |\n| Coding (GPT4o) | 9 | 6518 | 151 | 84 |\n| Closed QA (Coverage-Train) | 58 | 1497 | 320 | 241 |\n| Closed QA (Coverage-Test) | 126 | 1578 | 411 | 378 |\n| Closed QA (GPT4o) | 12 | 1701 | 135 | 59 |\n\n\ntask-specific subsets, with each initially containing\napproximately 300 original data points. These sub-\nsets are subsequently expanded to encompass more\ndata points using the LlamaDuo framework. To\nperform an in-depth analysis of the behavior of dif-\nferent service LLMs, we create synthetic datasets\nfor the summarization task by utilizing GPT4o,\nClaude 3 Sonnet, and Gemini 1.5 Flash. For all\nother tasks, we exclusively use GPT4o, owing to\nbudget constraints.\n\nTable 4 presents the statistical information of\nthe token count across each dataset. We only use\ndata from the coverage train set for data synthesis\nand alignment tasks. We observe a reduction in\nboth the average number of tokens and the standard\ndeviation across the synthetic datasets compared\nto the original dataset. This is due to that the data\nsynthesis process generates multiple synthetic data\nsamples within a single API request.\n\nTable 5: Detailed configurations used in the experi-\nments.\n\n|  | Configuration | Value |\n| --- | --- | --- |\n| Common | Data Type Learning Rate Scheduler Max Number of Tokens LoRA Type LoRA Dropout | bfloat16 cosine 1024 QLoRA 0.05 |\n| 1K\u223c16K | LoRA Rank LoRA Alpha | 8 16 |\n| 32K | LoRA Rank LoRA Alpha | 16 32 |\n| 64K\u223c256K | LoRA Rank LoRA Alpha | 32 64 |\n\n\nB.2 Training Configurations\n\nWe utilize Hugging Face\u2019s \u201cAlignment Handbook\u201d\n(Tunstall et al., 2023) and the alignment recipes\ntailored for the Gemma models to streamline the\nfine-tuning process.\n\nAs outlined in Table 5, we employ QLoRA\n(Dettmers et al., 2024) to align the Gemma 2B and\n7B, Mistral 7B, and LLaMA3 8B models efficiently.\nThe QLoRA method leverages the advantages of\nlow-rank adaptation, reducing the computational\nresources required for training. Throughout the\nalignment procedure, we incrementally adjust the\nrank and alpha values of LoRA, aiming to opti-\nmize the adaptation layer\u2019s capacity to match the\nincreasing complexity of the datasets.\n\nWe set the maximum token as 1024 for the train-\ning phase, notwithstanding the presence of data\nsamples exceeding this threshold. This decision\nis made based on a comprehensive analysis of the\ndataset, which indicates that data samples surpass-\ning the token limit constitute a negligible portion\nof the total dataset. By imposing this limitation,\nwe can concentrate our computational efforts on\nthe majority of the data, thereby enhancing the effi-\nciency of training without significantly compromis-\ning the models\u2019 ability to generalize to real-world\nscenarios.\n\nThe 1024-token limit, though seemingly restric-\ntive, does not impede the performance of the\naligned fine-tuned small-scale models. All fine-\ntuned models exhibit robust performances across\nthe experiments, as they are trained and evaluated\non data predominantly falling within the 1024-\ntoken boundary. This outcome corroborates our\nanalysis of the data and demonstrates the efficacy\nof QLoRA, even within the constraints of our allo-",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 3: Volume of coverage dataset before and after\nLlamaDuo pipeline.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1144,
+          "y": 0.0827
+        },
+        {
+          "x": 0.4886,
+          "y": 0.0827
+        },
+        {
+          "x": 0.4886,
+          "y": 0.1124
+        },
+        {
+          "x": 0.1144,
+          "y": 0.1124
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Task | Split | Before | After |\n| --- | --- | --- | --- |\n| Summarization(GPT4o) | train | 395 | 256K |\n| Summarization(GPT4o) | test | 25 | 100 |\n| Summarization(Claude 3 Sonnet) | train | 395 | 256K |\n| Summarization(Claude 3 Sonnet) | test | 25 | 100 |\n| Summarization(Gemini 1.5 Flash) | train | 395 | 256K |\n| Summarization(Gemini 1.5 Flash) | test | 25 | 100 |\n| Classification(GPT4o) | train | 334 | 128K |\n| Classification(GPT4o) | test | 16 | 64 |\n| Coding(GPT4o) | train | 334 | 128K |\n| Coding(GPT4o) | test | 16 | 64 |\n| Closed QA(GPT4o) | train | 245 | 128K |\n| Closed QA(GPT4o) | test | 15 | 60 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.122,
+          "y": 0.1229
+        },
+        {
+          "x": 0.4876,
+          "y": 0.1229
+        },
+        {
+          "x": 0.4876,
+          "y": 0.3144
+        },
+        {
+          "x": 0.122,
+          "y": 0.3144
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 4: Token-level statistics of the coverage and syn-\nthetic datasets.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1157,
+          "y": 0.3339
+        },
+        {
+          "x": 0.4892,
+          "y": 0.3339
+        },
+        {
+          "x": 0.4892,
+          "y": 0.3627
+        },
+        {
+          "x": 0.1157,
+          "y": 0.3627
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "| Task | Min | Max | Avg. | Std. |\n| --- | --- | --- | --- | --- |\n| Summarization (Coverage-Train) | 85 | 2386 | 389 | 256 |\n| Summarization (Coverage-Test) | 148 | 1150 | 426 | 245 |\n| Summarization (GPT4o) | 10 | 2386 | 95 | 53 |\n| Summarization (Claude 3 Sonnet) | 10 | 2386 | 118 | 64 |\n| Summarization (Gemini 1.5 Flash) | 10 | 2386 | 108 | 62 |\n| Classification (Coverage-Train) | 18 | 2159 | 207 | 244 |\n| Classification (Coverage-Test) | 46 | 520 | 119 | 109 |\n| Classification (GPT4o) | 6 | 2159 | 67 | 37 |\n| Coding (Coverage-Train) | 38 | 6518 | 350 | 502 |\n| Coding (Coverage-Test) | 49 | 821 | 317 | 189 |\n| Coding (GPT4o) | 9 | 6518 | 151 | 84 |\n| Closed QA (Coverage-Train) | 58 | 1497 | 320 | 241 |\n| Closed QA (Coverage-Test) | 126 | 1578 | 411 | 378 |\n| Closed QA (GPT4o) | 12 | 1701 | 135 | 59 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1201,
+          "y": 0.3762
+        },
+        {
+          "x": 0.4837,
+          "y": 0.3762
+        },
+        {
+          "x": 0.4837,
+          "y": 0.5784
+        },
+        {
+          "x": 0.1201,
+          "y": 0.5784
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "task-specific subsets, with each initially containing\napproximately 300 original data points. These sub-\nsets are subsequently expanded to encompass more\ndata points using the LlamaDuo framework. To\nperform an in-depth analysis of the behavior of dif-\nferent service LLMs, we create synthetic datasets\nfor the summarization task by utilizing GPT4o,\nClaude 3 Sonnet, and Gemini 1.5 Flash. For all\nother tasks, we exclusively use GPT4o, owing to\nbudget constraints.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1153,
+          "y": 0.6117
+        },
+        {
+          "x": 0.4898,
+          "y": 0.6117
+        },
+        {
+          "x": 0.4898,
+          "y": 0.7716
+        },
+        {
+          "x": 0.1153,
+          "y": 0.7716
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 4 presents the statistical information of\nthe token count across each dataset. We only use\ndata from the coverage train set for data synthesis\nand alignment tasks. We observe a reduction in\nboth the average number of tokens and the standard\ndeviation across the synthetic datasets compared\nto the original dataset. This is due to that the data\nsynthesis process generates multiple synthetic data\nsamples within a single API request.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.115,
+          "y": 0.7772
+        },
+        {
+          "x": 0.4896,
+          "y": 0.7772
+        },
+        {
+          "x": 0.4896,
+          "y": 0.9229
+        },
+        {
+          "x": 0.115,
+          "y": 0.9229
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Table 5: Detailed configurations used in the experi-\nments.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5096,
+          "y": 0.0835
+        },
+        {
+          "x": 0.8836,
+          "y": 0.0835
+        },
+        {
+          "x": 0.8836,
+          "y": 0.1115
+        },
+        {
+          "x": 0.5096,
+          "y": 0.1115
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "|  | Configuration | Value |\n| --- | --- | --- |\n| Common | Data Type Learning Rate Scheduler Max Number of Tokens LoRA Type LoRA Dropout | bfloat16 cosine 1024 QLoRA 0.05 |\n| 1K\u223c16K | LoRA Rank LoRA Alpha | 8 16 |\n| 32K | LoRA Rank LoRA Alpha | 16 32 |\n| 64K\u223c256K | LoRA Rank LoRA Alpha | 32 64 |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5304,
+          "y": 0.1247
+        },
+        {
+          "x": 0.865,
+          "y": 0.1247
+        },
+        {
+          "x": 0.865,
+          "y": 0.3129
+        },
+        {
+          "x": 0.5304,
+          "y": 0.3129
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "B.2 Training Configurations",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5102,
+          "y": 0.3367
+        },
+        {
+          "x": 0.7505,
+          "y": 0.3367
+        },
+        {
+          "x": 0.7505,
+          "y": 0.3523
+        },
+        {
+          "x": 0.5102,
+          "y": 0.3523
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "We utilize Hugging Face\u2019s \u201cAlignment Handbook\u201d\n(Tunstall et al., 2023) and the alignment recipes\ntailored for the Gemma models to streamline the\nfine-tuning process.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5108,
+          "y": 0.3585
+        },
+        {
+          "x": 0.884,
+          "y": 0.3585
+        },
+        {
+          "x": 0.884,
+          "y": 0.4216
+        },
+        {
+          "x": 0.5108,
+          "y": 0.4216
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "As outlined in Table 5, we employ QLoRA\n(Dettmers et al., 2024) to align the Gemma 2B and\n7B, Mistral 7B, and LLaMA3 8B models efficiently.\nThe QLoRA method leverages the advantages of\nlow-rank adaptation, reducing the computational\nresources required for training. Throughout the\nalignment procedure, we incrementally adjust the\nrank and alpha values of LoRA, aiming to opti-\nmize the adaptation layer\u2019s capacity to match the\nincreasing complexity of the datasets.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5115,
+          "y": 0.424
+        },
+        {
+          "x": 0.8847,
+          "y": 0.424
+        },
+        {
+          "x": 0.8847,
+          "y": 0.5829
+        },
+        {
+          "x": 0.5115,
+          "y": 0.5829
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "We set the maximum token as 1024 for the train-\ning phase, notwithstanding the presence of data\nsamples exceeding this threshold. This decision\nis made based on a comprehensive analysis of the\ndataset, which indicates that data samples surpass-\ning the token limit constitute a negligible portion\nof the total dataset. By imposing this limitation,\nwe can concentrate our computational efforts on\nthe majority of the data, thereby enhancing the effi-\nciency of training without significantly compromis-\ning the models\u2019 ability to generalize to real-world\nscenarios.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5104,
+          "y": 0.5848
+        },
+        {
+          "x": 0.8851,
+          "y": 0.5848
+        },
+        {
+          "x": 0.8851,
+          "y": 0.7745
+        },
+        {
+          "x": 0.5104,
+          "y": 0.7745
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The 1024-token limit, though seemingly restric-\ntive, does not impede the performance of the\naligned fine-tuned small-scale models. All fine-\ntuned models exhibit robust performances across\nthe experiments, as they are trained and evaluated\non data predominantly falling within the 1024-\ntoken boundary. This outcome corroborates our\nanalysis of the data and demonstrates the efficacy\nof QLoRA, even within the constraints of our allo-",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.5113,
+          "y": 0.7771
+        },
+        {
+          "x": 0.8852,
+          "y": 0.7771
+        },
+        {
+          "x": 0.8852,
+          "y": 0.9222
+        },
+        {
+          "x": 0.5113,
+          "y": 0.9222
+        }
+      ],
+      "id": 12,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250404",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

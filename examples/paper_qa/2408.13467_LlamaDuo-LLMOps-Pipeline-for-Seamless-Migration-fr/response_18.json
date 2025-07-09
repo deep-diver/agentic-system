@@ -1,0 +1,408 @@
+{
+  "api": "2.0",
+  "content": {
+    "html": "",
+    "markdown": "Prompt\n\nSummarize the following story in a few sentences.\n\nThe Fox one day thought of a plan to amuse himself at the expense of the Stork, at whose odd appearance he was always laughing.\n\n\"You must come and dine with me today,\" he said to the Stork, smiling to himself at the trick he was going to play. The Stork gladly\n\naccepted the invitation and arrived in good time and with a very good appetite.\n\nFor dinner the Fox served soup. But it was set out in a very shallow dish, and all the Stork could do was to wet the very tip of his bill.\n\nNot a drop of soup could he get. But the Fox lapped it up easily, and, to increase the disappointment of the Stork, made a great show\n\nof enjoyment.\n\nThe hungry Stork was much displeased at the trick, but he was a calm, even-tempered fellow and saw no good in flying into a rage.\nInstead, not long afterward, he invited the Fox to dine with him in turn. The Fox arrived promptly at the time that had been set, and\nthe Stork served a fish dinner that had a very appetizing smell. But it was served in a tall jar with a very narrow neck. The Stork could\neasily get at the food with his long bill, but all the Fox could do was to lick the outside of the jar, and sniff at the delicious odor. And\nwhen the Fox lost his temper, the Stork said calmly:\n\nDo not play tricks on your neighbors unless you can stand the same treatment yourself.\n\nTarget response\n\nThe Fox always judged the Stork's appearance and one day decided to pull a prank on him. The Fox invited the Stork over for dinner\nand served him soup in a very shallow dish. The Stork was not able to get a single drop of the soup and, even though he was hungry,\nhe stayed calm. Later, the Stork invited the Fox over for dinner and served him a delicious-smelling fish dinner, but it was in a tall jar\nwith a very narrow neck. The Fox was only able to lick the outside of the jar, and he lost his temper.\n\n|  | Claude 3 Gemini GPT4o Sonnet 1.5 Flash |  |  |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- |\n| Gemma 2B (aligned on GPT4o generated 256k dataset) The Fox tricked the Stork into eating soup in a shallow dish, but used his own cleverness to enjoy dinner served in a tall but narrow jar. | Precision scores 56.5 58.0 65.5 Similarity scores 42.5 33.5 32.0 |  |  |  |  |  |\n| Gemma 2B (aligned on Claude 3 Sonnet generated 256k dataset) A Fox decided to mock the Stork, and offered him a meal at his house. The Stork arrived with a good appetite, but could not eat the soup set out in a shallow dish - he could only wet the tip of his bill. The Fox enjoyed the meal easily and even made a loud noise, but the hungry Stork lost his temper and invited the Fox to dine with him next.\u0416\u0438\u0442\u0442\u0454\u043f\u0438\u0441: The Fox arrived promptly at the time set and was served a fish dish, but could not eat it - he could only lick the outside of the jar and smell the delicious scent inside. In the end, the Stork warned the Fox not to play tricks if he could not stand them himself. | Precision scores 88.0 89.0 81.0 Similarity scores 83.5 80.0 64.5 |  |  |  |  |  |\n| Gemma 2B (aligned on Gemini 1.5 Flash generated 256k dataset) A fox tricks the Stork by serving him soup that's too shallow for him to reach. The Stork gets upset but he's a calm man and tries something else. This time the fox is even more disappointed, but the Stork keeps his cool and serves him a smelly fish. The fox loses his temper, but the Stork is calm and serves him a jar of a food that smells delicious, but the fox can't reach it. This leads the fox to lose his temper as well.5 | Precision scores 66.5 78.5 74.5 Similarity scores 67.0 69.0 57.0 |  |  |  |  |  |\n| Gemma 7B (aligned on GPT4o generated 256k dataset) A fox invited a stork to dinner, serving soup in a shallow dish the stork could not reach. The stork later invited the fox to dinner, serving fish in a narrow jar the fox could not reach. The stork's calm attitude reminded the fox to be careful with tricks. | Precision scores 84.5 93.5 85.5 Similarity scores 74.2 86.7 67.5 |  |  |  |  |  |\n| Gemma 7B (aligned on Claude 3 Sonnet generated 256k dataset) The Fox tricked the Stork by serving soup in a shallow dish, which the Stork could not reach the food. In retaliation, the Stork served fish in a tall jar with a narrow neck, trapping the Fox from eating the food. The Stork calmly accepted the situation, while the Fox angrily lost his appetite. | Precision scores 80.5 88.5 73.5 Similarity scores 71.3 78.5 43.5 |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  | Precision scores 61.0 88.5 68.0 |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  | Similarity scores 48.0 77.0 |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  | 36.5 |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  | Gemma 7B (aligned on Gemini 1.5 Flash generated 256k dataset) The Fox tricked the Stork by serving him soup in a shallow dish he couldn't reach, but the Stork got revenge by serving the Fox a fish dinner in a jar the Fox couldn't access. The lesson learned by the Fox is to not play tricks on others unless you are prepared to face the same treatment. |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n\n\nFigure 12: Responses by Gemma 2B and Gemma 7B models fine-tuned on GPT4o, Claude 3 Sonnet, Gemini 1.5\nFlash generated 256K of synthetic datasets for summarization task.",
+    "text": ""
+  },
+  "elements": [
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Prompt",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1421,
+          "y": 0.1244
+        },
+        {
+          "x": 0.1884,
+          "y": 0.1244
+        },
+        {
+          "x": 0.1884,
+          "y": 0.1326
+        },
+        {
+          "x": 0.1421,
+          "y": 0.1326
+        }
+      ],
+      "id": 0,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Summarize the following story in a few sentences.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1458,
+          "y": 0.1353
+        },
+        {
+          "x": 0.4071,
+          "y": 0.1353
+        },
+        {
+          "x": 0.4071,
+          "y": 0.1446
+        },
+        {
+          "x": 0.1458,
+          "y": 0.1446
+        }
+      ],
+      "id": 1,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The Fox one day thought of a plan to amuse himself at the expense of the Stork, at whose odd appearance he was always laughing.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1465,
+          "y": 0.153
+        },
+        {
+          "x": 0.8297,
+          "y": 0.153
+        },
+        {
+          "x": 0.8297,
+          "y": 0.1617
+        },
+        {
+          "x": 0.1465,
+          "y": 0.1617
+        }
+      ],
+      "id": 2,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "\"You must come and dine with me today,\" he said to the Stork, smiling to himself at the trick he was going to play. The Stork gladly",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1465,
+          "y": 0.1617
+        },
+        {
+          "x": 0.8505,
+          "y": 0.1617
+        },
+        {
+          "x": 0.8505,
+          "y": 0.1704
+        },
+        {
+          "x": 0.1465,
+          "y": 0.1704
+        }
+      ],
+      "id": 3,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "accepted the invitation and arrived in good time and with a very good appetite.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1465,
+          "y": 0.1705
+        },
+        {
+          "x": 0.5575,
+          "y": 0.1705
+        },
+        {
+          "x": 0.5575,
+          "y": 0.1791
+        },
+        {
+          "x": 0.1465,
+          "y": 0.1791
+        }
+      ],
+      "id": 4,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "For dinner the Fox served soup. But it was set out in a very shallow dish, and all the Stork could do was to wet the very tip of his bill.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1465,
+          "y": 0.1792
+        },
+        {
+          "x": 0.8505,
+          "y": 0.1792
+        },
+        {
+          "x": 0.8505,
+          "y": 0.1879
+        },
+        {
+          "x": 0.1465,
+          "y": 0.1879
+        }
+      ],
+      "id": 5,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Not a drop of soup could he get. But the Fox lapped it up easily, and, to increase the disappointment of the Stork, made a great show",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1465,
+          "y": 0.1879
+        },
+        {
+          "x": 0.8505,
+          "y": 0.1879
+        },
+        {
+          "x": 0.8505,
+          "y": 0.1966
+        },
+        {
+          "x": 0.1465,
+          "y": 0.1966
+        }
+      ],
+      "id": 6,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "of enjoyment.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1465,
+          "y": 0.1967
+        },
+        {
+          "x": 0.2204,
+          "y": 0.1967
+        },
+        {
+          "x": 0.2204,
+          "y": 0.2053
+        },
+        {
+          "x": 0.1465,
+          "y": 0.2053
+        }
+      ],
+      "id": 7,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The hungry Stork was much displeased at the trick, but he was a calm, even-tempered fellow and saw no good in flying into a rage.\nInstead, not long afterward, he invited the Fox to dine with him in turn. The Fox arrived promptly at the time that had been set, and\nthe Stork served a fish dinner that had a very appetizing smell. But it was served in a tall jar with a very narrow neck. The Stork could\neasily get at the food with his long bill, but all the Fox could do was to lick the outside of the jar, and sniff at the delicious odor. And\nwhen the Fox lost his temper, the Stork said calmly:",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1439,
+          "y": 0.2073
+        },
+        {
+          "x": 0.8512,
+          "y": 0.2073
+        },
+        {
+          "x": 0.8512,
+          "y": 0.247
+        },
+        {
+          "x": 0.1439,
+          "y": 0.247
+        }
+      ],
+      "id": 8,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Do not play tricks on your neighbors unless you can stand the same treatment yourself.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1479,
+          "y": 0.2495
+        },
+        {
+          "x": 0.5997,
+          "y": 0.2495
+        },
+        {
+          "x": 0.5997,
+          "y": 0.2582
+        },
+        {
+          "x": 0.1479,
+          "y": 0.2582
+        }
+      ],
+      "id": 9,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Target response",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1419,
+          "y": 0.2748
+        },
+        {
+          "x": 0.2391,
+          "y": 0.2748
+        },
+        {
+          "x": 0.2391,
+          "y": 0.2842
+        },
+        {
+          "x": 0.1419,
+          "y": 0.2842
+        }
+      ],
+      "id": 10,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "The Fox always judged the Stork's appearance and one day decided to pull a prank on him. The Fox invited the Stork over for dinner\nand served him soup in a very shallow dish. The Stork was not able to get a single drop of the soup and, even though he was hungry,\nhe stayed calm. Later, the Stork invited the Fox over for dinner and served him a delicious-smelling fish dinner, but it was in a tall jar\nwith a very narrow neck. The Fox was only able to lick the outside of the jar, and he lost his temper.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1451,
+          "y": 0.2889
+        },
+        {
+          "x": 0.8523,
+          "y": 0.2889
+        },
+        {
+          "x": 0.8523,
+          "y": 0.3219
+        },
+        {
+          "x": 0.1451,
+          "y": 0.3219
+        }
+      ],
+      "id": 11,
+      "page": 1
+    },
+    {
+      "category": "table",
+      "content": {
+        "html": "",
+        "markdown": "|  | Claude 3 Gemini GPT4o Sonnet 1.5 Flash |  |  |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- |\n| Gemma 2B (aligned on GPT4o generated 256k dataset) The Fox tricked the Stork into eating soup in a shallow dish, but used his own cleverness to enjoy dinner served in a tall but narrow jar. | Precision scores 56.5 58.0 65.5 Similarity scores 42.5 33.5 32.0 |  |  |  |  |  |\n| Gemma 2B (aligned on Claude 3 Sonnet generated 256k dataset) A Fox decided to mock the Stork, and offered him a meal at his house. The Stork arrived with a good appetite, but could not eat the soup set out in a shallow dish - he could only wet the tip of his bill. The Fox enjoyed the meal easily and even made a loud noise, but the hungry Stork lost his temper and invited the Fox to dine with him next.\u0416\u0438\u0442\u0442\u0454\u043f\u0438\u0441: The Fox arrived promptly at the time set and was served a fish dish, but could not eat it - he could only lick the outside of the jar and smell the delicious scent inside. In the end, the Stork warned the Fox not to play tricks if he could not stand them himself. | Precision scores 88.0 89.0 81.0 Similarity scores 83.5 80.0 64.5 |  |  |  |  |  |\n| Gemma 2B (aligned on Gemini 1.5 Flash generated 256k dataset) A fox tricks the Stork by serving him soup that's too shallow for him to reach. The Stork gets upset but he's a calm man and tries something else. This time the fox is even more disappointed, but the Stork keeps his cool and serves him a smelly fish. The fox loses his temper, but the Stork is calm and serves him a jar of a food that smells delicious, but the fox can't reach it. This leads the fox to lose his temper as well.5 | Precision scores 66.5 78.5 74.5 Similarity scores 67.0 69.0 57.0 |  |  |  |  |  |\n| Gemma 7B (aligned on GPT4o generated 256k dataset) A fox invited a stork to dinner, serving soup in a shallow dish the stork could not reach. The stork later invited the fox to dinner, serving fish in a narrow jar the fox could not reach. The stork's calm attitude reminded the fox to be careful with tricks. | Precision scores 84.5 93.5 85.5 Similarity scores 74.2 86.7 67.5 |  |  |  |  |  |\n| Gemma 7B (aligned on Claude 3 Sonnet generated 256k dataset) The Fox tricked the Stork by serving soup in a shallow dish, which the Stork could not reach the food. In retaliation, the Stork served fish in a tall jar with a narrow neck, trapping the Fox from eating the food. The Stork calmly accepted the situation, while the Fox angrily lost his appetite. | Precision scores 80.5 88.5 73.5 Similarity scores 71.3 78.5 43.5 |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  | Precision scores 61.0 88.5 68.0 |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  | Similarity scores 48.0 77.0 |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  | 36.5 |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  | Gemma 7B (aligned on Gemini 1.5 Flash generated 256k dataset) The Fox tricked the Stork by serving him soup in a shallow dish he couldn't reach, but the Stork got revenge by serving the Fox a fish dinner in a jar the Fox couldn't access. The lesson learned by the Fox is to not play tricks on others unless you are prepared to face the same treatment. |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n|  |  |  |  |  |  |  |\n",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1396,
+          "y": 0.3194
+        },
+        {
+          "x": 0.861,
+          "y": 0.3194
+        },
+        {
+          "x": 0.861,
+          "y": 0.842
+        },
+        {
+          "x": 0.1396,
+          "y": 0.842
+        }
+      ],
+      "id": 12,
+      "page": 1
+    },
+    {
+      "category": "paragraph",
+      "content": {
+        "html": "",
+        "markdown": "Figure 12: Responses by Gemma 2B and Gemma 7B models fine-tuned on GPT4o, Claude 3 Sonnet, Gemini 1.5\nFlash generated 256K of synthetic datasets for summarization task.",
+        "text": ""
+      },
+      "coordinates": [
+        {
+          "x": 0.1155,
+          "y": 0.8577
+        },
+        {
+          "x": 0.8825,
+          "y": 0.8577
+        },
+        {
+          "x": 0.8825,
+          "y": 0.8867
+        },
+        {
+          "x": 0.1155,
+          "y": 0.8867
+        }
+      ],
+      "id": 13,
+      "page": 1
+    }
+  ],
+  "merged_elements": [],
+  "model": "document-parse-250404",
+  "ocr": false,
+  "usage": {
+    "pages": 1
+  }
+}

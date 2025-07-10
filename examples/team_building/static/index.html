@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Building AI Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-users"></i>
+                    <h1>Team Building AI</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-outline" id="refreshProjects">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh Projects
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Left Sidebar - Projects Database -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>
+                        <i class="fas fa-database"></i>
+                        Projects Database
+                    </h2>
+                    <div class="projects-stats">
+                        <span id="projectsCount">Loading...</span>
+                    </div>
+                </div>
+                
+                <div class="sidebar-content">
+                    <div class="projects-grid" id="projectsGrid">
+                        <!-- Project cards will be loaded dynamically -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <!-- Input Section -->
+                <section class="input-section">
+                    <div class="input-container">
+                        <h2>Describe Your Project</h2>
+                        <p>Tell us about your project and we'll suggest the perfect team for you</p>
+                        
+                        <!-- Example Prompts -->
+                        <div class="example-prompts">
+                            <div class="example-prompt" data-prompt="I need to build an AI-powered customer service platform for an e-commerce website. The platform should include intelligent chatbots for customer inquiries, automated order tracking, personalized product recommendations, and integration with existing e-commerce systems. It should handle multiple languages and provide analytics dashboard for customer service managers.">
+                                <i class="fas fa-robot"></i>
+                                <span>AI Customer Service</span>
+                            </div>
+                            <div class="example-prompt" data-prompt="I want to develop a healthcare data management platform that allows hospitals to securely store patient records, track medical histories, generate analytics reports, and ensure HIPAA compliance. The system should include a mobile app for doctors, web dashboard for administrators, and integration with existing hospital management systems.">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>Healthcare Platform</span>
+                            </div>
+                            <div class="example-prompt" data-prompt="I need to create a personal finance management mobile app with AI-driven budgeting recommendations, investment tracking, expense categorization, and financial goal setting. The app should integrate with banking APIs, provide real-time market data, and include educational content about financial literacy. Strong security and regulatory compliance are essential.">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Finance App</span>
+                            </div>
+                        </div>
+                        
+                        <div class="input-wrapper">
+                            <textarea 
+                                id="projectDescription" 
+                                placeholder="e.g., I want to build a mobile app for cryptocurrency trading with real-time analytics and advanced security features..."
+                                rows="4"
+                            ></textarea>
+                            <button class="btn btn-primary" id="buildTeam">
+                                <i class="fas fa-rocket"></i>
+                                Build My Team
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Progress Section -->
+                <section class="progress-section" id="progressSection" style="display: none;">
+                    <div class="progress-container">
+                        <h3>Building Your Team...</h3>
+                        <div class="progress-steps" id="progressSteps">
+                            <!-- Progress items will be added dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section" id="resultsSection" style="display: none;">
+                    <div class="results-container">
+                        <h2>Your Recommended Team</h2>
+                        <div class="team-grid" id="teamGrid">
+                            <!-- Team member cards will be added dynamically -->
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-cog fa-spin"></i>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

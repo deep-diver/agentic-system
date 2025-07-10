@@ -845,7 +845,7 @@ body {
 }
 
 .message-content-container {
-    max-width: 70%;
+    max-width: 90%;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -1053,6 +1053,11 @@ body {
     border: 1px solid var(--border-color);
     border-bottom-left-radius: 6px;
     box-shadow: var(--shadow);
+}
+
+/* Ensure consistent message bubble widths */
+.user-message .message-content {
+    max-width: 90%;
 }
 
 .message-time {
